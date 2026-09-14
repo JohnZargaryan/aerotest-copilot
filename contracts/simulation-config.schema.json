@@ -1,0 +1,47 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "duration_ms": {
+      "default": 30000,
+      "maximum": 120000,
+      "minimum": 1000,
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "scenario_id": {
+      "enum": [
+        "healthy-baseline",
+        "sensor-disagreement",
+        "missing-messages",
+        "battery-degradation"
+      ],
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed": {
+      "default": 42,
+      "maximum": 4294967295,
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "step_ms": {
+      "default": 100,
+      "maximum": 100,
+      "minimum": 100,
+      "title": "Step Ms",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "scenario_id"
+  ],
+  "title": "SimulationConfig",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+[
+  {"name":"defaults","valid":true,"input":{"scenario_id":"healthy-baseline"}},
+  {"name":"disagreement","valid":true,"input":{"scenario_id":"sensor-disagreement","seed":0,"duration_ms":1000}},
+  {"name":"missing","valid":true,"input":{"scenario_id":"missing-messages"}},
+  {"name":"upper-bounds","valid":true,"input":{"scenario_id":"battery-degradation","seed":4294967295,"duration_ms":120000}},
+  {"name":"unknown-scenario","valid":false,"input":{"scenario_id":"weapons"}},
+  {"name":"missing-scenario","valid":false,"input":{}},
+  {"name":"negative-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":-1}},
+  {"name":"seed-overflow","valid":false,"input":{"scenario_id":"healthy-baseline","seed":4294967296}},
+  {"name":"huge-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":18446744073709551615}},
+  {"name":"bool-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":true}},
+  {"name":"float-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":42.0}},
+  {"name":"text-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":"42"}},
+  {"name":"null-seed","valid":false,"input":{"scenario_id":"healthy-baseline","seed":null}},
+  {"name":"short-duration","valid":false,"input":{"scenario_id":"healthy-baseline","duration_ms":900}},
+  {"name":"long-duration","valid":false,"input":{"scenario_id":"healthy-baseline","duration_ms":120100}},
+  {"name":"partial-tick","valid":false,"input":{"scenario_id":"healthy-baseline","duration_ms":1050}},
+  {"name":"wrong-step","valid":false,"input":{"scenario_id":"healthy-baseline","step_ms":50}},
+  {"name":"unknown-field","valid":false,"input":{"scenario_id":"healthy-baseline","answer_key":true}},
+  {"name":"unknown-version","valid":false,"input":{"scenario_id":"healthy-baseline","schema_version":"2.0"}},
+  {"name":"non-object","valid":false,"input":[]}
+]

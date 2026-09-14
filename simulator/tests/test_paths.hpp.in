@@ -1,0 +1,2 @@
+#pragma once
+#define AEROTEST_SOURCE_DIR R"path(@CMAKE_SOURCE_DIR@)path"

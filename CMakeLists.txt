@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 3.28)
+project(aerotest VERSION 0.1.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+include(FetchContent)
+FetchContent_Declare(json
+    URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
+    URL_HASH SHA256=42f6e95cad6ec532fd372391373363b62a14af6d771056dbfc86160e6dfff7aa)
+FetchContent_MakeAvailable(json)
+
+add_library(aerotest_contract simulator/src/config.cpp)
+target_include_directories(aerotest_contract PUBLIC simulator/include)
+target_link_libraries(aerotest_contract PUBLIC nlohmann_json::nlohmann_json)
+if(MSVC)
+    target_compile_options(aerotest_contract PRIVATE /W4 /WX)
+else()
+    target_compile_options(aerotest_contract PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
+add_executable(aerotest-sim simulator/src/main.cpp)
+target_link_libraries(aerotest-sim PRIVATE aerotest_contract)
+
+include(CTest)
+if(BUILD_TESTING)
+    FetchContent_Declare(googletest
+        URL https://github.com/google/googletest/archive/refs/tags/v1.18.0.tar.gz
+        URL_HASH SHA256=6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(googletest)
+    add_executable(config-tests simulator/tests/config_test.cpp)
+    target_link_libraries(config-tests PRIVATE aerotest_contract GTest::gtest_main)
+    configure_file(simulator/tests/test_paths.hpp.in generated/test_paths.hpp @ONLY)
+    target_include_directories(config-tests PRIVATE "${CMAKE_BINARY_DIR}/generated")
+    include(GoogleTest)
+    gtest_discover_tests(config-tests)
+endif()

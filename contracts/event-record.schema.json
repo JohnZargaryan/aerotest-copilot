@@ -1,0 +1,119 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "component_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Component Id",
+      "type": "string"
+    },
+    "details": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "title": "Details",
+      "type": "object"
+    },
+    "event_code": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Event Code",
+      "type": "string"
+    },
+    "event_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "measurement": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Measurement"
+    },
+    "run_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "ERROR"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "sim_time_ms": {
+      "minimum": 0,
+      "title": "Sim Time Ms",
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "OFF",
+        "STARTUP",
+        "NOMINAL",
+        "DEGRADED",
+        "SAFE",
+        "SHUTDOWN"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "unit": {
+      "enum": [
+        "mdegC",
+        "basis_points",
+        "ms",
+        "none"
+      ],
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "event_id",
+    "sim_time_ms",
+    "sequence",
+    "component_id",
+    "measurement",
+    "unit",
+    "state",
+    "severity",
+    "event_code",
+    "details"
+  ],
+  "title": "EventRecord",
+  "type": "object"
+}
