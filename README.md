@@ -21,7 +21,8 @@ Implemented:
 
 **Not implemented yet:** simulated runs, timing/threshold signal generation, SQLite persistence,
 requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
-or a public demo. CI is configured but has not run on GitHub; no remote is configured.
+or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
+See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
 Latest local verification: 12 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
