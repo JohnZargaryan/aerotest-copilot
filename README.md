@@ -8,9 +8,10 @@ an investigation assistant will explain results using linked evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: foundation
+## Current status: foundation and state-transition core
 
 Implemented:
+- Pure C++ state-transition function with startup gating, fault latching and shutdown priority.
 - C++20 configuration validator with bounded JSON input and structured errors.
 - Matching Pydantic contracts and FastAPI health/config-validation endpoints.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
@@ -18,11 +19,12 @@ Implemented:
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** simulated runs, state transitions, SQLite persistence,
+**Not implemented yet:** simulated runs, timing/threshold signal generation, SQLite persistence,
 requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
 or a public demo. CI is configured but has not run on GitHub; no remote is configured.
 
-Local foundation verification: 2 GoogleTest tests (including 20 shared cases),
+Latest local verification: 12 GoogleTest tests (including 20 shared configuration cases
+and 192 state/signal combinations),
 46 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 

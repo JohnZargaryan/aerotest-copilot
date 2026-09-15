@@ -17,7 +17,7 @@ function App() {
         <ol>
           <li><span>01</span><div><h3>Define the inputs</h3><p>Versioned configuration with fixed simulation ticks and bounded durations.</p></div></li>
           <li><span>02</span><div><h3>Verify the boundary</h3><p>C++ and Python share acceptance cases for valid and invalid configurations.</p></div></li>
-          <li><span>03</span><div><h3>Build toward evidence</h3><p>Next: a state machine and healthy baseline. Fault scenarios and investigations follow.</p></div></li>
+          <li><span>03</span><div><h3>Build toward evidence</h3><p>The transition core is tested. Next: a healthy baseline, then fault scenarios and investigations.</p></div></li>
         </ol>
       </section>
       <footer><strong>Educational civilian simulation</strong><p>Not flight software or a validated physical model. Built incrementally with AI assistance.</p></footer>

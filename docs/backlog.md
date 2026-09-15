@@ -5,8 +5,8 @@ Do not prebuild later features merely to hold commits for future dates.
 
 1. DONE — Foundation: dependency locks, contracts, configuration validators,
    requirements catalog, basic CI, learning notes, frontend shell.
-2. NEXT: implement state enum, transition function, allowed-transition tests.
-3. Add deterministic healthy baseline, versioned records, seeded noise and replay tests.
+2. DONE: state enum, pure transition function, allowed-transition and priority tests.
+3. NEXT: add deterministic healthy baseline, versioned records, seeded noise and replay tests.
 4. Add sensor-disagreement scenario and threshold tests.
 5. Add delayed/missing messages and boundary tests.
 6. Add battery degradation and precedence tests.

@@ -6,7 +6,9 @@ React UI -> FastAPI -> bounded C++ process -> independent requirement checkers
 -> SQLite records -> validated investigation tools -> scripted or live agent -> UI.
 
 Today only the UI shell, health/config API, configuration validation executable,
-and their contracts are implemented. No run endpoint or simulated measurements exist.
+their contracts, and the pure C++ transition core are implemented. No run endpoint
+or simulated measurements exist. The future simulator converts timing/threshold
+conditions into TransitionSignals; next_state applies only the operating policy.
 
 ## Decisions
 

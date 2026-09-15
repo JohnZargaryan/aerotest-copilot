@@ -58,3 +58,27 @@ correct fault handling. The practice exercise has not been marked completed by t
 
 Implement only the state enum, transition function and boundary tests from
 docs/state-machine.md. Then commit verified changes and explain the design.
+
+## 2026-09-15 - State-transition core
+
+Completed one daily backlog item with OpenAI Codex assistance. Added the scoped
+State enum, TransitionSignals value type, and pure next_state function. The policy
+enforces explicit startup, startup-completion gating, SAFE priority over DEGRADED,
+latched fault states, and shutdown priority. Invalid enum values are rejected.
+No timers, scenario generation, telemetry or chatbot were added.
+
+Verification: scripts/verify.ps1 passed locally on Windows: 12 GoogleTest tests
+(10 new, including all 192 state/signal combinations), 46 pytest tests, Ruff,
+schema freshness, pip compatibility, TypeScript and Vite build. Actual reports
+are in artifacts/cpp-tests.xml and artifacts/python-tests.xml. Existing third-party
+warnings remain; pytest also reported a non-fatal cache permission warning.
+No hosted CI execution or runtime requirement result is claimed.
+
+AT-REQ-006 is partially implemented: policy is tested, but timed signal generation
+and integration remain planned. No dependencies, paid services or API calls were
+added. Existing sibling projects are untouched. The session started read-only;
+the authorized scoped write/build request was approved by automatic review.
+
+Learning exercise: trace startup, SAFE latching and shutdown using the new pure
+function; see docs/interview-guide.md. The user has not been credited with completing
+this exercise. Next session: deterministic healthy-baseline execution and records.

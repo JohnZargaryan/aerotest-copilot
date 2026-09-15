@@ -50,3 +50,21 @@ This validates configuration, not simulated aircraft behavior or agent accuracy.
 Add state-machine concepts, deterministic replay, checker failures, safe subprocess
 execution, SQLite design, evidence validation, actual agent evaluation and deployment
 tradeoffs as they are built and tested. Never invent a debugging story or result.
+
+## 2026-09-15: state-transition core
+
+Built with Codex assistance: a scoped `enum class State`, a value-type input
+struct, and a pure function returning the next state. Separating policy from
+measurement/timing logic makes conflicting signals easy to test without a clock.
+A scoped enum prevents accidental implicit integer conversion; a defensive default
+rejects invalid values created by an explicit cast.
+
+Verified with ten new GoogleTest tests, including an adjacency-table check of
+all 192 state/signal combinations. Existing validation tests still pass. The
+function is not connected to the CLI or a simulator yet. Requirements involving
+milliseconds, sensor thresholds and battery levels remain unfinished.
+
+Exercise (not yet completed by the user): predict OFF -> STARTUP -> SAFE -> SAFE
+-> SHUTDOWN for start, startup-complete plus safe, all-clear, and shutdown signals.
+Explain why clearing safe_required does not return SAFE to NOMINAL. Then add a
+sequence test showing DEGRADED -> SAFE -> SHUTDOWN, and explain each transition.
