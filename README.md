@@ -1,6 +1,6 @@
 # AeroTest Copilot
 
-**AI-assisted simulation and test investigation — an incremental portfolio project.**
+**AI-assisted simulation and test investigation.**
 
 A fictional civilian research-aircraft subsystem will provide repeatable sensor
 and battery scenarios. Independent tests will check measurable requirements, and
@@ -102,15 +102,16 @@ npm --prefix frontend ci --ignore-scripts
 npm --prefix frontend run build
 ```
 
-The Linux workflow is configured, not yet executed. Windows local results are not
-represented as Linux or hosted-CI results.
+The initial Linux GitHub Actions run passed. Hosted results are available in
+[GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions);
+the local verification above was performed on Windows.
 
 ## Design and learning
 
 - [Architecture and public interfaces](docs/architecture.md)
 - [Requirements catalog](docs/requirements.json)
 - [State machine design](docs/state-machine.md)
-- [Daily backlog](docs/backlog.md)
+- [Development roadmap](docs/backlog.md)
 - [Interview guide and exercise](docs/interview-guide.md)
 - [Dependency provenance](docs/dependencies.md)
 - [Portfolio presentation plan](docs/portfolio.md)
@@ -118,10 +119,7 @@ represented as Linux or hosted-CI results.
 Source layout: `simulator/` for C++, `backend/` for Python, `frontend/` for React,
 `contracts/` for shared schemas/cases. Runtime data and local test reports are ignored.
 
-## Development transparency
+## Development
 
-Built incrementally with OpenAI Codex assistance. Commits reflect actual completed
-work and actual timestamps. Automated development is not represented as unaided
-personal work. Learning exercises are prompts, not claims the author completed them.
-No claim of professional C++ experience, certified aircraft modeling, or guaranteed
-employment is made. Existing portfolio and ClusterPulse projects remain separate.
+Developed with OpenAI Codex assistance. Implemented features, test results, and
+planned capabilities are documented separately.

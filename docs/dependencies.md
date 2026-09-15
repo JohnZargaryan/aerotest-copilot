@@ -33,7 +33,7 @@ pip-compile --strip-extras --generate-hashes --output-file requirements.lock req
 ```
 
 Reinstall and run all relevant checks. Do not update dependencies silently during
-ordinary daily feature work. Node 25 matches the verified local runtime; consider
+ordinary feature work. Node 25 matches the verified local runtime; consider
 a supported LTS baseline before public deployment, with explicit retesting.
 
 Known current warnings: Starlette's TestClient deprecates its httpx integration

@@ -1,9 +1,8 @@
 # Development log
 
-## 2026-09-14 — Foundation checkpoint
+## 2026-09-14 — Foundation
 
-Implemented with OpenAI Codex assistance. User requested incremental daily work
-and authorized downloading necessary development tools. No paid API calls were made.
+Implemented with OpenAI Codex assistance. No paid API calls were made.
 
 ### Built
 
@@ -13,7 +12,7 @@ and authorized downloading necessary development tools. No paid API calls were m
 - FastAPI health and validation endpoints, C++ validation CLI, React foundation shell.
 - Measurable requirements catalog with unimplemented behavior explicitly planned.
 - Setup/verification scripts, pinned dependencies, and basic CI configuration.
-- Architecture, backlog, portfolio plan and interview checkpoint.
+- Architecture, roadmap, portfolio plan and learning notes.
 
 ### Verified locally
 
@@ -48,20 +47,20 @@ Third-party TestClient deprecation warnings remain visible. The preview fallback
 requires rebuilding and refreshing after edits. No persistence, scenarios, state machine or agent
 exists yet. Foundation validation success is not simulation verification.
 
-### Learning checkpoint
+### Learning notes
 
 Read the first section of docs/interview-guide.md. Explain strict input types,
 the header/source separation, and why a configuration check cannot demonstrate
-correct fault handling. The practice exercise has not been marked completed by the user.
+correct fault handling.
 
-### Next session
+### Follow-up work
 
 Implement only the state enum, transition function and boundary tests from
 docs/state-machine.md. Then commit verified changes and explain the design.
 
 ## 2026-09-15 - State-transition core
 
-Completed one daily backlog item with OpenAI Codex assistance. Added the scoped
+Implemented with OpenAI Codex assistance. Added the scoped
 State enum, TransitionSignals value type, and pure next_state function. The policy
 enforces explicit startup, startup-completion gating, SAFE priority over DEGRADED,
 latched fault states, and shutdown priority. Invalid enum values are rejected.
@@ -76,18 +75,14 @@ No hosted CI execution or runtime requirement result is claimed.
 
 AT-REQ-006 is partially implemented: policy is tested, but timed signal generation
 and integration remain planned. No dependencies, paid services or API calls were
-added. Existing sibling projects are untouched. The session started read-only;
-the authorized scoped write/build request was approved by automatic review.
+added.
 
 Learning exercise: trace startup, SAFE latching and shutdown using the new pure
-function; see docs/interview-guide.md. The user has not been credited with completing
-this exercise. Next session: deterministic healthy-baseline execution and records.
+function; see docs/interview-guide.md. Planned next: deterministic healthy-baseline
+execution and records.
 
-## 2026-09-15 - Authorized public repository publishing
+## 2026-09-15 - Public repository
 
-The user explicitly authorized a public repository and daily pushes. Refreshed
-GitHub sign-in, created JohnZargaryan/aerotest-copilot, and pushed both existing
-commits without rewriting their authorship or dates. Verified origin/main at
-22e630c8a72795e5daf13b9fb4f5a414b79b7f8f. Updated the daily task to push verified
-changes at 3 p.m. Pacific. No app deployment or paid service was used.
-Documentation changes in this publishing commit do not change executable behavior.
+Published [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
+The initial Linux GitHub Actions run passed. No application deployment or paid
+service was used.

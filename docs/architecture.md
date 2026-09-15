@@ -16,7 +16,7 @@ conditions into TransitionSignals; next_state applies only the operating policy.
 - Python owns orchestration, persistence, tool validation, and independent checkers.
 - SQLite uses Python's standard library. No database server is required.
 - Production FastAPI will serve the compiled frontend. Development uses Vite's
-  `/api` proxy. No browser secrets; API keys stay server-side in a later checkpoint.
+  `/api` proxy. No browser secrets; API keys stay server-side in the planned live adapter.
 - Pydantic is the schema source; `scripts/export_contracts.py --check` detects drift.
   C++ validation is tested against shared configuration cases and normalized outputs.
 - Integers are strict: boolean, float (even 42.0), and string coercion are rejected.
@@ -52,4 +52,4 @@ mounted into production, or queryable through tools. Log instructions are data.
 
 Canonical simulation IDs will derive from version and normalized input; separate
 execution IDs will distinguish repeated executions without changing deterministic
-output. Define the hash encoding at the simulator checkpoint.
+output. Define the hash encoding when implementing simulator execution.

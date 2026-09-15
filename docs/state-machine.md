@@ -40,4 +40,4 @@ Difference exactly 5 C is not disagreement. Power exactly 20%/10% does not cross
 that threshold. These boundaries require tests before behavior is claimed.
 
 Use integer millidegrees Celsius (mdegC) and battery basis points (10000 = 100%).
-Document seeded noise algorithm and fault schedules with the simulator checkpoint.
+Document seeded noise algorithm and fault schedules when implementing simulator execution.

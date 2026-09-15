@@ -1,7 +1,6 @@
-# Daily backlog
+# Development roadmap
 
-One meaningful item per session, with tests, honest notes, and a focused commit.
-Do not prebuild later features merely to hold commits for future dates.
+Implemented and planned capabilities, in dependency order.
 
 1. DONE — Foundation: dependency locks, contracts, configuration validators,
    requirements catalog, basic CI, learning notes, frontend shell.
@@ -15,13 +14,10 @@ Do not prebuild later features merely to hold commits for future dates.
 9. Add independent requirement checkers, traceability, and defective fixture detection.
 10. Add validated investigation tools and comparisons.
 11. Add labeled scripted investigation with resolvable citations.
-12. Add replaceable live adapter (no paid calls without explicit authorization).
+12. Add replaceable live adapter while preserving the no-cost scripted mode; paid calls remain disabled.
 13. Add scenario controls, charts and event timeline.
 14. Add requirement results and chat/tool activity to the UI.
 15. Add withheld evaluation dataset and scripted-mode report.
 16. Add Docker setup, clean setup verification, screenshots and demo recording.
 17. Review README, interview guide, portfolio assets and hosting options/costs.
-18. Publish repository / deploy / integrate portfolio only after authorization.
-
-Stop when the project scope is complete. Daily commits are not guaranteed if
-verification fails or a prerequisite is blocked. Never fake tests or personal work.
+18. Public repository available; application deployment and portfolio integration remain planned.

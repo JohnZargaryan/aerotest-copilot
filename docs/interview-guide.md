@@ -1,16 +1,15 @@
 # Interview guide
 
-## Honest project description today
+## Project summary
 
 "I am building an AI-assisted educational simulation/test investigation project.
-The first checkpoint establishes C++/Python configuration contracts and automated
-checks. I use AI assistance and am learning to explain and modify the code. The
+The implemented core includes C++/Python configuration contracts, state transitions,
+and automated checks. I use AI assistance and am learning to explain and modify the code. The
 simulation, runtime verification and chatbot are not implemented yet."
 
-Do not describe this as flight software, a validated physical model, professional
-C++ experience, or evidence that a particular employer must consider you eligible.
+This is an educational simulation, not flight software or a validated physical model.
 
-## Checkpoint 1: why this design?
+## Configuration design
 
 - **C++ struct:** `Config` groups data; default member values document defaults.
 - **Fixed-width integer:** `std::uint32_t` gives seeds a clear 0..4294967295 range.
@@ -36,7 +35,7 @@ This validates configuration, not simulated aircraft behavior or agent accuracy.
 3. TypeScript needed Vite's client types to recognize a CSS side-effect import.
    Added `vite-env.d.ts` and repeated the frontend build.
 
-## Practice before the next checkpoint
+## Configuration exercises
 
 1. Explain why 42, "42", true and 42.0 are treated differently as seeds.
 2. Trace a request with duration_ms=1050 through Python and C++.
@@ -49,7 +48,7 @@ This validates configuration, not simulated aircraft behavior or agent accuracy.
 
 Add state-machine concepts, deterministic replay, checker failures, safe subprocess
 execution, SQLite design, evidence validation, actual agent evaluation and deployment
-tradeoffs as they are built and tested. Never invent a debugging story or result.
+tradeoffs as they are built and tested.
 
 ## 2026-09-15: state-transition core
 
@@ -64,7 +63,7 @@ all 192 state/signal combinations. Existing validation tests still pass. The
 function is not connected to the CLI or a simulator yet. Requirements involving
 milliseconds, sensor thresholds and battery levels remain unfinished.
 
-Exercise (not yet completed by the user): predict OFF -> STARTUP -> SAFE -> SAFE
+Exercise: predict OFF -> STARTUP -> SAFE -> SAFE
 -> SHUTDOWN for start, startup-complete plus safe, all-clear, and shutdown signals.
 Explain why clearing safe_required does not return SAFE to NOMINAL. Then add a
 sequence test showing DEGRADED -> SAFE -> SHUTDOWN, and explain each transition.

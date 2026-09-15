@@ -11,12 +11,12 @@ authorized integration. Target one project card and one concise case-study page:
 5. Links to source, setup, demo and limitations.
 
 Keep mobile layout, keyboard access, readable contrast, explicit error states,
-and a no-key scripted path as acceptance conditions for the application checkpoint.
+and a no-key scripted path as acceptance conditions for the application.
 
 The full app requires hosting that can execute C++ and Python. A static portfolio
 can link to that host. A lower-cost recorded replay must be labeled as a replay,
 preserve real recorded evidence, and never claim to be live AI or execution.
-Research current hosting costs at the delivery checkpoint; no purchase or deployment
+Research current hosting costs before deployment; no purchase or deployment
 is authorized now. No hosting estimate or recruiter impact metric is claimed yet.
 
 Position the engineering core first: deterministic behavior, requirements,
