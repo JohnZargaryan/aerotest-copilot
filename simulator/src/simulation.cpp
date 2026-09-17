@@ -1,4 +1,5 @@
 #include "aerotest/simulation.hpp"
+#include "aerotest/disagreement.hpp"
 #include "aerotest/state_machine.hpp"
 
 #include <cstdint>
@@ -27,10 +28,11 @@ int next_noise(std::uint32_t& state) {
 }
 }  // namespace
 
-nlohmann::json run_baseline(const Config& input) {
+nlohmann::json run_simulation(const Config& input) {
     const auto config = parse_config(to_json(input));
-    if (config.scenario_id != "healthy-baseline") {
-        throw std::invalid_argument("only healthy-baseline is implemented");
+    if (config.scenario_id != "healthy-baseline" &&
+        config.scenario_id != "sensor-disagreement") {
+        throw std::invalid_argument("scenario is not implemented");
     }
     // Reversible identity over every normalized input field and simulator version.
     const auto run_id = std::string("run-v") + simulator_version + "-schema1.0-" +
@@ -39,6 +41,7 @@ nlohmann::json run_baseline(const Config& input) {
     auto records = nlohmann::json::array();
     auto state = State::OFF;
     auto noise_state = config.seed;
+    DisagreementDetector disagreement;
     const auto emit = [&](int time, const char* component, nlohmann::json measurement,
                           const char* unit, const char* code, nlohmann::json details) {
         const auto sequence = records.size();
@@ -49,9 +52,16 @@ nlohmann::json run_baseline(const Config& input) {
             {"severity", "INFO"}, {"event_code", code}, {"details", details}});
     };
     for (int time = 0; time <= config.duration_ms; time += config.step_ms) {
+        const bool shutdown = time == config.duration_ms;
+        const int sensor_a = shutdown ? 0 : 20000 + next_noise(noise_state);
+        const int bias = config.scenario_id == "sensor-disagreement" &&
+                         time >= 2000 && time < 4000 ? 6000 : 0;
+        const int sensor_b = shutdown ? 0 : 20000 + next_noise(noise_state) + bias;
+        const bool degraded = !shutdown && disagreement.update(time, sensor_a, sensor_b, true);
         const auto previous = state;
         state = next_state(state, {.start_requested = time == 0,
                                    .startup_complete = time >= 1000,
+                                   .degradation_required = degraded,
                                    .shutdown_requested = time == config.duration_ms});
         if (state != previous) {
             emit(time, "subsystem", nullptr, "none", "STATE_TRANSITION",
@@ -59,7 +69,8 @@ nlohmann::json run_baseline(const Config& input) {
         }
         if (state == State::SHUTDOWN) break;
         for (const auto* sensor : {"sensor-a", "sensor-b"}) {
-            emit(time, sensor, 20000 + next_noise(noise_state), "mdegC", "SENSOR_SAMPLE",
+            emit(time, sensor, (std::string(sensor) == "sensor-a" ? sensor_a : sensor_b),
+                 "mdegC", "SENSOR_SAMPLE",
                  {{"sample_time_ms", time}});
         }
         emit(time, "battery", 10000 - time / config.step_ms, "basis_points", "POWER_SAMPLE",

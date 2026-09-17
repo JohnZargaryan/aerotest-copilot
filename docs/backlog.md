@@ -6,8 +6,8 @@ Implemented and planned capabilities, in dependency order.
    requirements catalog, basic CI, learning notes, frontend shell.
 2. DONE: state enum, pure transition function, allowed-transition and priority tests.
 3. DONE: deterministic healthy-baseline CLI, versioned records, seeded noise and replay tests.
-4. NEXT: add sensor-disagreement scenario and threshold tests.
-5. Add delayed/missing messages and boundary tests.
+4. DONE: sensor-disagreement scenario and threshold tests.
+5. NEXT: add delayed/missing messages and boundary tests.
 6. Add battery degradation and precedence tests.
 7. Add bounded Python runner and clean failures/timeouts.
 8. Add SQLite persistence and run APIs.

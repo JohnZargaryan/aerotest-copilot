@@ -27,7 +27,7 @@ def test_baseline_matches_event_contract_and_timing(duration):
     assert result.stdout.endswith(b"\n") and b"\r" not in result.stdout
     body = json.loads(result.stdout)
     assert body["schema_version"] == "1.0"
-    assert body["simulator_version"] == "0.2.0"
+    assert body["simulator_version"] == "0.3.0"
     assert body["status"] == "completed"
     SimulationConfig.model_validate(body["config"])
     records = [EventRecord.model_validate(item) for item in body["records"]]
@@ -69,7 +69,7 @@ def test_seed_changes_measurements_and_identity():
 
 
 @pytest.mark.parametrize(
-    "scenario", ["sensor-disagreement", "missing-messages", "battery-degradation"]
+    "scenario", ["missing-messages", "battery-degradation"]
 )
 def test_planned_fault_scenarios_do_not_silently_run_baseline(scenario):
     result = run({"scenario_id": scenario})
@@ -89,5 +89,5 @@ def test_canonical_output_matches_cross_platform_snapshot():
     result = run({"scenario_id": "healthy-baseline", "duration_ms": 1000})
     assert result.returncode == 0
     assert hashlib.sha256(result.stdout).hexdigest() == (
-        "6f71238691d30bbe80c0998fd69f411af514eff7a58f1a42fe079008e5b9a92e"
+        "66337f3bd6db934d02adafd50ffb1a54c0b99ee5aa71d64c43e473014ba8deaa"
     )

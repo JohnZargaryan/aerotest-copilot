@@ -7,10 +7,20 @@
       "title": "Persistent sensor disagreement",
       "rationale": "Software should recognize sustained conflicting sensor readings.",
       "acceptance": "When both samples are fresh and absolute difference is greater than 5000 mdegC for 500 ms continuously, transition NOMINAL to DEGRADED at the first eligible 100 ms tick.",
-      "component": "simulator/state-machine (planned)",
-      "status": "planned",
-      "automated_tests": [],
-      "result_evidence": null
+      "component": "simulator/include/aerotest/disagreement.hpp; simulator/src/simulation.cpp",
+      "status": "implemented",
+      "automated_tests": [
+        "Disagreement.StrictAmplitudeAndInclusiveDuration",
+        "Disagreement.RecoveryOrStaleSampleResetsTimer",
+        "DisagreementScenario.DegradesAt2500AndLatchesAfterRecovery",
+        "backend/tests/test_disagreement.py"
+      ],
+      "result_evidence": {
+        "command": "scripts/verify.ps1",
+        "cpp_report": "artifacts/cpp-tests.xml",
+        "python_report": "artifacts/python-tests.xml",
+        "note": "Development tests cover detection and emitted transitions. Independent runtime requirement verdicts remain planned."
+      }
     },
     {
       "id": "AT-REQ-002",
@@ -61,12 +71,13 @@
       "status": "partially_implemented",
       "automated_tests": [
         "Baseline.ReplayIsByteIdenticalWithoutSharedRandomState",
-        "backend/tests/test_baseline.py"
+        "backend/tests/test_baseline.py",
+        "backend/tests/test_disagreement.py"
       ],
       "result_evidence": {
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Replay and fixed byte snapshot cover the healthy baseline only. Fault scenarios and runtime requirement checkers remain planned."
+        "note": "Replay covers healthy baseline and sensor disagreement; fixed byte snapshot covers baseline. Remaining scenarios and independent runtime checkers are planned."
       }
     },
     {
@@ -83,7 +94,7 @@
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
-        "note": "Transition policy and healthy-baseline timing tested. Fault detection and runtime requirement evaluation remain planned."
+        "note": "Policy, baseline and disagreement timing tested. Staleness, battery detection and independent runtime evaluation remain planned."
       }
     }
   ]

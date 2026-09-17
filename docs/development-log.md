@@ -110,3 +110,27 @@ Learning exercise: run the same configuration twice and then change the seed.
 Explain why the first outputs match, what changes with the seed, and why the
 simulated duration does not require waiting that long. See docs/interview-guide.md.
 Next capability: sensor-disagreement injection and threshold boundary tests.
+
+
+## 2026-09-17 - Persistent sensor disagreement
+
+Implemented with OpenAI Codex assistance. Simulator 0.3.0 runs a sensor-b bias
+from 2000 through 3900 ms and detects sustained measured disagreement independently
+of the injection schedule. Difference >5000 mdegC for 500 ms triggers DEGRADED;
+equality or stale samples reset persistence. State latching and shutdown priority
+are preserved. The detector's freshness input is tested, but stale-message
+simulation and age calculation remain planned. No runtime PASS verdict is claimed.
+
+Verification: scripts/verify.ps1 passed on Windows with 24 GoogleTest tests,
+64 pytest tests, Ruff, schema freshness, dependency compatibility, TypeScript
+and Vite build. Tests cover threshold signs, duration boundaries, timer reset,
+extreme integer subtraction, bias removal, seed extremes, replay, short runs
+and shutdown at the detection tick. Baseline bytes were unchanged after normalizing
+the version text; the canonical snapshot now pins 0.3.0. An initial import-order
+lint failure was corrected before the full successful verification. Existing
+third-party deprecation, pytest cache-permission and Vite path warnings remain.
+No dependencies, paid services, API calls or deployment were added.
+
+Learning exercise: explain the 2500 versus 2600 ms run results and why DEGRADED
+persists after bias removal. See docs/interview-guide.md. Next: delayed/missing
+messages and freshness boundaries.

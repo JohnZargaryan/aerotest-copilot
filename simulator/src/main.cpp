@@ -30,13 +30,14 @@ int main(int argc, char** argv) {
         }
         const auto config = aerotest::parse_config(nlohmann::json::parse(input));
         if (std::string(argv[1]) == "--run") {
-            if (config.scenario_id != "healthy-baseline") {
+            if (config.scenario_id != "healthy-baseline" &&
+                config.scenario_id != "sensor-disagreement") {
                 std::cout << nlohmann::json{{"schema_version", "1.0"}, {"status", "error"},
                     {"error", {{"code", "SCENARIO_NOT_IMPLEMENTED"},
-                               {"message", "only healthy-baseline is implemented"}}}}.dump() << '\n';
+                               {"message", "scenario is not implemented"}}}}.dump() << '\n';
                 return 3;
             }
-            std::cout << aerotest::run_baseline(config).dump() << '\n';
+            std::cout << aerotest::run_simulation(config).dump() << '\n';
             return 0;
         }
         std::cout << nlohmann::json{{"schema_version", "1.0"}, {"status", "validated"},

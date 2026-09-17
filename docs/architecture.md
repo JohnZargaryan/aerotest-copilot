@@ -6,8 +6,8 @@ React UI -> FastAPI -> bounded C++ process -> independent requirement checkers
 -> SQLite records -> validated investigation tools -> scripted or live agent -> UI.
 
 Implemented: UI shell, health/config API, configuration validation, C++ transition
-core, and healthy-baseline CLI simulation. The baseline tick loop generates
-startup/shutdown signals and measurements; fault detection remains planned.
+core, and baseline/sensor-disagreement CLI simulation. The baseline tick loop generates
+startup/shutdown signals and measurements, plus persistent disagreement detection.
 There is no API run endpoint yet. next_state applies the operating policy.
 
 ## Decisions
@@ -33,8 +33,8 @@ There is no API run endpoint yet. next_state applies the operating policy.
 Success: `{"schema_version":"1.0","status":"validated","config":{...}}`, exit 0.
 Invalid input: `{"schema_version":"1.0","status":"error","error":{"code":"INVALID_CONFIG","message":"..."}}`, exit 2.
 Only stdout contains the response. Input is capped at 64 KiB. `--run` executes the
-healthy baseline and returns a versioned completed result containing normalized
-config, run_id and records. Planned fault scenarios return SCENARIO_NOT_IMPLEMENTED
+healthy baseline or sensor-disagreement scenario and returns a versioned completed result containing normalized
+config, run_id and records. Missing-message and battery scenarios return SCENARIO_NOT_IMPLEMENTED
 with exit 3. See docs/baseline.md for the exact output rules. The future parent
 runner will enforce a timeout/output bound; subprocess integration tests currently
 enforce five seconds. The API does not execute the CLI yet.

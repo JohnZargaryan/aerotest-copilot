@@ -1,18 +1,18 @@
 # Healthy-baseline simulation
 
 Educational signal generation, not a validated physical model. No wall-clock
-sleep, external services or credentials are required. Only healthy-baseline runs;
-other declared scenarios return a structured SCENARIO_NOT_IMPLEMENTED error.
+sleep, external services or credentials are required. Healthy-baseline and sensor-disagreement run;
+missing-message and battery scenarios return SCENARIO_NOT_IMPLEMENTED.
 
 ## Behavior
 
-Version 0.2.0 uses integer 100 ms ticks. At t=0, OFF enters STARTUP. At t=1000,
+Version 0.3.0 uses integer 100 ms ticks. At t=0, OFF enters STARTUP. At t=1000,
 STARTUP enters NOMINAL unless the requested duration has been reached, in which
 case SHUTDOWN wins. No sensor/power samples are emitted at or after shutdown.
 Every prior tick emits sensor-a, sensor-b, then battery. A state-transition record
 precedes the samples on transition ticks. The default 30000 ms run has 903 records;
 minimum 1000 ms has 32; maximum 120000 ms has 3603. Fault states are never entered
-in this healthy baseline; their triggering logic remains unimplemented.
+in this healthy baseline. Sensor disagreement is described in docs/disagreement.md.
 
 Sensor values are 20000 mdegC (20 C) plus deterministic noise in [-100,100].
 One uint32 noise state starts at the configured seed and is local to the run.
@@ -37,7 +37,7 @@ Samples use integer measurements and sample_time_ms details. All severity is INF
 
 The run ID includes every normalized input field and version:
 
-    run-v0.2.0-schema1.0-healthy-baseline-s{seed}-d{duration_ms}-t{step_ms}
+    run-v0.3.0-schema1.0-healthy-baseline-s{seed}-d{duration_ms}-t{step_ms}
 
 Event IDs append -e{sequence}, with contiguous zero-based sequence numbers.
 This reversible encoding avoids hash collisions for the current bounded input

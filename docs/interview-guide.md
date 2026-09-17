@@ -4,8 +4,8 @@
 
 "I am building an AI-assisted educational simulation/test investigation project.
 The implemented core includes C++/Python configuration contracts, state transitions,
-a repeatable healthy-baseline CLI simulation, and automated checks. I use AI
-assistance and am learning to explain and modify the code. Fault scenarios,
+repeatable baseline and sensor-disagreement CLI simulations, and automated checks. I use AI
+assistance and am learning to explain and modify the code. Additional fault scenarios,
 runtime verification, web execution and the chatbot are not implemented yet."
 
 This is an educational simulation, not flight software or a validated physical model.
@@ -90,3 +90,13 @@ Exercise (to do yourself):
 4. Explain why a 1,000 ms run shuts down without first entering NOMINAL.
 5. Describe why reproducibility alone does not establish physical correctness
    or demonstrate correct fault handling.
+
+
+## Sensor disagreement exercise
+
+Implemented with Codex assistance. Explain why the detector reads measurements
+rather than the selected scenario name. Predict the result at differences 5000
+and 5001 mdegC, then at 400 and 500 ms elapsed. Explain how one fresh agreeing
+sample or stale sample interrupts persistence. Run sensor-disagreement with
+2500 and 2600 ms durations: why does only the latter enter DEGRADED? Finally,
+inspect readings after 4000 ms and explain why the state does not recover.
