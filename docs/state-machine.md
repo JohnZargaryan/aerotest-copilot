@@ -1,10 +1,11 @@
-# State machine: transition core implemented; signal generation planned
+# State machine: transition core and healthy-baseline timing
 
 `simulator/include/aerotest/state_machine.hpp` exposes `State`, `TransitionSignals`,
 and `next_state(current, signals)`. The function has no clock, I/O or hidden state.
 It consumes five booleans: start_requested, startup_complete, degradation_required,
-safe_required, and shutdown_requested. A future tick loop must compute these from
-the timing and measurements below; that loop and threshold checks do not exist yet.
+safe_required, and shutdown_requested. The healthy-baseline loop computes start,
+startup-complete and shutdown signals from integer simulation ticks. Fault signals
+and threshold detection remain planned.
 
 OFF only responds to start_requested and enters STARTUP, never skipping startup.
 SHUTDOWN is terminal regardless of input. Active states honor shutdown first.
@@ -14,9 +15,10 @@ Signals irrelevant to a state are ignored. A caller owns the state between ticks
 
 Tests cover every documented edge and hold, startup gating, competing signals,
 and all 192 state/signal combinations against an independent adjacency table.
-This is unit evidence for the transition policy, not proof of timed simulation.
+Baseline integration tests additionally verify startup at 0 ms, nominal at 1000 ms,
+and shutdown at the configured duration. Fault timing is not implemented yet.
 
-## Timing and measurement design (not implemented yet)
+## Timing and measurement design (fault conditions remain planned)
 
 All times are simulation time. Thresholds are educational assumptions.
 Use 100 ms ticks including t=0. Startup ends at t=1000 ms. Initialize both
@@ -40,4 +42,4 @@ Difference exactly 5 C is not disagreement. Power exactly 20%/10% does not cross
 that threshold. These boundaries require tests before behavior is claimed.
 
 Use integer millidegrees Celsius (mdegC) and battery basis points (10000 = 100%).
-Document seeded noise algorithm and fault schedules when implementing simulator execution.
+See docs/baseline.md for the implemented noise algorithm. Fault schedules remain planned.

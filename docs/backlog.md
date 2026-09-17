@@ -5,8 +5,8 @@ Implemented and planned capabilities, in dependency order.
 1. DONE — Foundation: dependency locks, contracts, configuration validators,
    requirements catalog, basic CI, learning notes, frontend shell.
 2. DONE: state enum, pure transition function, allowed-transition and priority tests.
-3. NEXT: add deterministic healthy baseline, versioned records, seeded noise and replay tests.
-4. Add sensor-disagreement scenario and threshold tests.
+3. DONE: deterministic healthy-baseline CLI, versioned records, seeded noise and replay tests.
+4. NEXT: add sensor-disagreement scenario and threshold tests.
 5. Add delayed/missing messages and boundary tests.
 6. Add battery degradation and precedence tests.
 7. Add bounded Python runner and clean failures/timeouts.

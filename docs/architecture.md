@@ -5,10 +5,10 @@
 React UI -> FastAPI -> bounded C++ process -> independent requirement checkers
 -> SQLite records -> validated investigation tools -> scripted or live agent -> UI.
 
-Today only the UI shell, health/config API, configuration validation executable,
-their contracts, and the pure C++ transition core are implemented. No run endpoint
-or simulated measurements exist. The future simulator converts timing/threshold
-conditions into TransitionSignals; next_state applies only the operating policy.
+Implemented: UI shell, health/config API, configuration validation, C++ transition
+core, and healthy-baseline CLI simulation. The baseline tick loop generates
+startup/shutdown signals and measurements; fault detection remains planned.
+There is no API run endpoint yet. next_state applies the operating policy.
 
 ## Decisions
 
@@ -23,7 +23,7 @@ conditions into TransitionSignals; next_state applies only the operating policy.
   JSON Schema cannot express lexical integer-vs-float distinctions; shared cases
   document this additional parser rule.
 - Event schema v1 defines units, sequence, simulated timestamp, state, component,
-  diagnostic details, run ID and event ID. It is a contract, not generated telemetry.
+  diagnostic details, run ID and event ID. The healthy-baseline CLI emits these records.
 - Requirements catalog status means implementation status, not PASS. Runtime
   PASS/FAIL/INCONCLUSIVE results and evidence links belong to future independent checkers.
 
@@ -32,9 +32,12 @@ conditions into TransitionSignals; next_state applies only the operating policy.
 `aerotest-sim --validate-config` reads one JSON object from stdin through EOF.
 Success: `{"schema_version":"1.0","status":"validated","config":{...}}`, exit 0.
 Invalid input: `{"schema_version":"1.0","status":"error","error":{"code":"INVALID_CONFIG","message":"..."}}`, exit 2.
-Only stdout contains the response. Input is capped at 64 KiB. The CLI is not yet
-a simulator. The parent runner will enforce a timeout and output bound; current
-subprocess use is limited to integration tests with a five-second timeout.
+Only stdout contains the response. Input is capped at 64 KiB. `--run` executes the
+healthy baseline and returns a versioned completed result containing normalized
+config, run_id and records. Planned fault scenarios return SCENARIO_NOT_IMPLEMENTED
+with exit 3. See docs/baseline.md for the exact output rules. The future parent
+runner will enforce a timeout/output bound; subprocess integration tests currently
+enforce five seconds. The API does not execute the CLI yet.
 
 ## API today
 
@@ -50,6 +53,6 @@ Bound agent investigations to 8 tool calls, 4 model requests, and 60 seconds.
 Tools expose allowlisted queries only. Evaluation labels must not be imported,
 mounted into production, or queryable through tools. Log instructions are data.
 
-Canonical simulation IDs will derive from version and normalized input; separate
-execution IDs will distinguish repeated executions without changing deterministic
-output. Define the hash encoding when implementing simulator execution.
+Canonical run IDs use a reversible encoding of simulator/schema version and all
+normalized config fields (docs/baseline.md), without a hash dependency. Future
+execution IDs will distinguish repeat executions without changing canonical output.

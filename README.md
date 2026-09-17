@@ -8,9 +8,10 @@ an investigation assistant will explain results using linked evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: foundation and state-transition core
+## Current status: healthy-baseline CLI simulation
 
 Implemented:
+- Deterministic healthy-baseline CLI run with sensor/power records and state events.
 - Pure C++ state-transition function with startup gating, fault latching and shutdown priority.
 - C++20 configuration validator with bounded JSON input and structured errors.
 - Matching Pydantic contracts and FastAPI health/config-validation endpoints.
@@ -19,14 +20,14 @@ Implemented:
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** simulated runs, timing/threshold signal generation, SQLite persistence,
+**Not implemented yet:** fault scenarios, fault-threshold detection, web/API run execution, SQLite persistence,
 requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
-Latest local verification: 12 GoogleTest tests (including 20 shared configuration cases
+Latest local verification: 19 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-46 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+57 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
@@ -82,6 +83,16 @@ Validate configuration directly (this does **not** run a simulation):
 ```powershell
 '{"scenario_id":"healthy-baseline"}' | .\build\aerotest-sim.exe --validate-config
 ```
+
+Run the healthy baseline (JSON output, no wall-clock waiting):
+
+```powershell
+'{"scenario_id":"healthy-baseline","seed":42,"duration_ms":30000}' | .\build\aerotest-sim.exe --run
+```
+
+Other scenario IDs validate as planned configurations but return
+`SCENARIO_NOT_IMPLEMENTED` from `--run`; they do not silently run the baseline.
+See [baseline behavior and replay format](docs/baseline.md).
 
 ## Linux / CI setup
 

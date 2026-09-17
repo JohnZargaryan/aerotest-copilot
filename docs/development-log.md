@@ -86,3 +86,27 @@ execution and records.
 Published [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 The initial Linux GitHub Actions run passed. No application deployment or paid
 service was used.
+
+
+## 2026-09-16 - Deterministic healthy-baseline simulation
+
+Implemented with OpenAI Codex assistance. The C++ CLI now runs the healthy
+baseline with a simulated integer clock, two seeded temperature sensors, battery
+readings, and startup/nominal/shutdown events. Versioned records have stable run
+and event identities. Unsupported fault scenarios return an explicit error.
+The model is educational; no runtime requirement verdict or physical validation
+is claimed. Web execution, persistence and investigations remain planned.
+
+Verification: scripts/verify.ps1 passed on Windows: 19 GoogleTest tests and 57
+pytest tests, Ruff, schema freshness, dependency compatibility, TypeScript and
+Vite build. Tests cover duration boundaries, seed extremes, raw-struct validation,
+record contracts, repeatability and unsupported scenarios. A fixed output digest
+checks canonical bytes; Windows stdout uses binary mode to preserve LF endings.
+Linux CI will independently exercise the same digest after publication.
+Existing third-party deprecation, pytest-cache permission and Vite path warnings
+remain non-fatal. No new dependencies, paid services or API calls were added.
+
+Learning exercise: run the same configuration twice and then change the seed.
+Explain why the first outputs match, what changes with the seed, and why the
+simulated duration does not require waiting that long. See docs/interview-guide.md.
+Next capability: sensor-disagreement injection and threshold boundary tests.

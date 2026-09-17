@@ -4,8 +4,9 @@
 
 "I am building an AI-assisted educational simulation/test investigation project.
 The implemented core includes C++/Python configuration contracts, state transitions,
-and automated checks. I use AI assistance and am learning to explain and modify the code. The
-simulation, runtime verification and chatbot are not implemented yet."
+a repeatable healthy-baseline CLI simulation, and automated checks. I use AI
+assistance and am learning to explain and modify the code. Fault scenarios,
+runtime verification, web execution and the chatbot are not implemented yet."
 
 This is an educational simulation, not flight software or a validated physical model.
 
@@ -46,7 +47,7 @@ This validates configuration, not simulated aircraft behavior or agent accuracy.
 
 ## Future sections
 
-Add state-machine concepts, deterministic replay, checker failures, safe subprocess
+Add checker failures, safe subprocess
 execution, SQLite design, evidence validation, actual agent evaluation and deployment
 tradeoffs as they are built and tested.
 
@@ -67,3 +68,25 @@ Exercise: predict OFF -> STARTUP -> SAFE -> SAFE
 -> SHUTDOWN for start, startup-complete plus safe, all-clear, and shutdown signals.
 Explain why clearing safe_required does not return SAFE to NOMINAL. Then add a
 sequence test showing DEGRADED -> SAFE -> SHUTDOWN, and explain each transition.
+
+
+## Deterministic baseline
+
+Built with Codex assistance: the CLI advances a simulated clock in 100 ms steps.
+It does not sleep. Each run owns its pseudorandom generator state, so prior runs
+cannot change its readings. Explicit integer arithmetic and JSON output with LF
+line endings make the recorded output reproducible across supported platforms.
+The noise is bounded educational data, not a validated sensor model.
+
+A run ID encodes simulator version and normalized configuration. An event adds
+its sequence number. Identical configurations intentionally share identities;
+a future database execution ID can distinguish separate invocations without
+changing replay evidence. Default and explicitly equivalent settings match.
+
+Exercise (to do yourself):
+1. Run the README baseline command twice and compare the outputs.
+2. Change seed 42 to 43; inspect the run ID and first sensor reading.
+3. Explain why 30 seconds of simulated time completes without a 30-second wait.
+4. Explain why a 1,000 ms run shuts down without first entering NOMINAL.
+5. Describe why reproducibility alone does not establish physical correctness
+   or demonstrate correct fault handling.

@@ -1,13 +1,23 @@
 #include "aerotest/config.hpp"
+#include "aerotest/simulation.hpp"
+#ifdef _WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
 
 #include <iostream>
 #include <stdexcept>
 #include <string>
 
 int main(int argc, char** argv) {
+    // Canonical output uses LF on Windows as well as Linux.
+#ifdef _WIN32
+    _setmode(_fileno(stdout), _O_BINARY);
+#endif
     try {
-        if (argc != 2 || std::string(argv[1]) != "--validate-config") {
-            throw std::invalid_argument("foundation supports only --validate-config");
+        if (argc != 2 || (std::string(argv[1]) != "--validate-config" &&
+                          std::string(argv[1]) != "--run")) {
+            throw std::invalid_argument("expected --validate-config or --run");
         }
         constexpr std::size_t max_input_bytes = 65536;
         std::string input;
@@ -19,6 +29,16 @@ int main(int argc, char** argv) {
             input.push_back(character);
         }
         const auto config = aerotest::parse_config(nlohmann::json::parse(input));
+        if (std::string(argv[1]) == "--run") {
+            if (config.scenario_id != "healthy-baseline") {
+                std::cout << nlohmann::json{{"schema_version", "1.0"}, {"status", "error"},
+                    {"error", {{"code", "SCENARIO_NOT_IMPLEMENTED"},
+                               {"message", "only healthy-baseline is implemented"}}}}.dump() << '\n';
+                return 3;
+            }
+            std::cout << aerotest::run_baseline(config).dump() << '\n';
+            return 0;
+        }
         std::cout << nlohmann::json{{"schema_version", "1.0"}, {"status", "validated"},
                                    {"config", aerotest::to_json(config)}}.dump() << '\n';
         return 0;
