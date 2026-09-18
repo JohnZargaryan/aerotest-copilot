@@ -27,10 +27,18 @@
       "title": "Stale sensor detection",
       "rationale": "Old measurements must not be treated as current evidence.",
       "acceptance": "A sample is stale when sim_time_ms - sample_time_ms > 300 ms. One stale sensor causes DEGRADED; both stale cause SAFE, at the first eligible tick after startup.",
-      "component": "simulator/sensors (planned)",
-      "status": "planned",
-      "automated_tests": [],
-      "result_evidence": null
+      "component": "simulator/include/aerotest/freshness.hpp; simulator/src/simulation.cpp",
+      "status": "implemented",
+      "automated_tests": [
+        "Freshness.InclusiveAgeBoundaryAndInvalidFuture",
+        "backend/tests/test_missing_messages.py"
+      ],
+      "result_evidence": {
+        "command": "scripts/verify.ps1",
+        "cpp_report": "artifacts/cpp-tests.xml",
+        "python_report": "artifacts/python-tests.xml",
+        "note": "Development tests verify emitted samples and transitions. Independent runtime verdicts remain planned."
+      }
     },
     {
       "id": "AT-REQ-003",
@@ -72,12 +80,13 @@
       "automated_tests": [
         "Baseline.ReplayIsByteIdenticalWithoutSharedRandomState",
         "backend/tests/test_baseline.py",
-        "backend/tests/test_disagreement.py"
+        "backend/tests/test_disagreement.py",
+        "backend/tests/test_missing_messages.py"
       ],
       "result_evidence": {
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Replay covers healthy baseline and sensor disagreement; fixed byte snapshot covers baseline. Remaining scenarios and independent runtime checkers are planned."
+        "note": "Replay covers baseline, disagreement and missing messages. Battery simulation and independent runtime checkers remain planned."
       }
     },
     {
@@ -94,7 +103,7 @@
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
-        "note": "Policy, baseline and disagreement timing tested. Staleness, battery detection and independent runtime evaluation remain planned."
+        "note": "Policy, baseline, disagreement and stale-sample timing tested. Battery detection and runtime evaluation remain planned."
       }
     }
   ]

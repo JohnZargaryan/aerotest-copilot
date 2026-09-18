@@ -11,8 +11,8 @@ Absolute difference strictly greater than 5000 mdegC starts a persistence timer.
 After 500 ms continuously above threshold, it requests DEGRADED. Equality does
 not count. An in-range or stale sample resets the timer. The detector assumes
 calls at every increasing simulation tick; its freshness input is always true
-for these two currently implemented scenarios. Stale-message simulation and
-age-based freshness calculation remain planned.
+for baseline and disagreement scenarios. The missing-messages scenario uses
+actual sample ages; see docs/missing-messages.md.
 
 The guaranteed difference during injection is 5800..6200 mdegC, so detection is
 at 2500 ms for every seed if the run continues past that tick. DEGRADED stays

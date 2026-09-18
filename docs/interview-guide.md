@@ -100,3 +100,12 @@ and 5001 mdegC, then at 400 and 500 ms elapsed. Explain how one fresh agreeing
 sample or stale sample interrupts persistence. Run sensor-disagreement with
 2500 and 2600 ms durations: why does only the latter enter DEGRADED? Finally,
 inspect readings after 4000 ms and explain why the state does not recover.
+
+
+## Sample freshness exercise
+
+Implemented with Codex assistance. Run missing-messages for 5000 ms and find the
+sensor-b record delivered at 2400. Explain why its age is 400 ms and why receipt
+does not make it fresh. Trace the last sensor-a sample to the SAFE transition at
+3300. Compare runs ending at 3300 and 3400; explain shutdown priority. Finally,
+explain why SAFE stays latched when both sensors resume delivery at 4000.

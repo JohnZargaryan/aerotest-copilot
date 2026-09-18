@@ -4,8 +4,8 @@
 and `next_state(current, signals)`. The function has no clock, I/O or hidden state.
 It consumes five booleans: start_requested, startup_complete, degradation_required,
 safe_required, and shutdown_requested. The healthy-baseline loop computes start,
-startup-complete and shutdown signals from integer simulation ticks. Persistent sensor disagreement also supplies the degradation signal. Stale-sensor
-and low-battery transitions remain planned.
+startup-complete and shutdown signals from integer simulation ticks. Persistent sensor disagreement also supplies the degradation signal. Stale-sensor detection supplies degradation and safe signals;
+low-battery detection remains planned.
 
 OFF only responds to start_requested and enters STARTUP, never skipping startup.
 SHUTDOWN is terminal regardless of input. Active states honor shutdown first.
@@ -18,7 +18,7 @@ and all 192 state/signal combinations against an independent adjacency table.
 Baseline integration tests additionally verify startup at 0 ms, nominal at 1000 ms,
 and shutdown at the configured duration. Sensor disagreement injected at 2000 ms triggers DEGRADED at 2500 ms.
 
-## Timing and measurement design (staleness and battery faults remain planned)
+## Timing and measurement design (battery faults remain planned)
 
 All times are simulation time. Thresholds are educational assumptions.
 Use 100 ms ticks including t=0. Startup ends at t=1000 ms. Initialize both
@@ -43,3 +43,5 @@ that threshold. These boundaries require tests before behavior is claimed.
 
 Use integer millidegrees Celsius (mdegC) and battery basis points (10000 = 100%).
 See docs/baseline.md for the implemented noise algorithm. See docs/disagreement.md for the implemented sensor-b bias schedule.
+
+Missing-message timing and delayed acquisition timestamps are documented in docs/missing-messages.md.

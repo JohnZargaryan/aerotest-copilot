@@ -31,7 +31,8 @@ int main(int argc, char** argv) {
         const auto config = aerotest::parse_config(nlohmann::json::parse(input));
         if (std::string(argv[1]) == "--run") {
             if (config.scenario_id != "healthy-baseline" &&
-                config.scenario_id != "sensor-disagreement") {
+                config.scenario_id != "sensor-disagreement" &&
+                config.scenario_id != "missing-messages") {
                 std::cout << nlohmann::json{{"schema_version", "1.0"}, {"status", "error"},
                     {"error", {{"code", "SCENARIO_NOT_IMPLEMENTED"},
                                {"message", "scenario is not implemented"}}}}.dump() << '\n';

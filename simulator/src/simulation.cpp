@@ -2,6 +2,8 @@
 #include "aerotest/disagreement.hpp"
 #include "aerotest/state_machine.hpp"
 
+#include "aerotest/freshness.hpp"
+#include <array>
 #include <cstdint>
 #include <stdexcept>
 #include <string>
@@ -31,7 +33,8 @@ int next_noise(std::uint32_t& state) {
 nlohmann::json run_simulation(const Config& input) {
     const auto config = parse_config(to_json(input));
     if (config.scenario_id != "healthy-baseline" &&
-        config.scenario_id != "sensor-disagreement") {
+        config.scenario_id != "sensor-disagreement" &&
+        config.scenario_id != "missing-messages") {
         throw std::invalid_argument("scenario is not implemented");
     }
     // Reversible identity over every normalized input field and simulator version.
@@ -42,6 +45,8 @@ nlohmann::json run_simulation(const Config& input) {
     auto state = State::OFF;
     auto noise_state = config.seed;
     DisagreementDetector disagreement;
+    std::array<int, 2> values{}, sample_times{};
+    int delayed_b = 0;
     const auto emit = [&](int time, const char* component, nlohmann::json measurement,
                           const char* unit, const char* code, nlohmann::json details) {
         const auto sequence = records.size();
@@ -57,21 +62,37 @@ nlohmann::json run_simulation(const Config& input) {
         const int bias = config.scenario_id == "sensor-disagreement" &&
                          time >= 2000 && time < 4000 ? 6000 : 0;
         const int sensor_b = shutdown ? 0 : 20000 + next_noise(noise_state) + bias;
-        const bool degraded = !shutdown && disagreement.update(time, sensor_a, sensor_b, true);
+        const bool missing = config.scenario_id == "missing-messages";
+        const std::array<bool, 2> delivered{
+            !shutdown && !(missing && time >= 3000 && time < 4000),
+            !shutdown && (!(missing && time >= 2000 && time < 4000) || time == 2400)};
+        if (missing && time == 2000) delayed_b = sensor_b;
+        if (delivered[0]) { values[0] = sensor_a; sample_times[0] = time; }
+        if (delivered[1]) {
+            const bool delayed = missing && time == 2400;
+            values[1] = delayed ? delayed_b : sensor_b;
+            sample_times[1] = delayed ? 2000 : time;
+        }
+        const bool fresh_a = sample_is_fresh(time, sample_times[0]);
+        const bool fresh_b = sample_is_fresh(time, sample_times[1]);
+        const bool disagreement_required = !shutdown && disagreement.update(
+            time, values[0], values[1], fresh_a && fresh_b);
+        const bool degraded = !fresh_a || !fresh_b || disagreement_required;
         const auto previous = state;
         state = next_state(state, {.start_requested = time == 0,
                                    .startup_complete = time >= 1000,
                                    .degradation_required = degraded,
+                                   .safe_required = !fresh_a && !fresh_b,
                                    .shutdown_requested = time == config.duration_ms});
         if (state != previous) {
             emit(time, "subsystem", nullptr, "none", "STATE_TRANSITION",
                  {{"from_state", state_name(previous)}, {"to_state", state_name(state)}});
         }
         if (state == State::SHUTDOWN) break;
-        for (const auto* sensor : {"sensor-a", "sensor-b"}) {
-            emit(time, sensor, (std::string(sensor) == "sensor-a" ? sensor_a : sensor_b),
-                 "mdegC", "SENSOR_SAMPLE",
-                 {{"sample_time_ms", time}});
+        for (std::size_t index = 0; index < delivered.size(); ++index) {
+            if (delivered[index])
+                emit(time, index == 0 ? "sensor-a" : "sensor-b", values[index],
+                     "mdegC", "SENSOR_SAMPLE", {{"sample_time_ms", sample_times[index]}});
         }
         emit(time, "battery", 10000 - time / config.step_ms, "basis_points", "POWER_SAMPLE",
              {{"sample_time_ms", time}});

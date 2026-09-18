@@ -1,3 +1,4 @@
+#include "aerotest/freshness.hpp"
 #include "aerotest/simulation.hpp"
 
 #include <stdexcept>
@@ -71,7 +72,6 @@ TEST(Baseline, RawStructCannotBypassConfigValidation) {
 }
 
 TEST(Baseline, UnimplementedScenariosAreRejected) {
-    EXPECT_THROW(run_simulation(Config{"missing-messages"}), std::invalid_argument);
     EXPECT_THROW(run_simulation(Config{"battery-degradation"}), std::invalid_argument);
 }
 
@@ -91,4 +91,12 @@ TEST(DisagreementScenario, ShutdownWinsAtDetectionTick) {
     const auto run = run_simulation(Config{"sensor-disagreement", 42, 2500, 100});
     for (const auto& event : run.at("records")) EXPECT_NE(event.at("state"), "DEGRADED");
     EXPECT_EQ(run.at("records").back().at("state"), "SHUTDOWN");
+}
+
+
+TEST(Freshness, InclusiveAgeBoundaryAndInvalidFuture) {
+    EXPECT_TRUE(aerotest::sample_is_fresh(300, 0));
+    EXPECT_FALSE(aerotest::sample_is_fresh(301, 0));
+    EXPECT_FALSE(aerotest::sample_is_fresh(100, 200));
+    EXPECT_TRUE(aerotest::sample_is_fresh(200, 200));
 }

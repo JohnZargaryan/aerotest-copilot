@@ -134,3 +134,26 @@ No dependencies, paid services, API calls or deployment were added.
 Learning exercise: explain the 2500 versus 2600 ms run results and why DEGRADED
 persists after bias removal. See docs/interview-guide.md. Next: delayed/missing
 messages and freshness boundaries.
+
+
+## 2026-09-18 - Delayed and missing sensor messages
+
+Implemented with OpenAI Codex assistance. Simulator 0.4.0 adds a fixed bounded
+missing-message scenario, acquisition-time freshness checks, single-sensor
+DEGRADED and dual-sensor SAFE transitions. Delayed delivery retains the original
+sample timestamp and value. Dropouts produce no fabricated sensor samples.
+Freshness is evaluated independently of the scenario schedule and stale samples
+reset disagreement persistence. Battery faults and runtime verdicts remain planned.
+
+Verification: scripts/verify.ps1 passed on Windows with 25 GoogleTest tests,
+71 pytest tests, Ruff, schema freshness, dependency compatibility, TypeScript
+and Vite build. Tests cover the inclusive 300 ms boundary, future timestamps,
+delayed values and acquisition times, missing records, extreme seeds, replay,
+shutdown priority and SAFE latching after delivery resumes. Baseline canonical
+bytes match the prior version after normalizing only version text. Existing
+third-party deprecation, pytest cache-permission and Vite path warnings remain.
+No dependencies, paid services, API calls or deployments were added.
+
+Learning exercise: explain why the 2400 ms delivery is stale and trace the SAFE
+transition at 3300 ms; see docs/interview-guide.md. Next: battery degradation
+and precedence boundaries.
