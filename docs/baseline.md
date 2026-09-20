@@ -1,12 +1,11 @@
 # Healthy-baseline simulation
 
 Educational signal generation, not a validated physical model. No wall-clock
-sleep, external services or credentials are required. Healthy-baseline, sensor-disagreement and missing-messages run;
-battery-degradation returns SCENARIO_NOT_IMPLEMENTED.
+sleep, external services or credentials are required. All four declared scenarios run. This page describes healthy-baseline.
 
 ## Behavior
 
-Version 0.4.0 uses integer 100 ms ticks. At t=0, OFF enters STARTUP. At t=1000,
+Version 0.5.0 uses integer 100 ms ticks. At t=0, OFF enters STARTUP. At t=1000,
 STARTUP enters NOMINAL unless the requested duration has been reached, in which
 case SHUTDOWN wins. No sensor/power samples are emitted at or after shutdown.
 Every prior tick emits sensor-a, sensor-b, then battery. A state-transition record
@@ -37,7 +36,7 @@ Samples use integer measurements and sample_time_ms details. All severity is INF
 
 The run ID includes every normalized input field and version:
 
-    run-v0.4.0-schema1.0-healthy-baseline-s{seed}-d{duration_ms}-t{step_ms}
+    run-v0.5.0-schema1.0-healthy-baseline-s{seed}-d{duration_ms}-t{step_ms}
 
 Event IDs append -e{sequence}, with contiguous zero-based sequence numbers.
 This reversible encoding avoids hash collisions for the current bounded input

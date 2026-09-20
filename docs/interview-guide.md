@@ -4,9 +4,8 @@
 
 "I am building an AI-assisted educational simulation/test investigation project.
 The implemented core includes C++/Python configuration contracts, state transitions,
-repeatable baseline and sensor-disagreement CLI simulations, and automated checks. I use AI
-assistance and am learning to explain and modify the code. Additional fault scenarios,
-runtime verification, web execution and the chatbot are not implemented yet."
+four repeatable CLI simulation scenarios, and automated checks. I use AI
+assistance and am learning to explain and modify the code. Independent runtime verification, web execution and the chatbot are not implemented yet."
 
 This is an educational simulation, not flight software or a validated physical model.
 
@@ -109,3 +108,12 @@ sensor-b record delivered at 2400. Explain why its age is 400 ms and why receipt
 does not make it fresh. Trace the last sensor-a sample to the SAFE transition at
 3300. Compare runs ending at 3300 and 3400; explain shutdown priority. Finally,
 explain why SAFE stays latched when both sensors resume delivery at 4000.
+
+
+## Battery threshold exercise
+
+Implemented with Codex assistance. Run battery-degradation with durations 8100,
+8200, 9100 and 9200 ms. Predict which transitions appear before running it.
+Explain why exact 20% and 10% do not cross their respective thresholds, why both
+signals are true below 10%, and why SAFE wins. Inspect the zero-power readings
+at 10000 ms and explain why this accelerated model does not validate real hardware.

@@ -27,7 +27,7 @@ def test_baseline_matches_event_contract_and_timing(duration):
     assert result.stdout.endswith(b"\n") and b"\r" not in result.stdout
     body = json.loads(result.stdout)
     assert body["schema_version"] == "1.0"
-    assert body["simulator_version"] == "0.4.0"
+    assert body["simulator_version"] == "0.5.0"
     assert body["status"] == "completed"
     SimulationConfig.model_validate(body["config"])
     records = [EventRecord.model_validate(item) for item in body["records"]]
@@ -68,15 +68,6 @@ def test_seed_changes_measurements_and_identity():
     assert a["records"][1]["measurement"] != b["records"][1]["measurement"]
 
 
-@pytest.mark.parametrize(
-    "scenario", ["battery-degradation"]
-)
-def test_planned_fault_scenarios_do_not_silently_run_baseline(scenario):
-    result = run({"scenario_id": scenario})
-    assert result.returncode == 3
-    assert json.loads(result.stdout)["error"]["code"] == "SCENARIO_NOT_IMPLEMENTED"
-
-
 def test_run_rejects_invalid_duration_before_simulating():
     result = run({"scenario_id": "healthy-baseline", "duration_ms": 1050})
     assert result.returncode == 2
@@ -89,5 +80,5 @@ def test_canonical_output_matches_cross_platform_snapshot():
     result = run({"scenario_id": "healthy-baseline", "duration_ms": 1000})
     assert result.returncode == 0
     assert hashlib.sha256(result.stdout).hexdigest() == (
-        "1f291ea984313c111e0761139f5dec7cb055b10a16eb8200306699bcd92068b9"
+        "5b1030f9a2b86c0258960b42176e0af479442ff4b52382ebf4741518a9efd9ed"
     )

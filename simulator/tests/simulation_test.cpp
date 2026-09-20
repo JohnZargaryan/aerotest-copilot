@@ -1,4 +1,6 @@
 #include "aerotest/freshness.hpp"
+#include "aerotest/battery.hpp"
+#include "aerotest/state_machine.hpp"
 #include "aerotest/simulation.hpp"
 
 #include <stdexcept>
@@ -71,8 +73,8 @@ TEST(Baseline, RawStructCannotBypassConfigValidation) {
     EXPECT_THROW(run_simulation(Config{"healthy-baseline", 42, 1000, 0}), std::invalid_argument);
 }
 
-TEST(Baseline, UnimplementedScenariosAreRejected) {
-    EXPECT_THROW(run_simulation(Config{"battery-degradation"}), std::invalid_argument);
+TEST(Baseline, UnknownScenarioIsRejected) {
+    EXPECT_THROW(run_simulation(Config{"unknown"}), std::invalid_argument);
 }
 
 
@@ -99,4 +101,22 @@ TEST(Freshness, InclusiveAgeBoundaryAndInvalidFuture) {
     EXPECT_FALSE(aerotest::sample_is_fresh(301, 0));
     EXPECT_FALSE(aerotest::sample_is_fresh(100, 200));
     EXPECT_TRUE(aerotest::sample_is_fresh(200, 200));
+}
+
+
+TEST(Battery, StrictThresholds) {
+    for (int value : {2001, 2000, 1999, 1001, 1000, 999, 0}) {
+        const auto status = aerotest::battery_status(value);
+        EXPECT_EQ(status.degraded, value < 2000);
+        EXPECT_EQ(status.safe, value < 1000);
+    }
+}
+
+TEST(Battery, SafeWinsOverDegradedAndShutdownWinsOverBoth) {
+    const auto power = aerotest::battery_status(999);
+    auto signals = aerotest::TransitionSignals{.degradation_required = power.degraded,
+                                               .safe_required = power.safe};
+    EXPECT_EQ(aerotest::next_state(aerotest::State::NOMINAL, signals), aerotest::State::SAFE);
+    signals.shutdown_requested = true;
+    EXPECT_EQ(aerotest::next_state(aerotest::State::NOMINAL, signals), aerotest::State::SHUTDOWN);
 }

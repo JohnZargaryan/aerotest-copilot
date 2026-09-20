@@ -45,10 +45,19 @@
       "title": "Low available battery",
       "rationale": "Insufficient power should cause a predictable conservative state.",
       "acceptance": "Available battery < 2000 basis points (20%) causes DEGRADED; < 1000 (10%) causes SAFE at the first eligible tick. SAFE takes precedence and latches until shutdown.",
-      "component": "simulator/power (planned)",
-      "status": "planned",
-      "automated_tests": [],
-      "result_evidence": null
+      "component": "simulator/include/aerotest/battery.hpp; simulator/src/simulation.cpp",
+      "status": "implemented",
+      "automated_tests": [
+        "Battery.StrictThresholds",
+        "Battery.SafeWinsOverDegradedAndShutdownWinsOverBoth",
+        "backend/tests/test_battery.py"
+      ],
+      "result_evidence": {
+        "command": "scripts/verify.ps1",
+        "cpp_report": "artifacts/cpp-tests.xml",
+        "python_report": "artifacts/python-tests.xml",
+        "note": "Development tests cover thresholds and emitted transitions; independent runtime verdicts remain planned."
+      }
     },
     {
       "id": "AT-REQ-004",
@@ -81,12 +90,13 @@
         "Baseline.ReplayIsByteIdenticalWithoutSharedRandomState",
         "backend/tests/test_baseline.py",
         "backend/tests/test_disagreement.py",
-        "backend/tests/test_missing_messages.py"
+        "backend/tests/test_missing_messages.py",
+        "backend/tests/test_battery.py"
       ],
       "result_evidence": {
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Replay covers baseline, disagreement and missing messages. Battery simulation and independent runtime checkers remain planned."
+        "note": "Replay covers all four scenarios; the fixed byte snapshot covers baseline. Separate execution metadata storage and independent runtime checkers remain planned."
       }
     },
     {
@@ -98,12 +108,13 @@
       "status": "partially_implemented",
       "automated_tests": [
         "simulator/tests/state_machine_test.cpp",
-        "Baseline.StartupNominalShutdownAtExactTimes"
+        "Baseline.StartupNominalShutdownAtExactTimes",
+        "backend/tests/test_battery.py"
       ],
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
-        "note": "Policy, baseline, disagreement and stale-sample timing tested. Battery detection and runtime evaluation remain planned."
+        "note": "Policy and timing tested across all four scenarios. Independent runtime evaluation remains planned."
       }
     }
   ]

@@ -8,10 +8,11 @@ an investigation assistant will explain results using linked evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: baseline and sensor-fault CLI simulation
+## Current status: all four CLI simulation scenarios
 
 Implemented:
-- Deterministic baseline, sensor-disagreement and missing-message CLI runs with telemetry and state events.
+- Deterministic baseline, sensor-disagreement, missing-message and battery-degradation CLI runs with telemetry and state events.
+- Low-battery thresholds with SAFE priority and nonnegative discharge telemetry.
 - Sensor freshness detection with delayed-delivery evidence and missing-message faults.
 - Persistent disagreement detection with strict amplitude and elapsed-time boundaries.
 - Pure C++ state-transition function with startup gating, fault latching and shutdown priority.
@@ -22,14 +23,14 @@ Implemented:
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** battery faults, web/API run execution, SQLite persistence,
+**Not implemented yet:** web/API run execution, SQLite persistence,
 requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
-Latest local verification: 25 GoogleTest tests (including 20 shared configuration cases
+Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-71 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+80 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
@@ -98,8 +99,8 @@ See [sensor-disagreement behavior](docs/disagreement.md).
 Use `scenario_id` = `missing-messages` for delayed/dropped samples and freshness transitions.
 See [missing-message behavior](docs/missing-messages.md).
 
-The battery scenario ID validates as a planned configuration but returns
-`SCENARIO_NOT_IMPLEMENTED` from `--run`; they do not silently run the baseline.
+Use `scenario_id` = `battery-degradation` for a deterministic discharge.
+See [battery behavior](docs/battery.md). All four declared scenarios now run.
 See [baseline behavior and replay format](docs/baseline.md).
 
 ## Linux / CI setup

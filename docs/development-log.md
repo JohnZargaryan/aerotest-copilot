@@ -157,3 +157,25 @@ No dependencies, paid services, API calls or deployments were added.
 Learning exercise: explain why the 2400 ms delivery is stale and trace the SAFE
 transition at 3300 ms; see docs/interview-guide.md. Next: battery degradation
 and precedence boundaries.
+
+
+## 2026-09-20 - Battery degradation and priority boundaries
+
+Implemented with OpenAI Codex assistance. Simulator 0.5.0 adds accelerated battery
+discharge, strict 20%/10% detection, and zero clamping. All four declared scenarios
+now execute. Sensor readings and normal power behavior in other scenarios are
+preserved. SAFE wins when low-power signals overlap; shutdown wins at threshold
+crossings. This educational signal is not a physical battery model.
+
+Verification: scripts/verify.ps1 passed on Windows with 27 GoogleTest tests,
+80 pytest tests, Ruff, schema freshness, dependency compatibility, TypeScript
+and Vite build. Tests cover exact and adjacent thresholds, signal priority,
+short runs, maximum-duration clamping, sensor preservation, extreme seeds and
+replay. The baseline byte snapshot matches its predecessor after normalizing
+only version text. Existing third-party deprecation and Vite path warnings remain.
+No dependencies, paid services, API calls or deployments were added.
+
+Learning exercise: predict transitions for runs ending at 8100 versus 8200 ms
+and 9100 versus 9200 ms; see docs/interview-guide.md. Next: bounded Python process
+execution with clean timeout and failure handling. Independent requirement
+verdicts and web execution remain planned.
