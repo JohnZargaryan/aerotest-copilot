@@ -17,6 +17,7 @@ Implemented:
 - Persistent disagreement detection with strict amplitude and elapsed-time boundaries.
 - Pure C++ state-transition function with startup gating, fault latching and shutdown priority.
 - C++20 configuration validator with bounded JSON input and structured errors.
+- Bounded asynchronous Python runner with output validation and process cleanup.
 - Matching Pydantic contracts and FastAPI health/config-validation endpoints.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - A React/TypeScript foundation screen, with future capabilities clearly labeled.
@@ -30,7 +31,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-80 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+103 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
@@ -102,6 +103,8 @@ See [missing-message behavior](docs/missing-messages.md).
 Use `scenario_id` = `battery-degradation` for a deterministic discharge.
 See [battery behavior](docs/battery.md). All four declared scenarios now run.
 See [baseline behavior and replay format](docs/baseline.md).
+
+See [Python runner](docs/runner.md) for local orchestration and error handling.
 
 ## Linux / CI setup
 

@@ -8,6 +8,7 @@ React UI -> FastAPI -> bounded C++ process -> independent requirement checkers
 Implemented: UI shell, health/config API, configuration validation, C++ transition
 core, and all four CLI simulation scenarios. The baseline tick loop generates
 startup/shutdown signals and measurements, plus disagreement, freshness and low-battery detection.
+A bounded asynchronous Python runner validates process output.
 There is no API run endpoint yet. next_state applies the operating policy.
 
 ## Decisions
@@ -34,9 +35,8 @@ Success: `{"schema_version":"1.0","status":"validated","config":{...}}`, exit 0.
 Invalid input: `{"schema_version":"1.0","status":"error","error":{"code":"INVALID_CONFIG","message":"..."}}`, exit 2.
 Only stdout contains the response. Input is capped at 64 KiB. `--run` executes the
 healthy baseline, sensor-disagreement, missing-messages or battery-degradation scenario and returns a versioned completed result containing normalized
-config, run_id and records. All declared scenarios execute; unknown IDs fail configuration validation. See docs/baseline.md for the exact output rules. The future parent
-runner will enforce a timeout/output bound; subprocess integration tests currently
-enforce five seconds. The API does not execute the CLI yet.
+config, run_id and records. All declared scenarios execute; unknown IDs fail configuration validation. See docs/baseline.md for the exact output rules. The Python runner enforces a five-second execution timeout, a 2,000,000-byte
+stdout cap and a 65,536-byte stderr cap, then validates the result. See docs/runner.md. The API does not execute the CLI yet.
 
 ## API today
 

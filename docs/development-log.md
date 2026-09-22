@@ -179,3 +179,29 @@ Learning exercise: predict transitions for runs ending at 8100 versus 8200 ms
 and 9100 versus 9200 ms; see docs/interview-guide.md. Next: bounded Python process
 execution with clean timeout and failure handling. Independent requirement
 verdicts and web execution remain planned.
+
+
+## 2026-09-21 - Bounded Python runner
+
+Implemented with OpenAI Codex assistance. Added an asynchronous local runner
+with fixed executable selection, input revalidation, concurrent capped output
+reads, execution timeout, stable failure codes and direct-child cleanup on
+failure or cancellation. Result validation checks envelope/version, configuration,
+record identities, sequence/tick ordering and completion. No API endpoint,
+persistence or independent requirement verdicts were added.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest and 102 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Added explicit cancellation/reaping coverage, then reran the runner tests (23
+passed), Ruff and full pytest suite (103 passed; JUnit refreshed). Real process
+tests cover all four maximum-duration scenarios, timeout, missing executable,
+nonzero exit, stderr, output caps and stdin EOF. Corrupted output and bypassed
+input validation are rejected. Existing third-party deprecation and Vite path
+warnings remain. No dependencies, paid services or API calls were introduced.
+
+Limitations: trusted simulator only; no descendant process supervision. Process
+creation and cleanup are outside the execution timer. No runtime requirement
+PASS claim follows from structural output validation. See docs/runner.md.
+Learning exercise: explain concurrent pipe draining, output limits and child
+reaping; trace a corrupted event ID in docs/interview-guide.md. Next: SQLite
+persistence and run APIs.

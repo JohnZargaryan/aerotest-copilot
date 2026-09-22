@@ -52,6 +52,6 @@ alone does not enforce chronological ordering or identity relationships; integra
 tests check those properties on actual emitted output.
 
 No requirement PASS results or evaluation answer keys are emitted. Requirement
-checks, run persistence, the bounded backend runner and frontend execution are
-separate planned components. API health still reports simulation_available=false
+checks, run persistence and frontend execution are separate planned components.
+The bounded backend runner is implemented; see docs/runner.md. API health still reports simulation_available=false
 because no API simulation capability is exposed yet.

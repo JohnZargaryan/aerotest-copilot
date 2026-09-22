@@ -117,3 +117,13 @@ Implemented with Codex assistance. Run battery-degradation with durations 8100,
 Explain why exact 20% and 10% do not cross their respective thresholds, why both
 signals are true below 10%, and why SAFE wins. Inspect the zero-power readings
 at 10000 ms and explain why this accelerated model does not validate real hardware.
+
+
+## Python process boundary exercise
+
+Implemented with Codex assistance. Explain why stdout and stderr must be drained
+at the same time, why a timeout alone does not bound output memory, and why a
+killed child must be waited for. Run the timeout and cancellation tests and locate
+the assertion that the process exited. Explain why valid event JSON does not
+prove that a simulation requirement passed. Trace a changed event ID through
+result validation and identify the INVALID_RESULT error.
