@@ -10,7 +10,7 @@ Implemented and planned capabilities, in dependency order.
 5. DONE: delayed/missing messages and freshness boundary tests.
 6. DONE: battery degradation and precedence tests.
 7. DONE: bounded Python runner and clean failures/timeouts.
-8. NEXT: add SQLite persistence and run APIs.
+8. IN PROGRESS: SQLite completed-execution storage DONE; NEXT add run APIs.
 9. Add independent requirement checkers, traceability, and defective fixture detection.
 10. Add validated investigation tools and comparisons.
 11. Add labeled scripted investigation with resolvable citations.

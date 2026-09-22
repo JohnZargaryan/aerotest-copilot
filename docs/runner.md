@@ -39,7 +39,8 @@ result = asyncio.run(run_simulation(SimulationConfig(scenario_id="healthy-baseli
 print(result.run_id, len(result.records))
 ```
 
-No API run endpoint, persistence or frontend execution is added. API health still
+No API run endpoint or frontend execution is added. Completed results can be saved
+with the separate local RunStore (docs/storage.md). API health still
 reports simulation_available=false. Tests run all four maximum-duration scenarios
 and real helper processes for timeout, failure, output caps, stdin EOF and cleanup;
 malformed or corrupted results are rejected separately.

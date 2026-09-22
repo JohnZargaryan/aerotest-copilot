@@ -205,3 +205,25 @@ PASS claim follows from structural output validation. See docs/runner.md.
 Learning exercise: explain concurrent pipe draining, output limits and child
 reaping; trace a corrupted event ID in docs/interview-guide.md. Next: SQLite
 persistence and run APIs.
+
+
+## 2026-09-22 - SQLite completed-execution storage
+
+Implemented with OpenAI Codex assistance. Added local save/get operations for
+validated results, atomic parameterized inserts, separate UUID execution IDs and
+real UTC metadata. Snapshots preserve reproducible simulator evidence. Connections
+close after operations, and unsupported future database versions are rejected.
+The storage half of the persistence/API item is complete; run endpoints remain next.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 110 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Seven storage tests cover reopening, duplicate replay identities, parameterized
+lookups, rejection before write, snapshots, concurrent saves and version protection.
+The first run encountered existing Windows temporary-directory permissions during
+fixture setup. Reran with PYTEST_ADDOPTS=--basetemp=artifacts/pytest-storage-20260922;
+all tests passed. Third-party deprecation, cache-permission and Vite path warnings
+remain non-fatal. No paid services, dependencies or deployment were introduced.
+
+Learning exercise: save one result twice and explain execution versus evidence
+identity; see docs/interview-guide.md. Limitations and the local API are documented
+in docs/storage.md. HTTP execution, history queries and migrations remain planned.

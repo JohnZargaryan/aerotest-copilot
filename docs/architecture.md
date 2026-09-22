@@ -9,6 +9,7 @@ Implemented: UI shell, health/config API, configuration validation, C++ transiti
 core, and all four CLI simulation scenarios. The baseline tick loop generates
 startup/shutdown signals and measurements, plus disagreement, freshness and low-battery detection.
 A bounded asynchronous Python runner validates process output.
+SQLite completed-execution storage is implemented (docs/storage.md).
 There is no API run endpoint yet. next_state applies the operating policy.
 
 ## Decisions

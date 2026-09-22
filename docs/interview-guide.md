@@ -127,3 +127,11 @@ killed child must be waited for. Run the timeout and cancellation tests and loca
 the assertion that the process exited. Explain why valid event JSON does not
 prove that a simulation requirement passed. Trace a changed event ID through
 result validation and identify the INVALID_RESULT error.
+
+
+## Execution persistence exercise
+
+Implemented with Codex assistance. Save the same completed result twice. Explain
+why the execution IDs differ while the run ID and event IDs match. Reopen the
+database and retrieve one execution. Explain why bound SQL parameters protect
+lookup and why transaction commit differs from merely executing an INSERT.

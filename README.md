@@ -17,6 +17,7 @@ Implemented:
 - Persistent disagreement detection with strict amplitude and elapsed-time boundaries.
 - Pure C++ state-transition function with startup gating, fault latching and shutdown priority.
 - C++20 configuration validator with bounded JSON input and structured errors.
+- Local SQLite storage for validated completed executions, with separate IDs and UTC timestamps.
 - Bounded asynchronous Python runner with output validation and process cleanup.
 - Matching Pydantic contracts and FastAPI health/config-validation endpoints.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
@@ -24,14 +25,14 @@ Implemented:
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** web/API run execution, SQLite persistence,
+**Not implemented yet:** web/API run execution,
 requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-103 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+110 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
