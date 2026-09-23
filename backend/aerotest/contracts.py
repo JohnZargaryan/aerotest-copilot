@@ -47,6 +47,6 @@ class EventRecord(Contract):
 class HealthResponse(Contract):
     schema_version: Literal["1.0"] = "1.0"
     status: Literal["ok"] = "ok"
-    checkpoint: Literal["foundation"] = "foundation"
-    simulation_available: Literal[False] = False
+    checkpoint: Literal["run-api"] = "run-api"
+    simulation_available: Literal[True] = True
     investigation_available: Literal[False] = False

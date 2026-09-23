@@ -5,7 +5,7 @@
 "I am building an AI-assisted educational simulation/test investigation project.
 The implemented core includes C++/Python configuration contracts, state transitions,
 four repeatable CLI simulation scenarios, and automated checks. I use AI
-assistance and am learning to explain and modify the code. Independent runtime verification, web execution and the chatbot are not implemented yet."
+assistance and am learning to explain and modify the code. The API can execute and retrieve stored runs. Independent runtime verification, frontend controls and the chatbot are not implemented yet."
 
 This is an educational simulation, not flight software or a validated physical model.
 
@@ -135,3 +135,11 @@ Implemented with Codex assistance. Save the same completed result twice. Explain
 why the execution IDs differ while the run ID and event IDs match. Reopen the
 database and retrieve one execution. Explain why bound SQL parameters protect
 lookup and why transaction commit differs from merely executing an INSERT.
+
+
+## Run API exercise
+
+Implemented with Codex assistance. POST the same configuration twice, compare
+execution IDs and evidence IDs, then GET each saved execution. Explain why 201
+is returned only after storage succeeds. Trace timeout versus storage failure,
+and explain why a disconnected caller may still leave a completed execution.

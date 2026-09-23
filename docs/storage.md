@@ -15,8 +15,9 @@ are surfaced to the caller. No update or delete operation is exposed.
 
 Database schema version 1 stores execution_id, created_at and result_json. Unknown
 future schema versions are rejected without migration. This is a local foundation:
-no HTTP endpoints, automatic runner integration, history listing, failed-execution
-records, retention, migrations or independent requirement verdicts yet. Reads use
+the create/get API connects storage to the runner (docs/run-api.md). History
+listing, failed-execution records, retention, migrations and independent
+requirement verdicts remain planned. Reads use
 the current simulator result adapter; compatibility with future simulator versions
 must be addressed before that adapter changes. The database is trusted local data,
 not a format for accepting uploaded untrusted databases.

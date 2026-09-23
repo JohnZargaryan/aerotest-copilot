@@ -10,7 +10,7 @@ core, and all four CLI simulation scenarios. The baseline tick loop generates
 startup/shutdown signals and measurements, plus disagreement, freshness and low-battery detection.
 A bounded asynchronous Python runner validates process output.
 SQLite completed-execution storage is implemented (docs/storage.md).
-There is no API run endpoint yet. next_state applies the operating policy.
+Create/get run endpoints connect the runner to storage (docs/run-api.md). next_state applies the operating policy.
 
 ## Decisions
 
@@ -37,11 +37,11 @@ Invalid input: `{"schema_version":"1.0","status":"error","error":{"code":"INVALI
 Only stdout contains the response. Input is capped at 64 KiB. `--run` executes the
 healthy baseline, sensor-disagreement, missing-messages or battery-degradation scenario and returns a versioned completed result containing normalized
 config, run_id and records. All declared scenarios execute; unknown IDs fail configuration validation. See docs/baseline.md for the exact output rules. The Python runner enforces a five-second execution timeout, a 2,000,000-byte
-stdout cap and a 65,536-byte stderr cap, then validates the result. See docs/runner.md. The API does not execute the CLI yet.
+stdout cap and a 65,536-byte stderr cap, then validates the result. See docs/runner.md. The create-run API executes the CLI and stores validated results.
 
 ## API today
 
-- `GET /api/v1/health`: foundation status; simulation/investigation availability false.
+- `GET /api/v1/health`: run-api capability status; simulation available, investigation unavailable.
 - `POST /api/v1/config/validate`: normalized config, or HTTP 422 validation details.
 - `/docs`: generated API documentation.
 

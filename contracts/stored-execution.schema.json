@@ -1,0 +1,239 @@
+{
+  "$defs": {
+    "EventRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Component Id",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "title": "Details",
+          "type": "object"
+        },
+        "event_code": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Event Code",
+          "type": "string"
+        },
+        "event_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "measurement": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Measurement"
+        },
+        "run_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "severity": {
+          "enum": [
+            "INFO",
+            "WARNING",
+            "ERROR"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "sim_time_ms": {
+          "minimum": 0,
+          "title": "Sim Time Ms",
+          "type": "integer"
+        },
+        "state": {
+          "enum": [
+            "OFF",
+            "STARTUP",
+            "NOMINAL",
+            "DEGRADED",
+            "SAFE",
+            "SHUTDOWN"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "unit": {
+          "enum": [
+            "mdegC",
+            "basis_points",
+            "ms",
+            "none"
+          ],
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "event_id",
+        "sim_time_ms",
+        "sequence",
+        "component_id",
+        "measurement",
+        "unit",
+        "state",
+        "severity",
+        "event_code",
+        "details"
+      ],
+      "title": "EventRecord",
+      "type": "object"
+    },
+    "SimulationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "duration_ms": {
+          "default": 30000,
+          "maximum": 120000,
+          "minimum": 1000,
+          "title": "Duration Ms",
+          "type": "integer"
+        },
+        "scenario_id": {
+          "enum": [
+            "healthy-baseline",
+            "sensor-disagreement",
+            "missing-messages",
+            "battery-degradation"
+          ],
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "seed": {
+          "default": 42,
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "step_ms": {
+          "default": 100,
+          "maximum": 100,
+          "minimum": 100,
+          "title": "Step Ms",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scenario_id"
+      ],
+      "title": "SimulationConfig",
+      "type": "object"
+    },
+    "SimulationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/SimulationConfig"
+        },
+        "records": {
+          "items": {
+            "$ref": "#/$defs/EventRecord"
+          },
+          "maxItems": 4000,
+          "minItems": 1,
+          "title": "Records",
+          "type": "array"
+        },
+        "run_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "simulator_version": {
+          "const": "0.5.0",
+          "title": "Simulator Version",
+          "type": "string"
+        },
+        "status": {
+          "const": "completed",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "simulator_version",
+        "status",
+        "run_id",
+        "config",
+        "records"
+      ],
+      "title": "SimulationResult",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "execution_id": {
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "result": {
+      "$ref": "#/$defs/SimulationResult"
+    }
+  },
+  "required": [
+    "execution_id",
+    "created_at",
+    "result"
+  ],
+  "title": "StoredExecution",
+  "type": "object"
+}

@@ -25,8 +25,8 @@ Result validation checks the versioned envelope, normalized request agreement,
 record contracts, chronological ticks, contiguous sequences, evidence identities
 and the final shutdown event. The internal result model accepts simulator 0.5.0;
 a version change requires reviewing this adapter. These are integrity checks,
-not independent requirement verdicts or physical validation. The result model
-is internal and is not yet an HTTP contract.
+not independent requirement verdicts or physical validation. The result model is nested inside the stored-execution HTTP response; its
+committed schema is exported by scripts/export_contracts.py.
 
 Example from Python with backend on its import path:
 
@@ -39,8 +39,7 @@ result = asyncio.run(run_simulation(SimulationConfig(scenario_id="healthy-baseli
 print(result.run_id, len(result.records))
 ```
 
-No API run endpoint or frontend execution is added. Completed results can be saved
-with the separate local RunStore (docs/storage.md). API health still
-reports simulation_available=false. Tests run all four maximum-duration scenarios
+The run API connects execution to RunStore (docs/run-api.md); frontend controls
+remain planned. API health reports simulation_available=true. Tests run all four maximum-duration scenarios
 and real helper processes for timeout, failure, output caps, stdin EOF and cleanup;
 malformed or corrupted results are rejected separately.

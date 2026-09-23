@@ -29,7 +29,7 @@ def test_config_contract_and_api(case):
 def test_health_does_not_claim_future_capabilities():
     response = client.get("/api/v1/health")
     assert response.status_code == 200
-    assert response.json()["simulation_available"] is False
+    assert response.json()["simulation_available"] is True
     assert response.json()["investigation_available"] is False
 
 

@@ -54,5 +54,5 @@ tests check those properties on actual emitted output.
 No requirement PASS results or evaluation answer keys are emitted. Requirement
 checks and frontend execution remain planned. Completed-run persistence is implemented
 as a local Python store (docs/storage.md).
-The bounded backend runner is implemented; see docs/runner.md. API health still reports simulation_available=false
-because no API simulation capability is exposed yet.
+The bounded backend runner is implemented; see docs/runner.md. API health reports simulation_available=true;
+create/get run endpoints are described in docs/run-api.md.

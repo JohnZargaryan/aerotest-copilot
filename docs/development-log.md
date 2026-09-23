@@ -227,3 +227,27 @@ remain non-fatal. No paid services, dependencies or deployment were introduced.
 Learning exercise: save one result twice and explain execution versus evidence
 identity; see docs/interview-guide.md. Limitations and the local API are documented
 in docs/storage.md. HTTP execution, history queries and migrations remain planned.
+
+
+## 2026-09-23 - Create and retrieve run APIs
+
+Implemented with OpenAI Codex assistance. POST /api/v1/runs now executes and
+stores a validated result, returning 201 and a Location header. GET by execution
+UUID retrieves the saved response. The application factory accepts a local
+configured database path; importing the module creates no database. Health now
+advertises simulation capability while investigation remains unavailable.
+Two execution slots per app limit concurrent runs; failures release their slot.
+The response schema is exported and checked alongside existing contracts.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 121 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Eleven API tests cover real C++/SQLite round trips across app recreation for all
+four scenarios, invalid/missing IDs, runner error mapping, storage sanitization,
+capacity rejection and slot release. Corrected one import-order lint issue before
+the final full check. Existing third-party deprecation and Vite path warnings remain.
+No dependencies, paid services, public deployment or portfolio-site edits were added.
+
+Learning exercise: POST the same configuration twice and compare execution and
+evidence IDs; explain 201 versus 504 and why disconnect does not cancel a worker.
+See docs/run-api.md and docs/interview-guide.md. Frontend controls and independent
+requirement verdicts remain planned. Next: independent requirement checkers.
