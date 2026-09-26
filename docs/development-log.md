@@ -251,3 +251,24 @@ Learning exercise: POST the same configuration twice and compare execution and
 evidence IDs; explain 201 versus 504 and why disconnect does not cancel a worker.
 See docs/run-api.md and docs/interview-guide.md. Frontend controls and independent
 requirement verdicts remain planned. Next: independent requirement checkers.
+
+
+## 2026-09-25 - Independent transition-edge evidence checker
+
+Implemented with OpenAI Codex assistance. Added a Python checker independent of
+the C++ state-transition implementation. It reports scoped PASS, FAIL or
+INCONCLUSIVE with resolvable event IDs, detecting illegal/disconnected edges,
+conflicting destinations and sample-state changes without transitions. Missing
+or structurally invalid evidence cannot produce PASS. AT-REQ-006 remains partial:
+trigger timing, measurement completeness and aggregate verdicts are not checked.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 132 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Eleven checker tests cover all four real scenarios, minimum duration, defective
+traces, citations and missing evidence. Used an isolated ignored pytest base
+directory to avoid previous Windows temp ownership conflicts. Existing third-party
+and Vite path warnings remain. No dependencies, paid services or deployment added.
+
+Learning exercise: mutate a SAFE destination, resolve the failure citation and
+contrast a missing final event; see docs/interview-guide.md. Scope and limitations
+are documented in docs/checkers.md. Next: measurement/timing requirement checkers.

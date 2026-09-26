@@ -143,3 +143,12 @@ Implemented with Codex assistance. POST the same configuration twice, compare
 execution IDs and evidence IDs, then GET each saved execution. Explain why 201
 is returned only after storage succeeds. Trace timeout versus storage failure,
 and explain why a disconnected caller may still leave a completed execution.
+
+
+## Independent checker exercise
+
+Implemented with Codex assistance. Run check_transition_edges on a completed
+battery scenario and resolve its evidence IDs. Copy the result and change a SAFE
+transition's destination to NOMINAL; explain the failure. Remove the final event
+and explain why the answer becomes INCONCLUSIVE. Explain why a legal edge at the
+wrong time still requires a separate timing checker.

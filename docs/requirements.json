@@ -109,12 +109,13 @@
       "automated_tests": [
         "simulator/tests/state_machine_test.cpp",
         "Baseline.StartupNominalShutdownAtExactTimes",
-        "backend/tests/test_battery.py"
+        "backend/tests/test_battery.py",
+        "backend/tests/test_checkers.py"
       ],
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
-        "note": "Policy and timing tested across all four scenarios. Independent runtime evaluation remains planned."
+        "note": "Independent checker covers allowed edges, latching and record-state consistency, with event citations. Trigger thresholds/timing and API verdict integration remain planned; this is not a full AT-REQ-006 verdict."
       }
     }
   ]
