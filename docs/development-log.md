@@ -272,3 +272,25 @@ and Vite path warnings remain. No dependencies, paid services or deployment adde
 Learning exercise: mutate a SAFE destination, resolve the failure citation and
 contrast a missing final event; see docs/interview-guide.md. Scope and limitations
 are documented in docs/checkers.md. Next: measurement/timing requirement checkers.
+
+
+## 2026-09-26 - Independent battery-response checker
+
+Implemented with OpenAI Codex assistance. Added AT-REQ-003 checking from recorded
+power values: same-tick degraded/safe obligations and SAFE latching after recovery.
+Complete per-tick fresh power evidence is required. Missing/invalid evidence and
+unexercised conditions produce INCONCLUSIVE; failures cite concrete event IDs.
+This is scoped observed-condition evaluation, not full scenario coverage or an
+aggregate requirement report. Sensor checks and API result integration remain next.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 141 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Nine new tests cover real evidence/citations, late degraded/safe responses,
+unlatching, exact thresholds, power recovery, missing samples, wrong units and
+short-run coverage. Used an isolated ignored pytest base directory; existing
+cache-permission, third-party deprecation and Vite path warnings remain non-fatal.
+No paid services, dependencies or deployment were introduced.
+
+Learning exercise: corrupt the 8100 ms power state and resolve the failure;
+compare power recovery with SAFE latching. See docs/interview-guide.md and the
+scope details in docs/checkers.md.

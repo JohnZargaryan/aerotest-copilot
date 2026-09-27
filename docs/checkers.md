@@ -25,3 +25,27 @@ Tests use all four real simulator scenarios, the minimum-duration baseline and
 copies with defective transitions/state labels. Missing final evidence and missing
 transition endpoints must yield INCONCLUSIVE. Fault-trigger and timing checkers,
 aggregate results and API/UI integration remain planned.
+
+
+## Battery response obligations
+
+check_battery_response independently reads measured battery values and states at
+all active ticks. It requires one fresh POWER_SAMPLE in basis_points per tick,
+valid values 0..10000, and complete structural execution evidence. Missing,
+duplicate, wrong-unit or stale power evidence produces INCONCLUSIVE.
+
+After startup (1000 ms), values below 2000 require DEGRADED or SAFE on that same
+tick. Values below 1000 require SAFE, which must remain through subsequent power
+samples even if power recovers. Exact boundaries do not impose the stricter state.
+Shutdown has no sample and takes precedence. Failures cite the violating power
+record and, when relevant, the original SAFE-triggering sample. PASS cites the
+first low-power obligation, SAFE trigger if observed, and final power record.
+No eligible low-power condition produces INCONCLUSIVE, not a vacuous PASS.
+
+This AT-REQ-003 result is scoped to obligations actually observed; a run exercising
+only degradation does not establish SAFE coverage. It does not reject early SAFE
+caused by another fault, independently validate physical power values, or establish
+transition-edge consistency. Use the separate edge checker for state-event
+consistency. Checkers do not consult scenario schedules or C++ detector code.
+Results are not yet persisted or exposed by the API. Sensor disagreement/freshness
+checks and aggregate coverage/results remain planned.

@@ -50,13 +50,14 @@
       "automated_tests": [
         "Battery.StrictThresholds",
         "Battery.SafeWinsOverDegradedAndShutdownWinsOverBoth",
-        "backend/tests/test_battery.py"
+        "backend/tests/test_battery.py",
+        "backend/tests/test_battery_checker.py"
       ],
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Development tests cover thresholds and emitted transitions; independent runtime verdicts remain planned."
+        "note": "Independent Python checker verifies observed low-power response obligations and SAFE latching, with power-event citations. Run-level API verdict integration remains planned; PASS is limited to observed conditions."
       }
     },
     {

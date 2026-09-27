@@ -152,3 +152,12 @@ battery scenario and resolve its evidence IDs. Copy the result and change a SAFE
 transition's destination to NOMINAL; explain the failure. Remove the final event
 and explain why the answer becomes INCONCLUSIVE. Explain why a legal edge at the
 wrong time still requires a separate timing checker.
+
+
+## Battery evidence exercise
+
+Implemented with Codex assistance. Evaluate the battery scenario, then change the
+8100 ms power record state to NOMINAL and inspect the failure citation. Restore it
+and change the values after 10000 ms to full power: explain why SAFE must remain.
+Compare a run ending at 8100 ms and explain why an unexercised condition is
+INCONCLUSIVE rather than PASS. Distinguish observed coverage from full coverage.

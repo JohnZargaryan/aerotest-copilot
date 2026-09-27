@@ -20,6 +20,7 @@ Implemented:
 - Local SQLite storage for validated completed executions, with separate IDs and UTC timestamps.
 - Bounded asynchronous Python runner with output validation and process cleanup.
 - FastAPI endpoints to create and retrieve stored runs, plus health/config validation.
+- Independent battery-response checker for low-power timing and SAFE latching.
 - Independent transition-edge checker with PASS/FAIL/INCONCLUSIVE and event citations.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - A React/TypeScript foundation screen, with future capabilities clearly labeled.
@@ -33,7 +34,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-132 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+141 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
