@@ -49,3 +49,27 @@ transition-edge consistency. Use the separate edge checker for state-event
 consistency. Checkers do not consult scenario schedules or C++ detector code.
 Results are not yet persisted or exposed by the API. Sensor disagreement/freshness
 checks and aggregate coverage/results remain planned.
+
+
+## Sensor freshness obligations
+
+check_freshness_response reconstructs the latest sensor-a and sensor-b acquisitions
+from delivered SENSOR_SAMPLE records without consulting the scenario schedule.
+Age >300 ms is stale; equality remains fresh. After startup, one stale sensor
+requires DEGRADED or SAFE on that tick; both require SAFE, which remains latched
+when delivery resumes. Delayed messages retain acquisition time, not receipt time.
+Shutdown is excluded from active ticks and therefore takes precedence.
+
+The checker requires both initial sensors, valid millidegree measurements and
+nonfuture, nondecreasing acquisition times on ticks. Duplicate deliveries per
+sensor/tick are ambiguous. A battery POWER_SAMPLE is the per-tick state witness,
+and all records on that tick must agree on state. Missing/ambiguous evidence is
+INCONCLUSIVE. No observed eligible staleness is also INCONCLUSIVE. Failures cite
+last sensor deliveries and the violating state witness; SAFE failures also cite
+the triggering evidence. PASS cites first staleness and dual-stale evidence if any.
+
+Scope: assumes the delivery log is complete, so absence of a sensor record means
+no delivery. It cannot distinguish dropped messages from silently omitted log
+records, verify physical measurements or prove unexercised dual-stale coverage.
+State-edge correctness remains the separate edge check. Results are still local
+Python values; persistent-disagreement checks and aggregate/API results remain next.

@@ -294,3 +294,25 @@ No paid services, dependencies or deployment were introduced.
 Learning exercise: corrupt the 8100 ms power state and resolve the failure;
 compare power recovery with SAFE latching. See docs/interview-guide.md and the
 scope details in docs/checkers.md.
+
+
+## 2026-09-27 - Independent sensor-freshness checker
+
+Implemented with OpenAI Codex assistance. Added AT-REQ-002 observed-condition
+checking from acquisition timestamps, including delayed delivery, one/dual stale
+responses and SAFE latching. Per-tick state witnesses and unambiguous initial
+sensor evidence are required. Invalid/missing evidence and unexercised conditions
+produce INCONCLUSIVE. Scope assumes delivery-log completeness; no API verdict
+or unexercised coverage is claimed.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 150 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Nine tests cover actual delayed-message evidence, the exact freshness boundary,
+late responses, false recovery, unexercised fresh runs, future acquisitions and
+missing state witnesses. Used an isolated ignored pytest base directory. Existing
+cache-permission, third-party and Vite path warnings remain non-fatal. No paid
+services, dependencies or deployment added.
+
+Learning exercise: trace 1900/2200/2300/2400 ms acquisition versus delivery and
+resolve failure citations; see docs/interview-guide.md. Next: persistent sensor
+disagreement checking and aggregate results.

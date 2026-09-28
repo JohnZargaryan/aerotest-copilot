@@ -31,13 +31,14 @@
       "status": "implemented",
       "automated_tests": [
         "Freshness.InclusiveAgeBoundaryAndInvalidFuture",
-        "backend/tests/test_missing_messages.py"
+        "backend/tests/test_missing_messages.py",
+        "backend/tests/test_freshness_checker.py"
       ],
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Development tests verify emitted samples and transitions. Independent runtime verdicts remain planned."
+        "note": "Independent checker reconstructs acquisition age and verifies observed stale-sensor response and SAFE latching with event citations. Assumes delivery log completeness; aggregate/API verdict integration remains planned."
       }
     },
     {

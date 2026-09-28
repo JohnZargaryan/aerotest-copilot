@@ -104,3 +104,61 @@ def check_battery_response(result: SimulationResult) -> CheckResult:
     witnesses.append(power[max(power)].event_id)
     return verdict("PASS", "Observed low-power obligations and SAFE latching were satisfied.",
                    *dict.fromkeys(witnesses))
+
+
+def check_freshness_response(result: SimulationResult) -> CheckResult:
+    def verdict(status, reason, *evidence):
+        return CheckResult("AT-REQ-002", status, reason, tuple(dict.fromkeys(evidence)),
+                           "observed sensor-age obligations and SAFE latching")
+
+    try:
+        trace = _decode(result.model_dump_json().encode(), result.config)
+    except (RunnerError, ValueError):
+        return verdict("INCONCLUSIVE", "Incomplete or structurally invalid execution evidence.")
+    ticks = {}
+    for record in trace.records:
+        ticks.setdefault(record.sim_time_ms, []).append(record)
+    latest = {}
+    safe_evidence = ()
+    witnesses = ()
+    for time in range(0, trace.config.duration_ms, trace.config.step_ms):
+        records = ticks.get(time, [])
+        heartbeats = [r for r in records if r.event_code == "POWER_SAMPLE"
+                      and r.component_id == "battery"]
+        if len(heartbeats) != 1 or len({r.state for r in records}) != 1:
+            return verdict("INCONCLUSIVE", "Missing or ambiguous per-tick state evidence.")
+        state_record = heartbeats[0]
+        delivered = set()
+        for record in records:
+            if record.component_id not in ("sensor-a", "sensor-b"):
+                continue
+            acquired = record.details.get("sample_time_ms")
+            previous = latest.get(record.component_id)
+            if (record.component_id in delivered or record.event_code != "SENSOR_SAMPLE"
+                    or record.unit != "mdegC" or type(record.measurement) is not int
+                    or type(acquired) is not int or not 0 <= acquired <= time
+                    or acquired % trace.config.step_ms
+                    or (previous and acquired < previous.details["sample_time_ms"])):
+                return verdict("INCONCLUSIVE", "Invalid or ambiguous sensor delivery.",
+                               record.event_id)
+            latest[record.component_id] = record
+            delivered.add(record.component_id)
+        if len(latest) != 2:
+            return verdict("INCONCLUSIVE", "Initial sensor evidence is missing.")
+        stale = sum(time - r.details["sample_time_ms"] > 300 for r in latest.values())
+        if time < 1000:
+            continue
+        evidence = tuple(r.event_id for r in latest.values()) + (state_record.event_id,)
+        if stale == 2 and not safe_evidence:
+            safe_evidence = evidence
+        if safe_evidence and state_record.state != "SAFE":
+            return verdict("FAIL", f"SAFE required at {time} ms.", *safe_evidence, *evidence)
+        if stale and state_record.state not in ("DEGRADED", "SAFE"):
+            return verdict("FAIL", f"Stale sensor requires DEGRADED or SAFE at {time} ms.",
+                           *evidence)
+        if stale and not witnesses:
+            witnesses = evidence
+    if not witnesses:
+        return verdict("INCONCLUSIVE", "No eligible stale-sensor condition was exercised.")
+    return verdict("PASS", "Observed stale-sensor obligations and SAFE latching were satisfied.",
+                   *witnesses, *safe_evidence)

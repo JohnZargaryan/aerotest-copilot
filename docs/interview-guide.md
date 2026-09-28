@@ -161,3 +161,12 @@ Implemented with Codex assistance. Evaluate the battery scenario, then change th
 and change the values after 10000 ms to full power: explain why SAFE must remain.
 Compare a run ending at 8100 ms and explain why an unexercised condition is
 INCONCLUSIVE rather than PASS. Distinguish observed coverage from full coverage.
+
+
+## Freshness evidence exercise
+
+Implemented with Codex assistance. Trace sensor-b's 1900 ms sample to the fresh
+2200 ms tick and stale 2300 ms tick. Explain why delivery at 2400 of a sample
+acquired at 2000 does not restore freshness. Corrupt the recorded state at 3300
+and resolve the failure citations. Explain the assumption that delivery logs are
+complete and why missing state witnesses produce INCONCLUSIVE.
