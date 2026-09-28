@@ -73,3 +73,26 @@ no delivery. It cannot distinguish dropped messages from silently omitted log
 records, verify physical measurements or prove unexercised dual-stale coverage.
 State-edge correctness remains the separate edge check. Results are still local
 Python values; persistent-disagreement checks and aggregate/API results remain next.
+
+
+## Persistent disagreement obligations
+
+check_disagreement_response reconstructs both latest sensor readings from the
+same validated delivery/state evidence conventions as the freshness checker.
+When both ages are <=300 ms and absolute difference is >5000 mdegC, persistence
+begins. Agreement (including equality) or either stale reading resets it. At
+500 ms elapsed, after startup, the recorded state must be DEGRADED or SAFE on
+that tick. Shutdown has no active tick. No eligible sustained condition returns
+INCONCLUSIVE; malformed or missing evidence also returns INCONCLUSIVE.
+
+Citations include sensor events spanning the first 500 ms of the qualifying
+interval and the state witness. A legal earlier DEGRADED/SAFE state is permitted
+because other faults can justify it. This is an observed obligation check, not
+an exclusivity check or a complete physical validation. State latching and edge
+consistency remain the separate edge check. Delivery-log completeness is assumed.
+The checker does not use scenario schedules or simulator detector code.
+
+Tests cover positive and negative differences, exact 5000 versus 5001 mdegC,
+the first eligible response, agreement/staleness resets, shutdown before detection,
+missing initial samples and real-scenario citations. Aggregate results and API
+integration are the next step; no checker result is currently persisted.

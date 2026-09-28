@@ -316,3 +316,27 @@ services, dependencies or deployment added.
 Learning exercise: trace 1900/2200/2300/2400 ms acquisition versus delivery and
 resolve failure citations; see docs/interview-guide.md. Next: persistent sensor
 disagreement checking and aggregate results.
+
+
+## 2026-09-28 - Independent persistent-disagreement checker
+
+Implemented with OpenAI Codex assistance. Added AT-REQ-001 observed-condition
+checking from recorded sensor readings and acquisition times. Strict >5000 mdegC
+and 500 ms persistence require same-tick DEGRADED or SAFE after startup. Agreement
+or stale readings reset persistence. Evidence citations span the qualifying sensor
+interval and response witness. Invalid or unexercised evidence is INCONCLUSIVE.
+Scenario schedules and C++ detector code are not used by the checker.
+
+Verification: 27 GoogleTest and 160 pytest tests passed through scripts/verify.ps1.
+That script then found a line-length lint issue; shortened the message and ran
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build, all
+successfully. Ten new tests cover real evidence, late response, both difference
+signs, exact threshold, agreement/staleness resets, shutdown and missing samples.
+Used an isolated ignored pytest base directory. Existing cache-permission,
+third-party deprecation and Vite path warnings remain non-fatal. No dependencies,
+paid services or deployment were added.
+
+Learning exercise: insert agreement at 2400 ms and explain the new response deadline;
+see docs/interview-guide.md. Checker scope and assumptions are in docs/checkers.md.
+Next: aggregate result contracts and API integration, without claiming unexercised
+coverage or full system compliance.

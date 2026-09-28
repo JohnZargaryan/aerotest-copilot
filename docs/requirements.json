@@ -13,13 +13,14 @@
         "Disagreement.StrictAmplitudeAndInclusiveDuration",
         "Disagreement.RecoveryOrStaleSampleResetsTimer",
         "DisagreementScenario.DegradesAt2500AndLatchesAfterRecovery",
-        "backend/tests/test_disagreement.py"
+        "backend/tests/test_disagreement.py",
+        "backend/tests/test_disagreement_checker.py"
       ],
       "result_evidence": {
         "command": "scripts/verify.ps1",
         "cpp_report": "artifacts/cpp-tests.xml",
         "python_report": "artifacts/python-tests.xml",
-        "note": "Development tests cover detection and emitted transitions. Independent runtime requirement verdicts remain planned."
+        "note": "Independent checker reconstructs measured disagreement persistence and observed response obligations, with sensor/state citations. Assumes delivery-log completeness; aggregate/API verdict integration remains planned."
       }
     },
     {

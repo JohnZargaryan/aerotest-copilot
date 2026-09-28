@@ -170,3 +170,12 @@ Implemented with Codex assistance. Trace sensor-b's 1900 ms sample to the fresh
 acquired at 2000 does not restore freshness. Corrupt the recorded state at 3300
 and resolve the failure citations. Explain the assumption that delivery logs are
 complete and why missing state witnesses produce INCONCLUSIVE.
+
+
+## Disagreement evidence exercise
+
+Implemented with Codex assistance. Resolve the sensor citations leading to the
+2500 ms response. Change that tick's state to NOMINAL and inspect the failure.
+Insert agreement at 2400 ms and explain why the old deadline no longer applies.
+Repeat with a stale sensor. Explain why exactly 5000 mdegC does not start the
+timer and why an unexercised run yields INCONCLUSIVE.
