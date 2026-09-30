@@ -179,3 +179,11 @@ Implemented with Codex assistance. Resolve the sensor citations leading to the
 Insert agreement at 2400 ms and explain why the old deadline no longer applies.
 Repeat with a stale sensor. Explain why exactly 5000 mdegC does not start the
 timer and why an unexercised run yields INCONCLUSIVE.
+
+
+## Check report exercise
+
+Implemented with Codex assistance. Retrieve /checks for a baseline and a fault
+run. Explain why baseline sensor/power checks are INCONCLUSIVE while the edge
+check passes. Resolve a citation using the saved result, and explain why there
+is no overall compliance verdict and why checker_version matters.

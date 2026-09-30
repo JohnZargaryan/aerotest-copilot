@@ -340,3 +340,26 @@ Learning exercise: insert agreement at 2400 ms and explain the new response dead
 see docs/interview-guide.md. Checker scope and assumptions are in docs/checkers.md.
 Next: aggregate result contracts and API integration, without claiming unexercised
 coverage or full system compliance.
+
+
+## 2026-09-30 - Scoped check-report API
+
+Implemented with OpenAI Codex assistance. Added a versioned aggregate report and
+GET /api/v1/runs/{execution_id}/checks, computed from saved evidence without
+rerunning or modifying the execution. Reports preserve each checker's scope,
+INCONCLUSIVE outcomes and citations. AT-REQ-004/005 are explicitly unassessed;
+no overall compliance verdict is emitted. Citation references are validated
+against the source events, and the report schema is committed and checked.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 166 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Six new integration tests cover all four scenarios across app recreation,
+repeatable read-only reporting, scoped statuses, resolvable citations, missing
+and invalid IDs, and OpenAPI exposure. Existing third-party, cache-permission
+and Vite path warnings remain non-fatal. No paid services, dependencies or
+application deployment added.
+
+Learning exercise: compare baseline and fault reports, resolve one citation and
+explain unassessed requirements; see docs/interview-guide.md. Reports are computed
+on demand with checker_version 0.1.0, not stored verdict snapshots. Next: validated
+investigation tools and comparisons.

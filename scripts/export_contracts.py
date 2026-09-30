@@ -9,13 +9,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 
 from aerotest.contracts import EventRecord, SimulationConfig  # noqa: E402
+from aerotest.reports import CheckReport  # noqa: E402
 from aerotest.storage import StoredExecution  # noqa: E402
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--check", action="store_true")
 args = parser.parse_args()
 for name, model in [("simulation-config", SimulationConfig), ("event-record", EventRecord),
-                    ("stored-execution", StoredExecution)]:
+                    ("stored-execution", StoredExecution), ("check-report", CheckReport)]:
     output = ROOT / "contracts" / f"{name}.schema.json"
     serialized = json.dumps(model.model_json_schema(), indent=2, sort_keys=True) + "\n"
     if args.check:

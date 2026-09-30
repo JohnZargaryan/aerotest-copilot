@@ -39,3 +39,6 @@ added.
 Tests exercise real C++ execution and SQLite round trips across app recreation for
 all scenarios, validation/missing IDs, error mapping, storage failure sanitization,
 capacity rejection and releasing slots after failures.
+
+GET /api/v1/runs/{execution_id}/checks returns on-demand scoped checker results;
+see docs/checkers.md for coverage, citations and unassessed requirements.

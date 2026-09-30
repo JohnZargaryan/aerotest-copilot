@@ -18,3 +18,5 @@ when capabilities change. Run relevant checks and report checks that could not r
 Publishing and verified pushes are authorized to https://github.com/JohnZargaryan/aerotest-copilot.git on main. Verify
 origin before pushing verified commits, preserve remote changes, and never
 force-push. Application deployment remains unauthorized.
+
+Use Conventional Commit titles (feat:, fix:, docs:, test:, refactor:, chore:) with a concise description.

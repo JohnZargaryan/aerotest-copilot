@@ -1,0 +1,96 @@
+{
+  "$defs": {
+    "RequirementCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "requirement_id": {
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "INCONCLUSIVE"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "status",
+        "reason",
+        "evidence_ids",
+        "scope"
+      ],
+      "title": "RequirementCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checker_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Checker Version",
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/RequirementCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "execution_id": {
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "default": "Observed obligations only; not full requirement or system compliance.",
+      "title": "Scope",
+      "type": "string"
+    },
+    "unassessed_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unassessed Requirements",
+      "type": "array"
+    }
+  },
+  "required": [
+    "execution_id",
+    "run_id",
+    "checks",
+    "unassessed_requirements"
+  ],
+  "title": "CheckReport",
+  "type": "object"
+}

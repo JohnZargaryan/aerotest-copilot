@@ -7,6 +7,7 @@ from uuid import UUID
 from fastapi import FastAPI, HTTPException, Response
 
 from aerotest.contracts import HealthResponse, SimulationConfig
+from aerotest.reports import CheckReport, build_report
 from aerotest.runner import RunnerError, run_simulation
 from aerotest.storage import RunStore, StoredExecution
 
@@ -56,6 +57,14 @@ def create_app(database_path: Path | None = None) -> FastAPI:
         if saved is None:
             raise HTTPException(404, detail={"code": "RUN_NOT_FOUND"})
         return saved
+
+    @application.get("/api/v1/runs/{execution_id}/checks", response_model=CheckReport)
+    def get_checks(execution_id: UUID) -> CheckReport:
+        saved = get_run(execution_id)
+        try:
+            return build_report(saved)
+        except ValueError as error:
+            raise HTTPException(500, detail={"code": "CHECK_REPORT_INVALID"}) from error
 
     return application
 

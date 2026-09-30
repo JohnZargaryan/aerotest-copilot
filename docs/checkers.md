@@ -96,3 +96,21 @@ Tests cover positive and negative differences, exact 5000 versus 5001 mdegC,
 the first eligible response, agreement/staleness resets, shutdown before detection,
 missing initial samples and real-scenario citations. Aggregate results and API
 integration are the next step; no checker result is currently persisted.
+
+
+## Aggregate report API
+
+GET /api/v1/runs/{execution_id}/checks computes a versioned CheckReport from saved
+execution evidence. It neither reruns the simulator nor changes the saved record.
+The report includes schema_version 1.0, checker_version 0.1.0, execution/run IDs,
+all four scoped checks and unassessed requirements AT-REQ-004/005. Configuration
+validation and replay have development tests, but are not runtime report verdicts.
+No overall PASS is emitted. INCONCLUSIVE remains explicit for unexercised cases;
+an edge-only PASS is not full AT-REQ-006 compliance. Every citation is checked
+against the source record IDs before returning a report.
+
+Results are computed on demand, not persisted snapshots. Future checker changes
+must update checker_version. Missing executions return 404, malformed UUIDs 422,
+and storage errors 503 as for GET run. An invalid generated citation returns a
+sanitized 500 CHECK_REPORT_INVALID. OpenAPI and the committed check-report schema
+describe the response. Aggregate reporting does not expand any checker's scope.
