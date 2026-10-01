@@ -12,7 +12,7 @@ Implemented and planned capabilities, in dependency order.
 7. DONE: bounded Python runner and clean failures/timeouts.
 8. DONE: SQLite completed-execution storage and create/get run APIs.
 9. DONE: scoped transition/sensor/power checkers, defective-trace tests, and aggregate report API. Configuration and replay runtime assessments remain unassessed.
-10. NEXT: add validated investigation tools and comparisons.
+10. IN PROGRESS: bounded event-query and citation tools DONE; NEXT add run comparisons.
 11. Add labeled scripted investigation with resolvable citations.
 12. Add replaceable live adapter while preserving the no-cost scripted mode; paid calls remain disabled.
 13. Add scenario controls, charts and event timeline.

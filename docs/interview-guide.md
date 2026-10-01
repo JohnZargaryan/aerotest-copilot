@@ -187,3 +187,11 @@ Implemented with Codex assistance. Retrieve /checks for a baseline and a fault
 run. Explain why baseline sensor/power checks are INCONCLUSIVE while the edge
 check passes. Resolve a citation using the saved result, and explain why there
 is no overall compliance verdict and why checker_version matters.
+
+
+## Evidence tool exercise
+
+Implemented with Codex assistance. Query sensor-b between 2500 and 2600 ms in a
+sensor-disagreement execution. Compare a 1-event page with the next page, then
+resolve a checker citation. Explain why execution ID scopes lookup even when two
+replays share event IDs, and why a missing citation must not be silently dropped.

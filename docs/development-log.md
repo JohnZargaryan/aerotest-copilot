@@ -363,3 +363,25 @@ Learning exercise: compare baseline and fault reports, resolve one citation and
 explain unassessed requirements; see docs/interview-guide.md. Reports are computed
 on demand with checker_version 0.1.0, not stored verdict snapshots. Next: validated
 investigation tools and comparisons.
+
+
+## 2026-10-01 - Bounded local evidence tools
+
+Implemented with OpenAI Codex assistance. Added read-only event filtering/pagination
+and execution-scoped citation resolution. Typed arguments enforce interval,
+component/state/code allowlists, page size and citation count bounds. Methods
+revalidate inputs before reading a saved execution and reject unresolved citations.
+No arbitrary SQL/commands or database path arguments are exposed. Comparison and
+assistant integration remain planned.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 178 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Twelve new tests cover complete pagination, inclusive combined filters, ordered
+report-citation lookup, unchanged stored results, bounded/invalid inputs, missing
+evidence, duplicate citations and bypassed validation. Existing cache-permission,
+third-party and Vite path warnings remain non-fatal. Used an isolated ignored
+pytest base directory. No paid services, dependencies or deployment added.
+
+Learning exercise: paginate a sensor-b time window and resolve a checker citation;
+see docs/interview-guide.md. Local interfaces and scope are in docs/investigation.md.
+Next: validated comparisons between saved executions.
