@@ -205,3 +205,13 @@ records for the 2500 ms sensor-b difference and explain the +6000 mdegC delta.
 Reverse the comparison and explain its sign. Compare identical replays, then a
 shorter missing-message run. Explain why absent records and different configurations
 do not establish causality, and why sequence numbers cannot align fault evidence.
+
+
+## Scripted investigation exercise
+
+Implemented with OpenAI Codex assistance. Investigate a baseline execution and
+explain why unexercised checks remain INCONCLUSIVE. Select AT-REQ-001 on a fault
+run, resolve its citations and compare the explanation to the raw checker report.
+Inspect omitted_evidence_count and explain why 20 displayed records can represent
+a longer evidence chain. Explain how scripted narration differs from a live model
+and why neither the selected check counts nor their citations certify compliance.

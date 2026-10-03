@@ -26,6 +26,7 @@ Implemented:
 - Independent battery-response checker for low-power timing and SAFE latching.
 - Independent transition-edge checker with PASS/FAIL/INCONCLUSIVE and event citations.
 - Typed local investigation tools for bounded event queries, citation lookup and saved-run comparisons.
+- Labeled local scripted investigation summaries with scoped verdicts and verified citations.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - A React/TypeScript foundation screen, with future capabilities clearly labeled.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
@@ -38,7 +39,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-187 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+198 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
@@ -140,6 +141,7 @@ the local verification above was performed on Windows.
 
 ## Design and learning
 
+- [Scripted investigation interface](docs/scripted-investigation.md)
 - [Architecture and public interfaces](docs/architecture.md)
 - [Requirements catalog](docs/requirements.json)
 - [State machine design](docs/state-machine.md)

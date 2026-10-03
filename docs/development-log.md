@@ -409,3 +409,30 @@ dependencies or deployment added.
 Learning exercise: compare baseline/fault records, reverse the delta and explain
 why differing configurations do not prove causality; see docs/interview-guide.md.
 Next: labeled scripted investigations using resolvable citations.
+
+
+## 2026-10-03 - Scripted investigation summaries
+
+Implemented with OpenAI Codex assistance. Added a labeled local scripted assistant
+that narrates scoped report outcomes with original, execution-resolved event records.
+Requests select all implemented checks or one allowlisted requirement. Responses
+preserve reasons, scopes, FAIL and INCONCLUSIVE, disclose unassessed requirements,
+and record actual report/citation tool activity. Citation display is capped at
+20 per finding with total/omitted counts; long chains show their beginning and end.
+No free-form interpretation, model call, HTTP endpoint or chat UI added.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 198 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Eleven new tests cover all scenarios, repeatability, read-only storage, exact
+report narration, citation identity/bounds, selective inconclusive checks,
+defective-trace failures, unsupported arguments, validation bypass, missing
+executions and unresolved citations. The initial defective-trace fixture changed
+only sensor states and correctly produced INCONCLUSIVE for conflicting state
+witnesses; it was corrected to change the whole detection tick to exercise FAIL.
+After strengthening citation selection assertions, focused assistant tests and
+lint were rerun. Existing cache-permission, third-party and Vite path warnings
+remain non-fatal. No paid services, dependencies or deployment added.
+
+Learning exercise: inspect scoped outcomes and partial evidence chains; see
+docs/interview-guide.md. Interface and limitations: docs/scripted-investigation.md.
+Next: a replaceable assistant adapter that preserves the no-cost scripted mode.
