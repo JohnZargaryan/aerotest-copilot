@@ -25,7 +25,7 @@ Implemented:
 - Independent sensor-age checker with delayed-delivery and SAFE-latching evidence.
 - Independent battery-response checker for low-power timing and SAFE latching.
 - Independent transition-edge checker with PASS/FAIL/INCONCLUSIVE and event citations.
-- Typed local investigation tools for bounded event queries and citation lookup.
+- Typed local investigation tools for bounded event queries, citation lookup and saved-run comparisons.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - A React/TypeScript foundation screen, with future capabilities clearly labeled.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
@@ -38,7 +38,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-178 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+187 pytest tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows

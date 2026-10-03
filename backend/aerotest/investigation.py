@@ -5,7 +5,7 @@ from uuid import UUID
 
 from pydantic import Field, model_validator
 
-from aerotest.contracts import Contract, EventRecord, OperatingState
+from aerotest.contracts import Contract, EventRecord, OperatingState, SimulationConfig
 from aerotest.storage import RunStore
 
 Tick = Annotated[int, Field(strict=True, ge=0, le=120000)]
@@ -48,6 +48,29 @@ class CitationQuery(Contract):
         return self
 
 
+class ComparisonQuery(Contract):
+    left_execution_id: UUID
+    right_execution_id: UUID
+    offset: Annotated[int, Field(strict=True, ge=0, le=8000)] = 0
+    limit: Annotated[int, Field(strict=True, ge=1, le=100)] = 50
+
+
+class EventDifference(Contract):
+    left: EventRecord | None
+    right: EventRecord | None
+    measurement_delta: int | None
+
+
+class ComparisonPage(Contract):
+    left_execution_id: UUID
+    right_execution_id: UUID
+    left_config: SimulationConfig
+    right_config: SimulationConfig
+    total_differences: int
+    next_offset: int | None
+    differences: list[EventDifference]
+
+
 class EvidenceTools:
     def __init__(self, store: RunStore):
         self.store = store
@@ -79,3 +102,44 @@ class EvidenceTools:
         if any(event_id not in available for event_id in query.event_ids):
             raise LookupError("CITATION_NOT_FOUND")
         return [available[event_id] for event_id in query.event_ids]
+
+
+    def compare_runs(self, query: ComparisonQuery) -> ComparisonPage:
+        """Compare recorded content by delivery tick/component/code, not sequence."""
+        query = ComparisonQuery.model_validate(query.model_dump())
+        left = self._execution(query.left_execution_id).result
+        right = self._execution(query.right_execution_id).result
+        if (left.simulator_version, left.schema_version, left.config.step_ms) != (
+                right.simulator_version, right.schema_version, right.config.step_ms):
+            raise ValueError("INCOMPATIBLE_RUNS")
+
+        def index(records):
+            indexed = {}
+            for record in records:
+                key = (record.sim_time_ms, record.component_id, record.event_code)
+                if key in indexed:
+                    raise ValueError("AMBIGUOUS_EVENT_MATCH")
+                indexed[key] = record
+            return indexed
+
+        def content(record):
+            return record.model_dump(exclude={"run_id", "event_id", "sequence"})
+
+        left_events, right_events = index(left.records), index(right.records)
+        differences = []
+        for key in sorted(left_events.keys() | right_events.keys()):
+            before, after = left_events.get(key), right_events.get(key)
+            if before is not None and after is not None and content(before) == content(after):
+                continue
+            delta = None
+            if (before is not None and after is not None and before.unit == after.unit
+                    and before.measurement is not None and after.measurement is not None):
+                delta = after.measurement - before.measurement
+            differences.append(EventDifference(left=before, right=after, measurement_delta=delta))
+        stop = query.offset + query.limit
+        return ComparisonPage(
+            left_execution_id=query.left_execution_id, right_execution_id=query.right_execution_id,
+            left_config=left.config, right_config=right.config,
+            total_differences=len(differences),
+            next_offset=stop if stop < len(differences) else None,
+            differences=differences[query.offset:stop])

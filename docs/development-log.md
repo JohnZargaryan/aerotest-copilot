@@ -385,3 +385,27 @@ pytest base directory. No paid services, dependencies or deployment added.
 Learning exercise: paginate a sensor-b time window and resolve a checker citation;
 see docs/interview-guide.md. Local interfaces and scope are in docs/investigation.md.
 Next: validated comparisons between saved executions.
+
+
+## 2026-10-02 - Saved-run evidence comparison
+
+Implemented with OpenAI Codex assistance. Added bounded, read-only comparisons of
+saved executions, matching records by delivery tick/component/event code rather
+than shifted sequence numbers. Results carry both configurations, execution-scoped
+original records, missing-side markers and same-unit right-minus-left measurement
+deltas. Identical replay content is unchanged. Ambiguous matching keys and
+incompatible formats are rejected. Comparisons describe observations, not causality
+or compliance. No HTTP endpoint, assistant or UI integration added.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 187 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Nine new tests cover the known +6000 mdegC bias, reversed sign, extra transitions,
+source citation resolution, full pagination, stored-result preservation, identical
+replay, missing delivery, unequal duration, bounded arguments and validation bypass.
+Existing third-party deprecation, cache-permission and Vite path warnings remain
+non-fatal. Used an isolated ignored pytest base directory. No paid services,
+dependencies or deployment added.
+
+Learning exercise: compare baseline/fault records, reverse the delta and explain
+why differing configurations do not prove causality; see docs/interview-guide.md.
+Next: labeled scripted investigations using resolvable citations.

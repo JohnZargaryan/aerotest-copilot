@@ -195,3 +195,13 @@ Implemented with Codex assistance. Query sensor-b between 2500 and 2600 ms in a
 sensor-disagreement execution. Compare a 1-event page with the next page, then
 resolve a checker citation. Explain why execution ID scopes lookup even when two
 replays share event IDs, and why a missing citation must not be silently dropped.
+
+
+## Run comparison exercise
+
+Implemented with OpenAI Codex assistance. Save baseline and sensor-disagreement
+runs with the same seed and duration, then paginate compare_runs. Resolve both
+records for the 2500 ms sensor-b difference and explain the +6000 mdegC delta.
+Reverse the comparison and explain its sign. Compare identical replays, then a
+shorter missing-message run. Explain why absent records and different configurations
+do not establish causality, and why sequence numbers cannot align fault evidence.
