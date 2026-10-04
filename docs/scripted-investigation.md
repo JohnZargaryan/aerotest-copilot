@@ -35,6 +35,30 @@ silently disappearing. tool_activity records build_report and performed citation
 lookups. Event details remain structured data and never become instructions.
 
 This interface reads saved evidence without modifying storage or rerunning a
-simulation. No HTTP endpoint, chat UI, live-model adapter or arbitrary tool dispatcher
-is implemented here. Evidence interpretation is limited to existing checker scopes;
+simulation. A scripted HTTP endpoint and adapter selection boundary are available. Chat UI,
+live-model implementation and arbitrary tool dispatch remain unimplemented. Evidence interpretation is limited to existing checker scopes;
 this is not a causal explanation, certified assessment or independent AI evaluation.
+
+
+## HTTP interface and adapter boundary
+
+GET /api/v1/runs/{execution_id}/investigation returns the same scripted response
+as the local interface. Optional query parameters are requirement_id (one of the
+four assessed requirements) and mode (default scripted). The response schema is
+committed at contracts/scripted-investigation.schema.json and exposed in OpenAPI.
+
+The API selects an Investigator through create_investigator. Currently only the
+scripted implementation is available. mode=live returns 503 LIVE_MODE_DISABLED
+before loading evidence, with no network request or model SDK. Unknown modes or
+invalid UUID/requirement arguments return 422. A missing execution returns 404
+RUN_NOT_FOUND. Storage access errors return 503 STORAGE_UNAVAILABLE; invalid
+investigation evidence or unresolved citations return 500 INVESTIGATION_INVALID.
+Internal exception text is excluded from error responses.
+
+The health response now declares investigation_available=true as an implemented
+API capability, not a runtime storage readiness probe or live-model availability.
+Endpoints remain local development interfaces; no application deployment is implied.
+A future live implementation needs a suitable no-cost design, response validation
+and evaluation before it can be enabled. The present adapter protocol intentionally
+returns the current scripted response contract; that contract will need explicit
+extension for a different mode. Adding a boundary does not claim live AI exists.

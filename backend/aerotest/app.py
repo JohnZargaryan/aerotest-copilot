@@ -6,6 +6,8 @@ from uuid import UUID
 
 from fastapi import FastAPI, HTTPException, Response
 
+from aerotest.adapters import AssistantMode, LiveModeDisabled, create_investigator
+from aerotest.assistant import InvestigationRequest, RequirementId, ScriptedInvestigation
 from aerotest.contracts import HealthResponse, SimulationConfig
 from aerotest.reports import CheckReport, build_report
 from aerotest.runner import RunnerError, run_simulation
@@ -65,6 +67,25 @@ def create_app(database_path: Path | None = None) -> FastAPI:
             return build_report(saved)
         except ValueError as error:
             raise HTTPException(500, detail={"code": "CHECK_REPORT_INVALID"}) from error
+
+    @application.get("/api/v1/runs/{execution_id}/investigation",
+                     response_model=ScriptedInvestigation)
+    def get_investigation(execution_id: UUID, requirement_id: RequirementId | None = None,
+                          mode: AssistantMode = "scripted") -> ScriptedInvestigation:
+        try:
+            investigator = create_investigator(RunStore(path), mode)
+            return investigator.investigate(InvestigationRequest(
+                execution_id=execution_id, requirement_id=requirement_id))
+        except LiveModeDisabled as error:
+            raise HTTPException(503, detail={"code": "LIVE_MODE_DISABLED"}) from error
+        except LookupError as error:
+            if str(error) == "EXECUTION_NOT_FOUND":
+                raise HTTPException(404, detail={"code": "RUN_NOT_FOUND"}) from error
+            raise HTTPException(500, detail={"code": "INVESTIGATION_INVALID"}) from error
+        except (sqlite3.Error, OSError, RunnerError) as error:
+            raise HTTPException(503, detail={"code": "STORAGE_UNAVAILABLE"}) from error
+        except ValueError as error:
+            raise HTTPException(500, detail={"code": "INVESTIGATION_INVALID"}) from error
 
     return application
 

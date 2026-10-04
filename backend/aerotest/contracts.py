@@ -49,4 +49,4 @@ class HealthResponse(Contract):
     status: Literal["ok"] = "ok"
     checkpoint: Literal["run-api"] = "run-api"
     simulation_available: Literal[True] = True
-    investigation_available: Literal[False] = False
+    investigation_available: Literal[True] = True

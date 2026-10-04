@@ -30,7 +30,7 @@ def test_health_does_not_claim_future_capabilities():
     response = client.get("/api/v1/health")
     assert response.status_code == 200
     assert response.json()["simulation_available"] is True
-    assert response.json()["investigation_available"] is False
+    assert response.json()["investigation_available"] is True
 
 
 def test_malformed_json_is_rejected():

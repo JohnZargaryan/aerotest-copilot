@@ -1,0 +1,250 @@
+{
+  "$defs": {
+    "EventRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Component Id",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "title": "Details",
+          "type": "object"
+        },
+        "event_code": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Event Code",
+          "type": "string"
+        },
+        "event_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "measurement": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Measurement"
+        },
+        "run_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "severity": {
+          "enum": [
+            "INFO",
+            "WARNING",
+            "ERROR"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "sim_time_ms": {
+          "minimum": 0,
+          "title": "Sim Time Ms",
+          "type": "integer"
+        },
+        "state": {
+          "enum": [
+            "OFF",
+            "STARTUP",
+            "NOMINAL",
+            "DEGRADED",
+            "SAFE",
+            "SHUTDOWN"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "unit": {
+          "enum": [
+            "mdegC",
+            "basis_points",
+            "ms",
+            "none"
+          ],
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "event_id",
+        "sim_time_ms",
+        "sequence",
+        "component_id",
+        "measurement",
+        "unit",
+        "state",
+        "severity",
+        "event_code",
+        "details"
+      ],
+      "title": "EventRecord",
+      "type": "object"
+    },
+    "InvestigationFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/EventRecord"
+          },
+          "title": "Citations",
+          "type": "array"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "omitted_evidence_count": {
+          "title": "Omitted Evidence Count",
+          "type": "integer"
+        },
+        "requirement_id": {
+          "enum": [
+            "AT-REQ-001",
+            "AT-REQ-002",
+            "AT-REQ-003",
+            "AT-REQ-006"
+          ],
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "scope": {
+          "title": "Scope",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "INCONCLUSIVE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "total_evidence_count": {
+          "title": "Total Evidence Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "status",
+        "explanation",
+        "scope",
+        "citations",
+        "total_evidence_count",
+        "omitted_evidence_count"
+      ],
+      "title": "InvestigationFinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assistant_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Assistant Version",
+      "type": "string"
+    },
+    "checker_version": {
+      "title": "Checker Version",
+      "type": "string"
+    },
+    "execution_id": {
+      "format": "uuid",
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/InvestigationFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "mode": {
+      "const": "scripted",
+      "default": "scripted",
+      "title": "Mode",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "scope": {
+      "title": "Scope",
+      "type": "string"
+    },
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "tool_activity": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tool Activity",
+      "type": "array"
+    },
+    "unassessed_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unassessed Requirements",
+      "type": "array"
+    }
+  },
+  "required": [
+    "checker_version",
+    "execution_id",
+    "run_id",
+    "summary",
+    "findings",
+    "unassessed_requirements",
+    "scope",
+    "tool_activity"
+  ],
+  "title": "ScriptedInvestigation",
+  "type": "object"
+}

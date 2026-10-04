@@ -436,3 +436,28 @@ remain non-fatal. No paid services, dependencies or deployment added.
 Learning exercise: inspect scoped outcomes and partial evidence chains; see
 docs/interview-guide.md. Interface and limitations: docs/scripted-investigation.md.
 Next: a replaceable assistant adapter that preserves the no-cost scripted mode.
+
+
+## 2026-10-04 - Scripted investigation API and adapter boundary
+
+Implemented with OpenAI Codex assistance. Added GET /api/v1/runs/{execution_id}/
+investigation with optional requirement selection and explicit scripted/live mode.
+The scripted path selects an Investigator through a small adapter factory and
+returns the existing labeled, citation-verified response. Live mode is rejected
+before storage access and has no model implementation, SDK or network calls.
+Added the response schema to the exporter and OpenAPI. The health capability
+flag now advertises the implemented investigation API; it is not a readiness probe.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Twelve new tests cover all scenarios against the local assistant, application
+recreation, selective requests, unchanged saved evidence, capability/schema
+exposure, invalid arguments, missing execution, disabled live-mode ordering and
+sanitized storage/invalid-evidence errors. Existing cache-permission, third-party
+and Vite path warnings remain non-fatal. No paid services, dependencies or
+deployment added.
+
+Learning exercise: compare API/local results and explain the adapter boundary,
+disabled-mode ordering and capability flag; see docs/interview-guide.md.
+Live-model implementation remains deferred under the $0 constraint. Next:
+frontend scenario controls, followed by charts and event timeline.

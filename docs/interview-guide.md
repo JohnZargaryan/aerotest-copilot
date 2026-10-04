@@ -215,3 +215,13 @@ run, resolve its citations and compare the explanation to the raw checker report
 Inspect omitted_evidence_count and explain why 20 displayed records can represent
 a longer evidence chain. Explain how scripted narration differs from a live model
 and why neither the selected check counts nor their citations certify compliance.
+
+
+## Assistant adapter and API exercise
+
+Implemented with OpenAI Codex assistance. Retrieve an execution's investigation
+through the API and compare it with the local scripted response. Select one
+requirement and explain why summary counts cover only that selection. Request
+mode=live and explain why the disabled response precedes storage access. Explain
+how an adapter boundary supports later replacement without claiming a live model
+is implemented, and why the health capability flag is not a readiness probe.
