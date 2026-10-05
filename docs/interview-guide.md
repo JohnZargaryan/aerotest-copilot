@@ -225,3 +225,13 @@ requirement and explain why summary counts cover only that selection. Request
 mode=live and explain why the disabled response precedes storage access. Explain
 how an adapter boundary supports later replacement without claiming a live model
 is implemented, and why the health capability flag is not a readiness probe.
+
+
+## Scenario controls exercise
+
+Implemented with OpenAI Codex assistance. Run the baseline and each fault scenario
+from the browser with seed 42 and duration 30000 ms. Compare record counts and the
+state before shutdown. Repeat a configuration and explain why its evidence run ID
+is stable while its execution ID changes. Try seed 4294967296 and duration 1050 ms
+and explain the rejected bounds. Stop the local API, submit again and explain why
+the last saved result remains visible and a retry can create another execution.

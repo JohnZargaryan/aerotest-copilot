@@ -461,3 +461,31 @@ Learning exercise: compare API/local results and explain the adapter boundary,
 disabled-mode ordering and capability flag; see docs/interview-guide.md.
 Live-model implementation remains deferred under the $0 constraint. Next:
 frontend scenario controls, followed by charts and event timeline.
+
+
+## 2026-10-05 - Browser scenario controls
+
+Implemented with OpenAI Codex assistance. Added scenario selection, bounded integer
+seed/duration inputs and a real POST /api/v1/runs flow. Pending requests disable
+the form and use a submission guard. Successful results show their saved configuration,
+record count, state before shutdown and separate execution/evidence identities.
+Errors retain the previous saved summary; transport failures explain that a run
+may have been saved and a retry creates another execution. Requests time out after
+15 seconds without automatic retries. Summaries are explicitly not requirement
+verdicts. Added labeled controls, live status/error regions and responsive styling.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Manual in-app browser verification used isolated ignored SQLite storage and the
+real API through the preview proxy. All four default runs completed: baseline
+903 records/NOMINAL, disagreement 904/DEGRADED, missing messages 876/SAFE, battery
+905/SAFE (state before shutdown). Observed disabled pending controls, saved IDs
+and visual desktop layout. The browser rejected seed 4294967296 and duration
+1050; disconnecting the test API showed an error while retaining the prior result.
+No automated browser suite was added. Mobile CSS is implemented but mobile layout
+was not visually verified. Existing cache-permission, third-party and Vite path
+warnings remain non-fatal. No paid services, dependencies or deployment added.
+
+Learning exercise: compare scenario evidence and replay identities, reject invalid
+inputs and inspect a connection failure; see docs/interview-guide.md. Next:
+telemetry charts and event timeline, followed by requirement/investigation views.

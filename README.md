@@ -8,7 +8,7 @@ an investigation assistant will explain results using linked evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: simulation execution and retrieval APIs
+## Current status: interactive simulation controls and investigation APIs
 
 Implemented:
 - Deterministic baseline, sensor-disagreement, missing-message and battery-degradation CLI runs with telemetry and state events.
@@ -28,12 +28,11 @@ Implemented:
 - Typed local investigation tools for bounded event queries, citation lookup and saved-run comparisons.
 - Scripted investigation API and assistant adapter boundary with scoped verdicts and verified citations; live mode disabled.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
-- A React/TypeScript foundation screen, with future capabilities clearly labeled.
+- React/TypeScript scenario, seed and duration controls with saved-run summaries and failure feedback.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** frontend run controls,
-complete requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
+**Not implemented yet:** complete requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 

@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import { RunPanel } from "./RunPanel";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
         <p className="eyebrow">SIMULATION & TEST INVESTIGATION</p>
         <h1>Understand the fault.<br /><em>Follow the evidence.</em></h1>
         <p className="intro">A software engineering workbench for exploring a fictional research-aircraft subsystem, checking requirements, and investigating results.</p>
-        <div className="notice"><span className="dot" /> In development · All four simulation scenarios are available through the CLI and API; frontend run controls and chat are not available yet.</div>
+        <div className="notice"><span className="dot" /> Run all four scenarios below. Charts and interactive investigation views are in development.</div>
       </section>
+      <RunPanel />
       <section aria-labelledby="foundation-title" className="foundation">
         <div><p className="eyebrow">ENGINEERING FOUNDATION</p><h2 id="foundation-title">A foundation we can test.</h2><p>Start with precise inputs and explicit boundaries. Add behavior only after the contracts agree.</p></div>
         <ol>

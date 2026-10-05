@@ -28,3 +28,25 @@ li p { margin: 6px 0 0; }
 footer { padding: 30px 0 40px; font-size: 12px; color: #5b696c; line-height: 1.6; }
 footer p { margin: 4px 0 0; }
 @media (max-width: 650px) { main { padding: 0 22px; } header { min-height: 84px; } .brand { font-size: 12px; } .tag { font-size: 10px; padding: 7px; } .hero { padding: 48px 0 38px; } .intro { font-size: 17px; } .foundation { grid-template-columns: 1fr; padding: 26px; gap: 24px; } .notice { align-items: flex-start; line-height: 1.5; } .dot { margin-top: 6px; } }
+
+.run-panel { padding: 32px; margin-bottom: 32px; background: #fff; border: 1px solid #ccd3cc; border-radius: 12px; }
+.run-panel .eyebrow { margin-bottom: 16px; }
+.run-panel p { color: #4f6167; line-height: 1.6; }
+fieldset { border: 0; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr auto; align-items: end; gap: 16px; }
+label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
+input, select, button { font: inherit; border-radius: 6px; padding: 12px; min-height: 46px; }
+input, select { width: 100%; min-width: 0; border: 1px solid #9facaa; color: #172b35; background: #fff; }
+button { background: #326a57; color: #fff; border: 1px solid #326a57; cursor: pointer; font-weight: 600; }
+button:hover { background: #254f41; }
+button:disabled { opacity: .65; cursor: wait; }
+:focus-visible { outline: 3px solid #b47a28; outline-offset: 3px; }
+.input-hint { font-size: 12px; }
+.run-panel .run-error { color: #873529; background: #fff1ec; padding: 12px; border-radius: 6px; }
+.run-result { border-top: 1px solid #ccd3cc; padding-top: 20px; }
+dl { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+dt { font-size: 12px; color: #586968; margin-bottom: 6px; }
+dd { margin: 0; font-weight: 600; }
+.identity { font: 12px ui-monospace, monospace; overflow-wrap: anywhere; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 850px) { fieldset { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 650px) { .run-panel { padding: 22px; } fieldset, dl { grid-template-columns: 1fr; } }
