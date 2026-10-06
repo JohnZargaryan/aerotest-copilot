@@ -50,3 +50,18 @@ dd { margin: 0; font-weight: 600; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (max-width: 850px) { fieldset { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 650px) { .run-panel { padding: 22px; } fieldset, dl { grid-template-columns: 1fr; } }
+
+.timeline { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ccd3cc; }
+.timeline-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.timeline-scroll { overflow-x: auto; }
+.timeline table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+.timeline th, .timeline td { padding: 14px 10px; border-bottom: 1px solid #ccd3cc; vertical-align: top; }
+.timeline th { color: #356452; }
+.timeline td:first-child { font-variant-numeric: tabular-nums; }
+.timeline summary { cursor: pointer; color: #326a57; font-weight: 600; white-space: nowrap; }
+.event-evidence { display: block; max-width: 360px; }
+.event-evidence div { margin: 12px 0; }
+.timeline pre { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 360px; background: #f5f5ef; padding: 10px; }
+.timeline-pages { display: flex; gap: 12px; margin-top: 18px; }
+.timeline-pages button:disabled { cursor: default; }
+@media (max-width: 650px) { .timeline-filters { grid-template-columns: 1fr; } .timeline table { min-width: 530px; } }

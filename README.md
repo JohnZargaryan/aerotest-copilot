@@ -29,6 +29,7 @@ Implemented:
 - Scripted investigation API and assistant adapter boundary with scoped verdicts and verified citations; live mode disabled.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - React/TypeScript scenario, seed and duration controls with saved-run summaries and failure feedback.
+- Filtered, paginated event timeline with expandable original evidence details.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 

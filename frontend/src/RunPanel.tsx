@@ -1,5 +1,7 @@
 import { useRef, useState, type FormEvent } from "react";
 
+import { EventTimeline, type EvidenceEvent } from "./EventTimeline";
+
 const scenarios = [
   ["healthy-baseline", "Healthy baseline"],
   ["sensor-disagreement", "Sensor disagreement"],
@@ -14,7 +16,7 @@ type SavedRun = {
     run_id: string;
     status: "completed";
     config: { scenario_id: string; seed: number; duration_ms: number };
-    records: { state: string; event_code: string }[];
+    records: EvidenceEvent[];
   };
 };
 
@@ -107,6 +109,7 @@ export function RunPanel() {
         <div><dt>Evidence run ID</dt><dd className="identity">{saved.result.run_id}</dd></div>
       </dl>
       <p>Simulation completed and saved. This is not a requirement verdict. Charts and investigation views are planned.</p>
+      <EventTimeline key={saved.execution_id} records={saved.result.records} />
     </div>}
   </section>;
 }

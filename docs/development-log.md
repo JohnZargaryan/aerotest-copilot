@@ -489,3 +489,31 @@ warnings remain non-fatal. No paid services, dependencies or deployment added.
 Learning exercise: compare scenario evidence and replay identities, reject invalid
 inputs and inspect a connection failure; see docs/interview-guide.md. Next:
 telemetry charts and event timeline, followed by requirement/investigation views.
+
+
+## 2026-10-06 - Filtered evidence timeline
+
+Implemented with OpenAI Codex assistance. Added the saved-run event timeline with
+state-transition defaults, combined event-type/component filters, 20-record pages,
+boundary controls and an explicit empty state. New execution identities reset
+filters and pagination. Record disclosures show original event IDs, severity,
+measurement/unit and structured details. Delivery simulation time is distinguished
+from sensor acquisition details; saved sequence order is retained. Rendered details
+remain text. No dependencies or backend behavior changed.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+Ruff, schema freshness, dependency compatibility, TypeScript and Vite build.
+Manual browser verification used the real API with isolated ignored SQLite storage:
+the missing-message run showed five transitions, including DEGRADED at 2300 ms and
+SAFE at 3300 ms. Traversed all 44 all-event pages and verified sequences 0..875
+exactly once in order, with next disabled on the last page. Combined sensor-b sample
+filters showed 281 events; expanded record 72 exposed delivery at 2400 ms and
+acquisition at 2000 ms. Verified empty filters, filter pagination reset and reset
+to three baseline transitions after a new execution. Inspected the desktop layout.
+No automated browser suite was added; mobile layout remains visually unverified.
+Existing cache-permission, third-party and Vite path warnings remain non-fatal.
+No paid services or deployment added. Temporary test services were stopped.
+
+Learning exercise: resolve a timeline event and explain delivery/acquisition time;
+see docs/interview-guide.md. Interface scope: docs/ui-evidence.md. Next: telemetry
+charts, followed by requirement and investigation views.

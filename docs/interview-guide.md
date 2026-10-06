@@ -235,3 +235,13 @@ state before shutdown. Repeat a configuration and explain why its evidence run I
 is stable while its execution ID changes. Try seed 4294967296 and duration 1050 ms
 and explain the rejected bounds. Stop the local API, submit again and explain why
 the last saved result remains visible and a retry can create another execution.
+
+
+## Timeline evidence exercise
+
+Implemented with OpenAI Codex assistance. Run missing-messages and inspect its five
+state transitions. Filter sensor-b samples and expand the record delivered at
+2400 ms; explain why sample_time_ms=2000 matters for freshness. Switch to all events
+and follow the page boundaries, explaining why same-tick records retain sequence
+order. Try a filter combination with no results, then create a new execution and
+explain why its filters reset. Resolve an expanded event ID in the saved API result.
