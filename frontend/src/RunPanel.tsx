@@ -2,6 +2,8 @@ import { useRef, useState, type FormEvent } from "react";
 
 import { EventTimeline, type EvidenceEvent } from "./EventTimeline";
 
+import { TelemetryCharts } from "./TelemetryCharts";
+
 const scenarios = [
   ["healthy-baseline", "Healthy baseline"],
   ["sensor-disagreement", "Sensor disagreement"],
@@ -108,7 +110,8 @@ export function RunPanel() {
         <div><dt>Execution ID</dt><dd className="identity">{saved.execution_id}</dd></div>
         <div><dt>Evidence run ID</dt><dd className="identity">{saved.result.run_id}</dd></div>
       </dl>
-      <p>Simulation completed and saved. This is not a requirement verdict. Charts and investigation views are planned.</p>
+      <p>Simulation completed and saved. This is not a requirement verdict. Investigation views are planned.</p>
+      <TelemetryCharts records={saved.result.records} durationMs={saved.result.config.duration_ms} />
       <EventTimeline key={saved.execution_id} records={saved.result.records} />
     </div>}
   </section>;

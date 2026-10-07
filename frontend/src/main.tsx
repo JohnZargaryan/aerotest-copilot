@@ -11,7 +11,7 @@ function App() {
         <p className="eyebrow">SIMULATION & TEST INVESTIGATION</p>
         <h1>Understand the fault.<br /><em>Follow the evidence.</em></h1>
         <p className="intro">A software engineering workbench for exploring a fictional research-aircraft subsystem, checking requirements, and investigating results.</p>
-        <div className="notice"><span className="dot" /> Run all four scenarios below. Charts and interactive investigation views are in development.</div>
+        <div className="notice"><span className="dot" /> Run all four scenarios below. Explore telemetry charts and the event timeline. Interactive investigation views are in development.</div>
       </section>
       <RunPanel />
       <section aria-labelledby="foundation-title" className="foundation">

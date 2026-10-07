@@ -245,3 +245,13 @@ state transitions. Filter sensor-b samples and expand the record delivered at
 and follow the page boundaries, explaining why same-tick records retain sequence
 order. Try a filter combination with no results, then create a new execution and
 explain why its filters reset. Resolve an expanded event ID in the saved API result.
+
+
+## Telemetry chart exercise
+
+Implemented with OpenAI Codex assistance. Compare baseline and disagreement charts,
+noting their different sensor-axis ranges. Explain the conversion from 26000 mdegC
+to 26 degrees C and 2000 basis points to 20%. In missing-messages, explain why gaps
+must not be interpolated and why delayed marks use delivery time. Resolve a mark's
+event ID through the timeline and inspect sample_time_ms. Explain why the plotted
+20%/10% battery values alone are not a requirement verdict.

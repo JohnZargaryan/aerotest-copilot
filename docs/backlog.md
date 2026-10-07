@@ -15,7 +15,7 @@ Implemented and planned capabilities, in dependency order.
 10. DONE: bounded event-query, citation-resolution and saved-run comparison tools.
 11. DONE: labeled local scripted investigation with resolvable citations; HTTP integration DONE; UI integration remains planned.
 12. DONE: assistant adapter selection boundary and scripted investigation API. Live-model implementation remains deferred and disabled under the $0 constraint.
-13. IN PROGRESS: scenario controls, saved-run summary and event timeline DONE; telemetry charts NEXT.
+13. DONE: scenario controls, saved-run summaries, telemetry charts and event timeline.
 14. Add requirement results and chat/tool activity to the UI.
 15. Add withheld evaluation dataset and scripted-mode report.
 16. Add Docker setup, clean setup verification, screenshots and demo recording.

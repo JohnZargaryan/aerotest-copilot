@@ -517,3 +517,31 @@ No paid services or deployment added. Temporary test services were stopped.
 Learning exercise: resolve a timeline event and explain delivery/acquisition time;
 see docs/interview-guide.md. Interface scope: docs/ui-evidence.md. Next: telemetry
 charts, followed by requirement and investigation views.
+
+
+## 2026-10-07 - Recorded sensor and battery charts
+
+Implemented with OpenAI Codex assistance. Added SVG sample charts for both sensors
+and battery. Unit conversions are explicit, sensor ranges adapt with padding and
+battery remains fixed at 0..100%. Marks retain delivery time and original event
+identity without connecting or synthesizing missing samples. Shapes/colors and
+text legends distinguish sensors. Chart titles describe the axes; event timeline
+remains the keyboard-accessible source of exact values and acquisition details.
+Added five dependency-free Node telemetry tests to local and hosted verification.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+5 frontend tests, Ruff, schemas, dependency compatibility, TypeScript and Vite build.
+Chart tests cover conversion, delayed delivery, exclusion of unrelated/invalid
+samples, constant/empty ranges and axis endpoints/midpoint. Manual browser checks
+used real isolated saved runs for all four scenarios: default complete runs plotted
+300 samples per stream; missing messages plotted 290 sensor-a, 281 sensor-b and
+300 battery samples. Battery titles showed exactly 20% at 8000 ms, 10% at 9000 ms
+and 0% at 10000 ms. Inspected desktop sensor chart layout and SVG evidence titles.
+Mobile layout remains visually unverified. An initial file write hit a Windows
+encoding error; chart files were completed using explicit UTF-8 and final checks
+rerun. Existing third-party/cache/Vite warnings remain non-fatal. No new dependencies,
+paid services or deployment added. Temporary test services were stopped.
+
+Learning exercise: explain chart units, delivery-time gaps and changing axis ranges;
+see docs/interview-guide.md. Next: requirement results and scripted investigation
+views in the browser.

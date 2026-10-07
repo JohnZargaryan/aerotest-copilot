@@ -65,3 +65,13 @@ dd { margin: 0; font-weight: 600; }
 .timeline-pages { display: flex; gap: 12px; margin-top: 18px; }
 .timeline-pages button:disabled { cursor: default; }
 @media (max-width: 650px) { .timeline-filters { grid-template-columns: 1fr; } .timeline table { min-width: 530px; } }
+
+.telemetry { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ccd3cc; }
+.telemetry-plot { margin: 24px 0; background: #f8faf7; padding: 18px; border: 1px solid #d4dcd6; border-radius: 8px; }
+.telemetry-plot figcaption { font-weight: 650; }
+.telemetry-plot p { font-size: 12px; }
+.telemetry-plot svg { width: 100%; display: block; }
+.telemetry-plot svg text { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #4f6167; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; padding: 0; margin: 12px 0 0; }
+.chart-legend li { display: flex; gap: 8px; padding: 0; border: 0; font-size: 12px; }
+.chart-legend li span { font-size: 12px; padding: 0; color: #4f6167; }

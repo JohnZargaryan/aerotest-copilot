@@ -19,6 +19,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Committed schemas are stale.' }
     & '.\.venv\Scripts\python.exe' -m pip check
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency compatibility check failed.' }
+    npm.cmd --prefix frontend test
+    if ($LASTEXITCODE -ne 0) { throw 'Frontend telemetry tests failed.' }
     npm.cmd --prefix frontend run build
     if ($LASTEXITCODE -ne 0) { throw 'Frontend checks failed.' }
     Write-Output 'Foundation verification passed. Reports are in artifacts/.'

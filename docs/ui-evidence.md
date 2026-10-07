@@ -17,6 +17,23 @@ The timeline reads the already returned saved result; filtering does not rerun a
 simulation, rewrite evidence or call investigation tools. Pagination bounds rendered
 rows, not the API response size; validated executions are already limited to 4000
 records. The surrounding saved execution ID scopes every displayed evidence ID.
-No requirement verdict is inferred from a recorded state. Charts and investigation
-views remain planned. Tables scroll horizontally on narrow screens; the mobile
+No requirement verdict is inferred from a recorded state. Investigation views remain planned. Tables scroll horizontally on narrow screens; the mobile
 layout has not yet received visual verification.
+
+
+## Recorded telemetry charts
+
+Sensor measurements convert mdegC to degrees C; battery converts basis points to
+percent. Only matching component/code/unit records with finite non-null measurements
+are plotted. Sensor axes fit the recorded range with padding (they do not start at
+zero); battery uses 0..100%. The horizontal axis spans the saved duration and uses
+delivery simulation time in seconds. Every recorded sample is drawn, without
+resampling, interpolation or connecting across missing intervals. Sensor A uses
+circles and Sensor B diamonds with distinct colors and a textual legend.
+
+SVG titles describe the chart; sample titles provide exact time, value and evidence
+ID on pointer hover. The event timeline provides keyboard-accessible exact values
+and acquisition details. Overlapping marks can obscure individual values, and
+changing sensor ranges limits visual comparisons across different executions.
+Charts are descriptive and do not infer requirements or causes. The five telemetry
+unit tests run without added packages in both verification and GitHub Actions.

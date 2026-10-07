@@ -29,17 +29,18 @@ Implemented:
 - Scripted investigation API and assistant adapter boundary with scoped verdicts and verified citations; live mode disabled.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
 - React/TypeScript scenario, seed and duration controls with saved-run summaries and failure feedback.
+- Sensor and battery sample charts with explicit units, time axes and missing-sample gaps.
 - Filtered, paginated event timeline with expandable original evidence details.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** complete requirement-result evaluation, charts, chatbot, live-model evaluations, Docker,
+**Not implemented yet:** complete requirement-result evaluation, chatbot, live-model evaluations, Docker,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-210 pytest tests, lint, schema freshness, dependency check, TypeScript and production
+210 pytest tests, 5 frontend telemetry tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
