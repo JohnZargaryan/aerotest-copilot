@@ -75,3 +75,16 @@ dd { margin: 0; font-weight: 600; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; padding: 0; margin: 12px 0 0; }
 .chart-legend li { display: flex; gap: 8px; padding: 0; border: 0; font-size: 12px; }
 .chart-legend li span { font-size: 12px; padding: 0; color: #4f6167; }
+
+.requirement-results { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ccd3cc; }
+.check-list { display: grid; gap: 16px; }
+.check-list article { padding: 18px; border: 1px solid #ccd3cc; border-radius: 8px; }
+.check-list h4 { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0; }
+.verdict { font-size: 12px; padding: 5px 8px; border-radius: 4px; }
+.verdict.pass { color: #254f41; background: #e1efe6; }
+.verdict.fail { color: #873529; background: #fff1ec; }
+.verdict.inconclusive { color: #755116; background: #faf0d5; }
+.check-scope { font-size: 13px; }
+.check-list summary { cursor: pointer; font-weight: 600; }
+.check-list ul { list-style: none; padding: 0; }
+.check-list li { display: block; font-size: 12px; overflow-wrap: anywhere; border-color: #ccd3cc; }

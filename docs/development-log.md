@@ -545,3 +545,33 @@ paid services or deployment added. Temporary test services were stopped.
 Learning exercise: explain chart units, delivery-time gaps and changing axis ranges;
 see docs/interview-guide.md. Next: requirement results and scripted investigation
 views in the browser.
+
+
+## 2026-10-09 - Browser requirement results
+
+Implemented with OpenAI Codex assistance. Added manually loaded saved-execution
+check cards, PASS/FAIL/INCONCLUSIVE labels, original reasons/scopes, checker version,
+unassessed requirements and bounded evidence disclosures. Validated execution/run
+identity, unique supported checks, strict string statuses and resolvable citations
+before rendering. Requests prevent overlap, time out after 15 seconds and abort on
+panel replacement. Failed reloads preserve the previous validated report. Distinct
+React keys reset results correctly when a new execution is saved.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+9 frontend tests, Ruff, schema freshness, dependency compatibility, TypeScript and
+Vite build. Four new report tests cover verdict preservation, foreign identities,
+missing citations, duplicate/missing checks and malformed responses. Frontend tests
+and build were rerun after strict-status and React-key fixes. Manual browser checks
+used isolated ignored SQLite storage and real API runs for all four scenarios.
+Baseline checks 001/002/003 were INCONCLUSIVE; each corresponding fault check was
+PASS; transition check 006 was PASS throughout. Unassessed 004/005 remained visible.
+Battery citations resolved to DEGRADED at 8100 ms, SAFE at 9100 ms and final SAFE
+at 29900 ms. Disconnecting the test API produced an alert while retaining four
+check cards. Browser testing caught duplicate sibling keys retaining old reports;
+the fix was verified with exactly one results panel after each scenario execution.
+FAIL preservation was unit tested, not observed in the correct simulation runs.
+Mobile layout remains visually unverified. Existing cache/third-party/Vite warnings
+remain non-fatal. No dependencies, paid services or deployment added.
+
+Learning exercise: compare scoped verdicts and resolve browser citations; see
+interview-guide.md. Next: scripted investigation/tool activity in the browser.

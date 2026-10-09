@@ -31,6 +31,7 @@ Implemented:
 - React/TypeScript scenario, seed and duration controls with saved-run summaries and failure feedback.
 - Sensor and battery sample charts with explicit units, time axes and missing-sample gaps.
 - Filtered, paginated event timeline with expandable original evidence details.
+- Scoped requirement-result cards with checker versions, explanations and validated evidence references.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
@@ -40,7 +41,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-210 pytest tests, 5 frontend telemetry tests, lint, schema freshness, dependency check, TypeScript and production
+210 pytest tests, 9 frontend telemetry/report tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows

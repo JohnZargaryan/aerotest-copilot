@@ -255,3 +255,15 @@ to 26 degrees C and 2000 basis points to 20%. In missing-messages, explain why g
 must not be interpolated and why delayed marks use delivery time. Resolve a mark's
 event ID through the timeline and inspect sample_time_ms. Explain why the plotted
 20%/10% battery values alone are not a requirement verdict.
+
+
+## Browser requirement results exercise
+
+Implemented with OpenAI Codex assistance. Load baseline checks and explain why
+AT-REQ-001/002/003 remain INCONCLUSIVE while AT-REQ-006 passes. Run each fault and
+identify its exercised check. Expand the battery response references and resolve
+the 8100 ms DEGRADED and 9100 ms SAFE events in the timeline. Explain why the
+report's execution identity matters even when replay evidence IDs are identical,
+and why unassessed AT-REQ-004/005 prevent an overall compliance claim. Create a
+new execution and confirm the report resets; disconnect the API and explain why a
+failed reload retains the previously validated report.

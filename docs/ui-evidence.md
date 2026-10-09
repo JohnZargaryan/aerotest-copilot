@@ -37,3 +37,20 @@ and acquisition details. Overlapping marks can obscure individual values, and
 changing sensor ranges limits visual comparisons across different executions.
 Charts are descriptive and do not infer requirements or causes. The five telemetry
 unit tests run without added packages in both verification and GitHub Actions.
+
+
+## Scoped requirement results
+
+Load requirement checks retrieves the saved execution's check API report. Cards
+show PASS, FAIL or INCONCLUSIVE, the original reason and scope, checker version,
+and explicit unassessed requirements. No overall compliance verdict is inferred.
+The browser validates schema, execution/evidence identity, four unique supported
+checks, statuses and citation resolution against the current saved records.
+Malformed or mismatched reports are rejected rather than partially displayed.
+
+Expand evidence references for original IDs, delivery time, component and state.
+At most 20 references per check are displayed, with explicit truncation; the check
+API retains the full report. Requests have a 15-second timeout, prevent overlap
+and are cancelled when a new execution replaces the panel. A failed reload retains
+the previous report alongside an error. New executions reset the report. Scripted
+investigation UI and mobile visual verification remain planned.

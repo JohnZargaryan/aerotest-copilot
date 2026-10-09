@@ -4,6 +4,8 @@ import { EventTimeline, type EvidenceEvent } from "./EventTimeline";
 
 import { TelemetryCharts } from "./TelemetryCharts";
 
+import { RequirementResults } from "./RequirementResults";
+
 const scenarios = [
   ["healthy-baseline", "Healthy baseline"],
   ["sensor-disagreement", "Sensor disagreement"],
@@ -110,7 +112,8 @@ export function RunPanel() {
         <div><dt>Execution ID</dt><dd className="identity">{saved.execution_id}</dd></div>
         <div><dt>Evidence run ID</dt><dd className="identity">{saved.result.run_id}</dd></div>
       </dl>
-      <p>Simulation completed and saved. This is not a requirement verdict. Investigation views are planned.</p>
+      <p>Simulation completed and saved. This summary is not a requirement verdict. Load the scoped checks below.</p>
+      <RequirementResults key={`checks-${saved.execution_id}`} executionId={saved.execution_id} runId={saved.result.run_id} records={saved.result.records} />
       <TelemetryCharts records={saved.result.records} durationMs={saved.result.config.duration_ms} />
       <EventTimeline key={saved.execution_id} records={saved.result.records} />
     </div>}
