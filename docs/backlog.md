@@ -13,10 +13,10 @@ Implemented and planned capabilities, in dependency order.
 8. DONE: SQLite completed-execution storage and create/get run APIs.
 9. DONE: scoped transition/sensor/power checkers, defective-trace tests, and aggregate report API. Configuration and replay runtime assessments remain unassessed.
 10. DONE: bounded event-query, citation-resolution and saved-run comparison tools.
-11. DONE: labeled local scripted investigation with resolvable citations; HTTP integration DONE; UI integration remains planned.
+11. DONE: labeled local scripted investigation with resolvable citations; HTTP and UI integration DONE.
 12. DONE: assistant adapter selection boundary and scripted investigation API. Live-model implementation remains deferred and disabled under the $0 constraint.
 13. DONE: scenario controls, saved-run summaries, telemetry charts and event timeline.
-14. IN PROGRESS: requirement results DONE; scripted investigation/tool activity UI remains planned.
+14. DONE: requirement results and labeled scripted investigation/tool activity UI. Free-form chat remains unimplemented.
 15. Add withheld evaluation dataset and scripted-mode report.
 16. Add Docker setup, clean setup verification, screenshots and demo recording.
 17. Review README, interview guide, portfolio assets and hosting options/costs.

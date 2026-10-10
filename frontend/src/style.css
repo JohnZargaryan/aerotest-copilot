@@ -88,3 +88,11 @@ dd { margin: 0; font-weight: 600; }
 .check-list summary { cursor: pointer; font-weight: 600; }
 .check-list ul { list-style: none; padding: 0; }
 .check-list li { display: block; font-size: 12px; overflow-wrap: anywhere; border-color: #ccd3cc; }
+
+.investigation { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ccd3cc; }
+.investigation-controls { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px; margin: 18px 0; }
+.investigation pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; background: #f5f5ef; padding: 12px; border-radius: 6px; }
+.tool-activity { margin-top: 20px; }
+.tool-activity summary { cursor: pointer; font-weight: 600; }
+.tool-activity li { display: block; border-color: #ccd3cc; overflow-wrap: anywhere; font-size: 13px; }
+@media (max-width: 650px) { .investigation-controls { grid-template-columns: 1fr; } }

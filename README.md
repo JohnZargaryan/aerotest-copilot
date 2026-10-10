@@ -8,7 +8,7 @@ an investigation assistant will explain results using linked evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: interactive simulation controls and investigation APIs
+## Current status: interactive simulation and scripted investigation
 
 Implemented:
 - Deterministic baseline, sensor-disagreement, missing-message and battery-degradation CLI runs with telemetry and state events.
@@ -32,6 +32,7 @@ Implemented:
 - Sensor and battery sample charts with explicit units, time axes and missing-sample gaps.
 - Filtered, paginated event timeline with expandable original evidence details.
 - Scoped requirement-result cards with checker versions, explanations and validated evidence references.
+- Scripted browser investigations with selectable requirements, resolved records and local tool activity.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
@@ -41,7 +42,7 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-210 pytest tests, 9 frontend telemetry/report tests, lint, schema freshness, dependency check, TypeScript and production
+210 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
 build. See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows

@@ -17,7 +17,7 @@ The timeline reads the already returned saved result; filtering does not rerun a
 simulation, rewrite evidence or call investigation tools. Pagination bounds rendered
 rows, not the API response size; validated executions are already limited to 4000
 records. The surrounding saved execution ID scopes every displayed evidence ID.
-No requirement verdict is inferred from a recorded state. Investigation views remain planned. Tables scroll horizontally on narrow screens; the mobile
+No requirement verdict is inferred from a recorded state. Scripted investigation is available below the scoped checks. Tables scroll horizontally on narrow screens; the mobile
 layout has not yet received visual verification.
 
 
@@ -53,4 +53,4 @@ At most 20 references per check are displayed, with explicit truncation; the che
 API retains the full report. Requests have a 15-second timeout, prevent overlap
 and are cancelled when a new execution replaces the panel. A failed reload retains
 the previous report alongside an error. New executions reset the report. Scripted
-investigation UI and mobile visual verification remain planned.
+investigation is documented in scripted-investigation.md; mobile visual verification remains planned.

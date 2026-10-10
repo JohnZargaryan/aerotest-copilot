@@ -11,7 +11,7 @@ function App() {
         <p className="eyebrow">SIMULATION & TEST INVESTIGATION</p>
         <h1>Understand the fault.<br /><em>Follow the evidence.</em></h1>
         <p className="intro">A software engineering workbench for exploring a fictional research-aircraft subsystem, checking requirements, and investigating results.</p>
-        <div className="notice"><span className="dot" /> Run all four scenarios below. Explore telemetry charts and the event timeline. Interactive investigation views are in development.</div>
+        <div className="notice"><span className="dot" /> Run all four scenarios below. Explore telemetry charts and the event timeline. Load scoped requirement checks and scripted explanations from saved evidence.</div>
       </section>
       <RunPanel />
       <section aria-labelledby="foundation-title" className="foundation">
@@ -19,7 +19,7 @@ function App() {
         <ol>
           <li><span>01</span><div><h3>Define the inputs</h3><p>Versioned configuration with fixed simulation ticks and bounded durations.</p></div></li>
           <li><span>02</span><div><h3>Verify the boundary</h3><p>C++ and Python share acceptance cases for valid and invalid configurations.</p></div></li>
-          <li><span>03</span><div><h3>Build toward evidence</h3><p>Baseline, sensor faults and battery degradation produce repeatable telemetry and state events. Interactive investigations are planned.</p></div></li>
+          <li><span>03</span><div><h3>Build toward evidence</h3><p>Baseline, sensor faults and battery degradation produce repeatable telemetry and state events. Scoped checks and scripted investigations retain original evidence references.</p></div></li>
         </ol>
       </section>
       <footer><strong>Educational civilian simulation</strong><p>Not flight software or a validated physical model. Developed with AI assistance.</p></footer>

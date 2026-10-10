@@ -35,7 +35,7 @@ silently disappearing. tool_activity records build_report and performed citation
 lookups. Event details remain structured data and never become instructions.
 
 This interface reads saved evidence without modifying storage or rerunning a
-simulation. A scripted HTTP endpoint and adapter selection boundary are available. Chat UI,
+simulation. A scripted HTTP endpoint and adapter selection boundary are available. A browser investigation view is available. Free-form chat,
 live-model implementation and arbitrary tool dispatch remain unimplemented. Evidence interpretation is limited to existing checker scopes;
 this is not a causal explanation, certified assessment or independent AI evaluation.
 
@@ -62,3 +62,23 @@ A future live implementation needs a suitable no-cost design, response validatio
 and evaluation before it can be enabled. The present adapter protocol intentionally
 returns the current scripted response contract; that contract will need explicit
 extension for a different mode. Adding a boundary does not claim live AI exists.
+
+
+## Browser investigation
+
+After saving a run, select All assessed requirements or one supported requirement
+and choose Explain saved checks. The view displays the scripted summary, assistant
+and checker versions, exact findings and explicit unassessed requirements. Counts
+apply only to the selection. Changing focus clears the old explanation; a new
+execution resets focus and results. This is a structured explanation interface,
+not free-form chat or a live language model.
+
+Resolved citation disclosures show original records as text, including units and
+acquisition details. The browser compares every record with its saved counterpart,
+validates execution/run identity, selection, verdicts, evidence/omission counts and
+recorded tool activity, and rejects the complete response on mismatch. At most 20
+citations appear per finding, with omitted references disclosed. Tool activity lists
+build_report and actual resolve_citations operations in order; it does not imply
+arbitrary tool calls or model reasoning. Requests prevent overlap, disable selection
+while pending, time out after 15 seconds and abort when the panel is replaced.
+A failed reload leaves the previous valid explanation alongside an error.

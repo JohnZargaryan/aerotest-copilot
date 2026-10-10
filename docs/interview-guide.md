@@ -267,3 +267,15 @@ report's execution identity matters even when replay evidence IDs are identical,
 and why unassessed AT-REQ-004/005 prevent an overall compliance claim. Create a
 new execution and confirm the report resets; disconnect the API and explain why a
 failed reload retains the previously validated report.
+
+
+## Scripted browser investigation exercise
+
+Implemented with OpenAI Codex assistance. Compare All assessed requirements with
+AT-REQ-003 on a battery run. Explain why the selected summary has one PASS while
+the complete summary includes unexercised checks. Expand resolved citations and
+compare measurement, unit and details with saved evidence. Inspect Tool activity
+and explain build_report versus resolve_citations. Change focus and explain why
+results clear; repeat the configuration and explain why a new execution resets
+the view. Disconnect the API and confirm the last valid explanation stays visible.
+Describe the difference between deterministic narration and a live language model.

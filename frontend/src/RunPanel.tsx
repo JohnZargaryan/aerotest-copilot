@@ -4,6 +4,8 @@ import { EventTimeline, type EvidenceEvent } from "./EventTimeline";
 
 import { TelemetryCharts } from "./TelemetryCharts";
 
+import { InvestigationPanel } from "./InvestigationPanel";
+
 import { RequirementResults } from "./RequirementResults";
 
 const scenarios = [
@@ -114,6 +116,7 @@ export function RunPanel() {
       </dl>
       <p>Simulation completed and saved. This summary is not a requirement verdict. Load the scoped checks below.</p>
       <RequirementResults key={`checks-${saved.execution_id}`} executionId={saved.execution_id} runId={saved.result.run_id} records={saved.result.records} />
+      <InvestigationPanel key={`investigation-${saved.execution_id}`} executionId={saved.execution_id} runId={saved.result.run_id} records={saved.result.records} />
       <TelemetryCharts records={saved.result.records} durationMs={saved.result.config.duration_ms} />
       <EventTimeline key={saved.execution_id} records={saved.result.records} />
     </div>}

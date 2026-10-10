@@ -575,3 +575,35 @@ remain non-fatal. No dependencies, paid services or deployment added.
 
 Learning exercise: compare scoped verdicts and resolve browser citations; see
 interview-guide.md. Next: scripted investigation/tool activity in the browser.
+
+
+## 2026-10-10 - Scripted browser investigation
+
+Implemented with OpenAI Codex assistance. Added all-requirement or selected-requirement
+scripted explanations, exact finding verdicts/scopes, assistant/checker versions,
+unassessed requirements, resolved record disclosures and ordered local tool activity.
+Validated response mode, execution/run identity, selected unique findings, citation
+contents against saved evidence, bounded citation/omission counts and tool operations.
+Focus changes clear results; new executions reset the panel. Pending requests disable
+selection, prevent overlap, time out after 15 seconds and abort on panel replacement.
+Failed reloads preserve the last validated explanation. App copy reflects the new view.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 210 pytest tests,
+14 frontend tests, Ruff, schema freshness, dependency compatibility, TypeScript and
+Vite build. Five new investigation tests cover all verdicts, identity/selection/mode
+mismatches, altered/missing/duplicate citations, long-chain omission counts and
+finding/tool consistency. Frontend checks were repeated after stricter unassessed
+requirement validation. Manual browser checks used real API runs and isolated ignored
+SQLite storage: baseline summary was 1 PASS/3 INCONCLUSIVE; each fault's exercised
+check was PASS alongside transition check 006. Exactly one panel appeared and results
+reset after each new execution. Selecting AT-REQ-003 cleared the previous answer and
+returned 1 PASS/0 INCONCLUSIVE with three original battery citations at 8100, 9100
+and 29900 ms. Selected AT-REQ-002 returned six citations. A disconnected API produced
+an alert while retaining its selected finding. Inspected desktop record disclosure
+layout. FAIL and long-chain omissions were unit tested, not observed in these real
+runs. Mobile layout remains visually unverified; no automated browser suite added.
+Existing third-party/cache/Vite warnings remain non-fatal. No dependencies, model
+calls, paid services or deployment added. Temporary verification services stopped.
+
+Learning exercise: inspect selected summaries, citations and recorded tools; see
+interview-guide.md. Next: withheld evaluation cases and a scripted-mode report.
