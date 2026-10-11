@@ -1,0 +1,372 @@
+{
+  "dataset_version": "1.0",
+  "dataset_sha256": "53abb12fdb82c887c198be72d7cc26b0930d4525232f3e080347914940cf7b8b",
+  "generated_at_utc": "2026-10-11T22:05:01.170153+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "win32"
+  },
+  "versions": {
+    "simulator": "0.5.0",
+    "assistant": "0.1.0",
+    "checker": "0.1.0"
+  },
+  "metrics": {
+    "cases": 12,
+    "passed": 12,
+    "expected_findings": 18,
+    "verdict_matches": 18,
+    "citations": 44,
+    "grounded_citations": 44
+  },
+  "results": [
+    {
+      "case_id": "baseline-new-seed",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "actual": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 3,
+      "grounded_citation_count": 3,
+      "verdict_matches": 4,
+      "expected_finding_count": 4,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "startup-only-max-seed",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "actual": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 2,
+      "grounded_citation_count": 2,
+      "verdict_matches": 4,
+      "expected_finding_count": 4,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "disagreement-observed",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-001": "PASS"
+      },
+      "actual": {
+        "AT-REQ-001": "PASS"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 13,
+      "grounded_citation_count": 13,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "disagreement-shutdown-boundary",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE"
+      },
+      "actual": {
+        "AT-REQ-001": "INCONCLUSIVE"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 0,
+      "grounded_citation_count": 0,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "freshness-observed",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-002": "PASS"
+      },
+      "actual": {
+        "AT-REQ-002": "PASS"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 6,
+      "grounded_citation_count": 6,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "freshness-shutdown-boundary",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-002": "INCONCLUSIVE"
+      },
+      "actual": {
+        "AT-REQ-002": "INCONCLUSIVE"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 0,
+      "grounded_citation_count": 0,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "battery-observed",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-003": "PASS"
+      },
+      "actual": {
+        "AT-REQ-003": "PASS"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 3,
+      "grounded_citation_count": 3,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "battery-shutdown-boundary",
+      "synthetic": false,
+      "expected": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "actual": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 0,
+      "grounded_citation_count": 0,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "disagreement-late-state",
+      "synthetic": true,
+      "expected": {
+        "AT-REQ-001": "FAIL"
+      },
+      "actual": {
+        "AT-REQ-001": "FAIL"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 13,
+      "grounded_citation_count": 13,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "freshness-late-safe",
+      "synthetic": true,
+      "expected": {
+        "AT-REQ-002": "FAIL"
+      },
+      "actual": {
+        "AT-REQ-002": "FAIL"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 3,
+      "grounded_citation_count": 3,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "battery-late-safe",
+      "synthetic": true,
+      "expected": {
+        "AT-REQ-003": "FAIL"
+      },
+      "actual": {
+        "AT-REQ-003": "FAIL"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 1,
+      "grounded_citation_count": 1,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    },
+    {
+      "case_id": "battery-missing-witness",
+      "synthetic": true,
+      "expected": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "actual": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "checks": {
+        "verdicts": true,
+        "grounded_citations": true,
+        "report_fidelity": true,
+        "evidence_selection": true,
+        "summary_counts": true,
+        "scoped_labels": true,
+        "execution_identity": true,
+        "tool_activity": true,
+        "required_witness": true
+      },
+      "passed": true,
+      "citation_count": 0,
+      "grounded_citation_count": 0,
+      "verdict_matches": 1,
+      "expected_finding_count": 1,
+      "repeatable": true,
+      "storage_unchanged": true
+    }
+  ]
+}

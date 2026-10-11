@@ -1,0 +1,211 @@
+{
+  "dataset_version": "1.0",
+  "provenance": "Authored with OpenAI Codex assistance after implementation; evaluation-only keys. Development-reviewed regression cases, not a blind or external holdout.",
+  "cases": [
+    {
+      "case_id": "baseline-new-seed",
+      "config": {
+        "scenario_id": "healthy-baseline",
+        "seed": 17,
+        "duration_ms": 30000
+      },
+      "requirement_id": null,
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "rationale": "No fault obligation is exercised; legal recorded transitions are assessed.",
+      "mutation": null,
+      "required_citation_time_ms": null
+    },
+    {
+      "case_id": "startup-only-max-seed",
+      "config": {
+        "scenario_id": "healthy-baseline",
+        "seed": 4294967295,
+        "duration_ms": 1000
+      },
+      "requirement_id": null,
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE",
+        "AT-REQ-002": "INCONCLUSIVE",
+        "AT-REQ-003": "INCONCLUSIVE",
+        "AT-REQ-006": "PASS"
+      },
+      "rationale": "Shutdown at startup completion leaves fault obligations unexercised.",
+      "mutation": null,
+      "required_citation_time_ms": null
+    },
+    {
+      "case_id": "disagreement-observed",
+      "config": {
+        "scenario_id": "sensor-disagreement",
+        "seed": 73,
+        "duration_ms": 4000
+      },
+      "requirement_id": "AT-REQ-001",
+      "expected": {
+        "AT-REQ-001": "PASS"
+      },
+      "rationale": "Persistent disagreement triggers the response at 2500 ms.",
+      "mutation": null,
+      "required_citation_time_ms": 2500
+    },
+    {
+      "case_id": "disagreement-shutdown-boundary",
+      "config": {
+        "scenario_id": "sensor-disagreement",
+        "seed": 23,
+        "duration_ms": 2500
+      },
+      "requirement_id": "AT-REQ-001",
+      "expected": {
+        "AT-REQ-001": "INCONCLUSIVE"
+      },
+      "rationale": "Shutdown wins at the first eligible response tick.",
+      "mutation": null,
+      "required_citation_time_ms": null
+    },
+    {
+      "case_id": "freshness-observed",
+      "config": {
+        "scenario_id": "missing-messages",
+        "seed": 313,
+        "duration_ms": 4000
+      },
+      "requirement_id": "AT-REQ-002",
+      "expected": {
+        "AT-REQ-002": "PASS"
+      },
+      "rationale": "Delayed acquisitions exercise degradation and SAFE response.",
+      "mutation": null,
+      "required_citation_time_ms": 3300
+    },
+    {
+      "case_id": "freshness-shutdown-boundary",
+      "config": {
+        "scenario_id": "missing-messages",
+        "seed": 271,
+        "duration_ms": 2300
+      },
+      "requirement_id": "AT-REQ-002",
+      "expected": {
+        "AT-REQ-002": "INCONCLUSIVE"
+      },
+      "rationale": "Shutdown occurs before a recorded stale response can be assessed.",
+      "mutation": null,
+      "required_citation_time_ms": null
+    },
+    {
+      "case_id": "battery-observed",
+      "config": {
+        "scenario_id": "battery-degradation",
+        "seed": 911,
+        "duration_ms": 10000
+      },
+      "requirement_id": "AT-REQ-003",
+      "expected": {
+        "AT-REQ-003": "PASS"
+      },
+      "rationale": "Power below 20% and 10% exercises DEGRADED and SAFE.",
+      "mutation": null,
+      "required_citation_time_ms": 9100
+    },
+    {
+      "case_id": "battery-shutdown-boundary",
+      "config": {
+        "scenario_id": "battery-degradation",
+        "seed": 57,
+        "duration_ms": 8100
+      },
+      "requirement_id": "AT-REQ-003",
+      "expected": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "rationale": "Shutdown occurs at the first tick below 20%.",
+      "mutation": null,
+      "required_citation_time_ms": null
+    },
+    {
+      "case_id": "disagreement-late-state",
+      "config": {
+        "scenario_id": "sensor-disagreement",
+        "seed": 151,
+        "duration_ms": 4000
+      },
+      "requirement_id": "AT-REQ-001",
+      "expected": {
+        "AT-REQ-001": "FAIL"
+      },
+      "rationale": "Synthetic NOMINAL records violate the observed disagreement response.",
+      "mutation": {
+        "operation": "replace_state",
+        "sim_time_ms": 2500,
+        "component_id": null,
+        "state": "NOMINAL"
+      },
+      "required_citation_time_ms": 2500
+    },
+    {
+      "case_id": "freshness-late-safe",
+      "config": {
+        "scenario_id": "missing-messages",
+        "seed": 541,
+        "duration_ms": 4000
+      },
+      "requirement_id": "AT-REQ-002",
+      "expected": {
+        "AT-REQ-002": "FAIL"
+      },
+      "rationale": "Synthetic DEGRADED records violate the required SAFE response.",
+      "mutation": {
+        "operation": "replace_state",
+        "sim_time_ms": 3300,
+        "component_id": null,
+        "state": "DEGRADED"
+      },
+      "required_citation_time_ms": 3300
+    },
+    {
+      "case_id": "battery-late-safe",
+      "config": {
+        "scenario_id": "battery-degradation",
+        "seed": 887,
+        "duration_ms": 11000
+      },
+      "requirement_id": "AT-REQ-003",
+      "expected": {
+        "AT-REQ-003": "FAIL"
+      },
+      "rationale": "A synthetic battery state at 9% violates SAFE response.",
+      "mutation": {
+        "operation": "replace_state",
+        "sim_time_ms": 9100,
+        "component_id": "battery",
+        "state": "DEGRADED"
+      },
+      "required_citation_time_ms": 9100
+    },
+    {
+      "case_id": "battery-missing-witness",
+      "config": {
+        "scenario_id": "battery-degradation",
+        "seed": 307,
+        "duration_ms": 11000
+      },
+      "requirement_id": "AT-REQ-003",
+      "expected": {
+        "AT-REQ-003": "INCONCLUSIVE"
+      },
+      "rationale": "Deleting one required power sample leaves insufficient evidence.",
+      "mutation": {
+        "operation": "drop_record",
+        "sim_time_ms": 8000,
+        "component_id": "battery"
+      },
+      "required_citation_time_ms": null
+    }
+  ]
+}

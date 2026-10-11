@@ -607,3 +607,34 @@ calls, paid services or deployment added. Temporary verification services stoppe
 
 Learning exercise: inspect selected summaries, citations and recorded tools; see
 interview-guide.md. Next: withheld evaluation cases and a scripted-mode report.
+
+
+## 2026-10-11 - Scripted investigation regression evaluation
+
+Implemented with OpenAI Codex assistance. Added 12 evaluation-only cases with
+independently specified verdicts and selected witness times: additional seeds,
+shutdown boundaries, three synthetic delayed-response defects and one deleted
+power witness. Keys stay outside application runtime. Cases were reviewed during
+development and are explicitly not a blind or external holdout. An isolated runner
+uses real simulator output and a temporary database, scores verdicts, citation
+contents, explanation/scope fidelity, evidence selection, summary counts, identity,
+labels and tool activity, and confirms repeatability and unchanged storage.
+Committed machine-readable results and a readable report document actual scope.
+Local verification and GitHub Actions rerun the evaluation and compare deterministic
+results. Canonical-JSON dataset hashing avoids Windows/Linux line-ending differences;
+only report timestamps and host metadata are excluded from snapshot comparison.
+
+Verification: scripts/verify.ps1 passed with 27 GoogleTest tests, 217 pytest tests,
+14 frontend tests, Ruff, schema freshness, dependency compatibility, TypeScript and
+Vite build. All 12 evaluation cases passed: 18/18 expected verdicts matched and
+44/44 returned citations exactly matched saved evidence. Seven evaluator tests
+cover rejection of wrong verdicts even when report and assistant agree, altered
+citations, misleading counts/identity/mode/tool data, omissions, original-trace
+preservation and portable fingerprints. Evaluation was repeated after the portable
+hash change; metrics remained identical. Existing cache/third-party/Vite warnings
+remain non-fatal. No application behavior, dependencies, paid services, model calls,
+portfolio integration or deployment added.
+
+Learning exercise: compare PASS/FAIL/INCONCLUSIVE power cases and distinguish
+verdict agreement from report fidelity and citation grounding; see interview-guide.md.
+Next: Docker setup and clean setup verification, then presentation assets.

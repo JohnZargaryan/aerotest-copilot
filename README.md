@@ -28,6 +28,7 @@ Implemented:
 - Typed local investigation tools for bounded event queries, citation lookup and saved-run comparisons.
 - Scripted investigation API and assistant adapter boundary with scoped verdicts and verified citations; live mode disabled.
 - Shared acceptance cases and real C++/Python subprocess integration tests.
+- Evaluation-only scripted regression cases and a reproducible verdict/citation report.
 - React/TypeScript scenario, seed and duration controls with saved-run summaries and failure feedback.
 - Sensor and battery sample charts with explicit units, time axes and missing-sample gaps.
 - Filtered, paginated event timeline with expandable original evidence details.
@@ -42,8 +43,8 @@ See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) 
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-210 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
-build. See [development log](docs/development-log.md) for actual results and limitations.
+217 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
+build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [development log](docs/development-log.md) for actual results and limitations.
 
 ## Start on Windows
 
@@ -132,6 +133,7 @@ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 cmake --build build --parallel 2
 ctest --test-dir build --output-on-failure
 python -m pytest -q
+python scripts/evaluate_scripted.py --check
 ruff check backend scripts
 python scripts/export_contracts.py --check
 npm --prefix frontend ci --ignore-scripts
@@ -144,6 +146,7 @@ the local verification above was performed on Windows.
 
 ## Design and learning
 
+- [Scripted evaluation results](docs/scripted-evaluation.md)
 - [Scripted investigation interface](docs/scripted-investigation.md)
 - [Architecture and public interfaces](docs/architecture.md)
 - [Requirements catalog](docs/requirements.json)

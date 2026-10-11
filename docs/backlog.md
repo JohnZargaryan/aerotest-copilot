@@ -17,7 +17,7 @@ Implemented and planned capabilities, in dependency order.
 12. DONE: assistant adapter selection boundary and scripted investigation API. Live-model implementation remains deferred and disabled under the $0 constraint.
 13. DONE: scenario controls, saved-run summaries, telemetry charts and event timeline.
 14. DONE: requirement results and labeled scripted investigation/tool activity UI. Free-form chat remains unimplemented.
-15. Add withheld evaluation dataset and scripted-mode report.
+15. DONE: evaluation-only expected-answer dataset and scripted regression report. Keys are excluded from runtime; cases are development-reviewed, not a blind holdout.
 16. Add Docker setup, clean setup verification, screenshots and demo recording.
 17. Review README, interview guide, portfolio assets and hosting options/costs.
 18. Public repository available; application deployment and portfolio integration remain planned.

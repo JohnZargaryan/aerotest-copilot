@@ -279,3 +279,15 @@ and explain build_report versus resolve_citations. Change focus and explain why
 results clear; repeat the configuration and explain why a new execution resets
 the view. Disconnect the API and confirm the last valid explanation stays visible.
 Describe the difference between deterministic narration and a live language model.
+
+
+## Scripted evaluation exercise
+
+Implemented with OpenAI Codex assistance. Run the evaluation and compare the
+battery-observed, battery-late-safe and battery-missing-witness cases. Explain why
+these should be PASS, FAIL and INCONCLUSIVE respectively. Trace one expected key
+back to its requirement, rather than copying an observed output. Explain why 44
+matched citations do not prove causal reasoning, why checker fidelity alone cannot
+catch a shared wrong verdict, and why development-reviewed cases are not a blind
+holdout. Inspect the dataset digest and explain why timestamps may change on rerun
+while deterministic results must match. Find where the temporary database is created.
