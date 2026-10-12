@@ -638,3 +638,38 @@ portfolio integration or deployment added.
 Learning exercise: compare PASS/FAIL/INCONCLUSIVE power cases and distinguish
 verdict agreement from report fidelity and citation grounding; see interview-guide.md.
 Next: Docker setup and clean setup verification, then presentation assets.
+
+
+## 2026-10-12 - Local container setup and persistence verification
+
+Implemented with OpenAI Codex assistance. Added digest-pinned multi-stage API/web
+images, Compose health checks, loopback-only web access and a project-scoped SQLite
+volume. nginx serves built React assets and proxies the existing API. The API image
+runs as UID 10001 and includes the compiled simulator without compiler tools.
+A build-context allowlist excludes native tools, generated output, databases,
+secrets and evaluation data. Existing dependency locks and C++ archive hashes are
+reused; Debian OS packages remain resolved at build time. Added setup documentation,
+port-conflict instructions, dependency provenance and an isolated verification script.
+A separate standard Ubuntu GitHub Actions job runs the container check without
+publishing images or deploying the application.
+
+Verification: started the installed Docker Desktop Linux engine (29.7.2), built both
+images from source without host build artifacts, and ran scripts/verify_docker.py.
+The Linux build used Debian GCC 14.2.0. Frontend HTML/assets and proxied API health
+loaded; all four scenarios completed and were retrieved unchanged. Exercised fault
+checks and transition check 006 passed; 004/005 stayed unassessed. Scripted findings
+preserved report verdicts and every returned citation matched saved evidence.
+After removing/recreating both containers and their network, all four saved
+executions were retrieved unchanged from the retained test volume. Verification
+then removed only its random test project and volume. No native database was mounted.
+Compose configuration validation and Ruff passed. scripts/verify.ps1 also passed:
+27 GoogleTest tests, 217 pytest tests, 14 frontend tests, 12 scripted evaluation
+cases (18 expected verdicts, 44 grounded citations), schema freshness, dependency
+compatibility, TypeScript and production build. Existing third-party/cache/Vite
+warnings remain non-fatal. Container HTTP verification is not visual browser QA;
+only linux/amd64 was exercised locally. No paid services, model calls, public
+application deployment or portfolio changes added.
+
+Learning exercise: replace containers while retaining an execution ID, trace the
+web/API/simulator request path and explain named-volume ownership; see
+interview-guide.md. Next: screenshots and demo recording, then presentation review.

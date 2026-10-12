@@ -35,9 +35,10 @@ Implemented:
 - Scoped requirement-result cards with checker versions, explanations and validated evidence references.
 - Scripted browser investigations with selectable requirements, resolved records and local tool activity.
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
+- Optional Docker Compose setup with persistent SQLite storage and isolated HTTP verification.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** complete requirement-result evaluation, chatbot, live-model evaluations, Docker,
+**Not implemented yet:** complete requirement-result evaluation, chatbot, live-model evaluations,
 or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
@@ -49,7 +50,7 @@ build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [d
 ## Start on Windows
 
 Prerequisites: Git, Python 3.12, and Node.js (tested with 25.0.0 / npm 11.6.2).
-No Docker, VS Code, API key, or full Visual Studio installation is required today.
+This native setup requires no Docker, VS Code, API key, or full Visual Studio installation.
 
 From the repository root in PowerShell:
 
@@ -119,6 +120,25 @@ See [baseline behavior and replay format](docs/baseline.md).
 See [Run API](docs/run-api.md) for execution and retrieval examples.
 
 See [Python runner](docs/runner.md) for local orchestration and error handling.
+
+## Start with Docker (optional)
+
+Prerequisites: Docker with a running Linux container engine and Compose v2.
+On Windows, start Docker Desktop first. No host C++ compiler, Python, Node.js,
+API key or paid service is needed to run the containers. Internet access is needed
+for the first build. From the repository root:
+
+```sh
+docker compose up --build --detach --wait
+```
+
+Open [AeroTest Copilot](http://127.0.0.1:5173/). The frontend serves the built React
+app and forwards `/api/` requests to the private API container; the API runs the
+C++ simulator and saves executions in the Compose `runs` volume. Stop with
+`docker compose down`; saved runs remain available when you start again.
+See [Docker setup and verification](docs/docker.md) for port conflicts, build
+inputs, persistence and isolated verification. This is a local setup, not a
+public deployment.
 
 ## Linux / CI setup
 

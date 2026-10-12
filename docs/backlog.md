@@ -18,6 +18,7 @@ Implemented and planned capabilities, in dependency order.
 13. DONE: scenario controls, saved-run summaries, telemetry charts and event timeline.
 14. DONE: requirement results and labeled scripted investigation/tool activity UI. Free-form chat remains unimplemented.
 15. DONE: evaluation-only expected-answer dataset and scripted regression report. Keys are excluded from runtime; cases are development-reviewed, not a blind holdout.
-16. Add Docker setup, clean setup verification, screenshots and demo recording.
+16. IN PROGRESS: Docker setup and isolated clean container verification DONE;
+    screenshots and demo recording remain planned.
 17. Review README, interview guide, portfolio assets and hosting options/costs.
 18. Public repository available; application deployment and portfolio integration remain planned.

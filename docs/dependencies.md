@@ -41,3 +41,15 @@ and an AnyIO alias. Tests pass and warnings remain visible. Review the testing
 client compatibility before future dependency updates. Vite hot reload fails with
 `#` in the workspace path; the dev launcher uses a production-build preview there.
 Rebuild and refresh after edits, or use a path without `#` for normal hot reload.
+
+
+## Container build sources
+
+Added on 2026-10-12. Manifest index digests were read from the official Docker Hub
+images: [Python](https://hub.docker.com/_/python),
+[Node](https://hub.docker.com/_/node) and [nginx](https://hub.docker.com/_/nginx).
+`Dockerfile` records exact digests for Python 3.12.14-slim-trixie,
+Node 25.0.0-bookworm-slim and nginx 1.30.5-alpine. Existing Python/npm/C++
+locks are reused. Debian trixie supplies the compiler and runtime libstdc++;
+OS packages are not snapshot-pinned. See [Docker setup](docker.md) for build
+scope and limitations. Runtime images exclude the evaluation dataset.

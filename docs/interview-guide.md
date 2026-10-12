@@ -291,3 +291,15 @@ matched citations do not prove causal reasoning, why checker fidelity alone cann
 catch a shared wrong verdict, and why development-reviewed cases are not a blind
 holdout. Inspect the dataset digest and explain why timestamps may change on rerun
 while deterministic results must match. Find where the temporary database is created.
+
+
+## Container persistence exercise
+
+Implemented with OpenAI Codex assistance. Start the Compose app, create a battery
+run and record its execution ID. Stop with `docker compose down`, start again and
+retrieve that ID through `/api/v1/runs/{execution_id}` on the web port. Explain why
+replacing a container retains the named volume, why changing the project name uses
+different storage, and why the native database is separate. Trace a request from
+nginx to FastAPI to the compiled simulator; explain why API liveness alone does
+not prove the executable can run or SQLite can save. Run the isolated verification
+and identify how its random project prevents deletion of your normal saved runs.

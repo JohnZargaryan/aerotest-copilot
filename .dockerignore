@@ -1,0 +1,18 @@
+# Allow only build inputs; exclude host tools, databases, keys and evaluation data.
+**
+!Dockerfile
+!CMakeLists.txt
+!requirements.lock
+!simulator/
+!simulator/**
+!backend/
+!backend/aerotest/
+!backend/aerotest/**
+!frontend/
+!frontend/**
+!docker/
+!docker/nginx.conf
+**/node_modules
+**/dist
+**/__pycache__
+**/.env*
