@@ -1,0 +1,67 @@
+{
+  "source_commit": "25267eebb50ffe027795cc6968714837f22892c9",
+  "capture_method": "Cropped browser screenshots of real local native execution; no UI text or evidence edited",
+  "browser": "Codex in-app browser",
+  "viewport_css_px": {
+    "width": 1127,
+    "height": 1059
+  },
+  "simulator_version": "0.5.0",
+  "checker_version": "0.1.0",
+  "assistant_mode": "scripted",
+  "assistant_version": "0.1.0",
+  "execution_id": "9746606e-5870-495f-98b5-2209537c9f07",
+  "evidence_run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+  "config": {
+    "schema_version": "1.0",
+    "scenario_id": "sensor-disagreement",
+    "seed": 42,
+    "duration_ms": 30000,
+    "step_ms": 100
+  },
+  "record_count": 904,
+  "transition_witness": {
+    "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e77",
+    "sim_time_ms": 2500,
+    "state": "DEGRADED"
+  },
+  "assistance": "Captured, inspected and documented with OpenAI Codex assistance",
+  "assets": [
+    {
+      "file": "sensor-overview.jpg",
+      "width_px": 1025,
+      "height_px": 1082,
+      "bytes": 84176,
+      "sha256": "d990930c219347221cd80c82bc5e2ee940091d9948a2f1f3f595c40d8d7a1a22",
+      "captured_at_utc": "2026-10-14T00:39:22.260473+00:00",
+      "purpose": "Scenario controls and saved run summary"
+    },
+    {
+      "file": "sensor-investigation.jpg",
+      "width_px": 1025,
+      "height_px": 755,
+      "bytes": 60328,
+      "sha256": "8bb607d761eb3820822be2238f3a7cc9900e137638d3b7dc6795da07e3d1a531",
+      "captured_at_utc": "2026-10-14T00:39:01.482502+00:00",
+      "purpose": "Selected scoped scripted finding and local tool activity"
+    },
+    {
+      "file": "sensor-telemetry.jpg",
+      "width_px": 1025,
+      "height_px": 1064,
+      "bytes": 65541,
+      "sha256": "39fc1c86c0a570b86eea550f83ea509aa3e6a23e8a6cde6cac0fb60bab6d507c",
+      "captured_at_utc": "2026-10-14T00:39:34.453851+00:00",
+      "purpose": "Recorded sensor and battery samples with units"
+    },
+    {
+      "file": "sensor-timeline.jpg",
+      "width_px": 1025,
+      "height_px": 833,
+      "bytes": 53211,
+      "sha256": "543f4a34bdad20640469fb5cc5fc26256d3dc047a3832131e249198b6ca086c7",
+      "captured_at_utc": "2026-10-14T00:39:35.539882+00:00",
+      "purpose": "Expanded original DEGRADED transition at 2500 ms"
+    }
+  ]
+}

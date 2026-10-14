@@ -4,6 +4,8 @@ The existing portfolio site is unchanged. Prepare assets here before a separatel
 authorized integration. Target one project card and one concise case-study page:
 
 1. A 1-sentence problem statement and a screenshot of a real investigation.
+   Verified [desktop captures](screenshots.md) and provenance are available in this
+   repository; site integration remains planned.
 2. A short demo: choose sensor disagreement, run it, inspect requirement results,
    ask for an explanation, and open an evidence reference.
 3. A small architecture diagram and explanation of C++/Python responsibilities.

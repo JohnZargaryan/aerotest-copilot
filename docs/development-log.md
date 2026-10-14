@@ -673,3 +673,35 @@ application deployment or portfolio changes added.
 Learning exercise: replace containers while retaining an execution ID, trace the
 web/API/simulator request path and explain named-volume ownership; see
 interview-guide.md. Next: screenshots and demo recording, then presentation review.
+
+
+## 2026-10-13 - Verified desktop investigation screenshots
+
+Prepared with OpenAI Codex assistance. Added four real browser captures: scenario
+controls/saved summary, selected scripted investigation/tool activity, sensor and
+battery charts, and an expanded transition witness. Added a captioned gallery,
+README preview, reproduction steps and a machine-readable provenance manifest with
+source revision, actual UTC capture timestamps, dimensions and SHA256 hashes.
+Only page regions were cropped; UI text and evidence were not edited. Static
+screenshots are labeled separately from a hosted application or live-model demo.
+
+Verification: rebuilt the frontend with TypeScript and Vite, then ran a real
+sensor-disagreement execution through the browser with isolated ignored SQLite
+storage. Seed 42, duration 30000 ms and 100 ms ticks produced 904 records. Loaded
+scoped checks and selected AT-REQ-001: one PASS, 13 resolved citations and two local
+tool operations. Compared all 13 citations with saved records. The complete saved
+report had 001/006 PASS, 002/003 INCONCLUSIVE and 004/005 unassessed. Expanded
+Record 77 and checked its original NOMINAL-to-DEGRADED transition at 2500 ms.
+Inspected all four final JPEGs for readable labels, complete controls, units and
+scope disclosures; verified image signatures/dimensions and file hashes.
+No application source or dependencies changed; full native suites were not rerun
+for this documentation/assets change. All 14 frontend tests passed. Hosted checks are reported separately. Existing Vite workspace-path warning remains non-fatal. Mobile layout,
+keyboard-only acceptance and demo recording remain unfinished.
+
+The local Docker engine was unavailable during capture, so the native setup was
+used. No new successful local Docker verification is claimed for this session.
+Temporary capture services were stopped after verification. No paid services,
+model calls, portfolio changes or application deployment added.
+
+Learning exercise: explain DEGRADED alongside a scoped PASS and match the screenshot
+witness to saved evidence; see interview-guide.md. Next: demo recording.

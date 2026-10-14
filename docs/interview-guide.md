@@ -303,3 +303,13 @@ different storage, and why the native database is separate. Trace a request from
 nginx to FastAPI to the compiled simulator; explain why API liveness alone does
 not prove the executable can run or SQLite can save. Run the isolated verification
 and identify how its random project prevents deletion of your normal saved runs.
+
+
+## Screenshot evidence exercise
+
+Prepared with OpenAI Codex assistance. Reproduce the sensor-disagreement views in
+screenshots.md. Explain why DEGRADED can appear alongside an AT-REQ-001 PASS, why
+unexercised 002/003 remain INCONCLUSIVE, and why selected findings do not assess
+004/005. Match Record 77 at 2500 ms to its saved event ID. Repeat the configuration
+and distinguish the new execution ID from the unchanged evidence run ID. Explain
+why static screenshots do not prove live-model reasoning or mobile usability.

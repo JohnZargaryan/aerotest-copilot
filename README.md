@@ -47,6 +47,14 @@ and 192 state/signal combinations),
 217 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
 build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [development log](docs/development-log.md) for actual results and limitations.
 
+## See the app
+
+![Real sensor-disagreement execution with saved-run summary](docs/assets/sensor-overview.jpg)
+
+[View the investigation, telemetry and original evidence screenshots](docs/screenshots.md).
+These are static captures of a real local run in scripted mode. A video and public
+application demo remain planned.
+
 ## Start on Windows
 
 Prerequisites: Git, Python 3.12, and Node.js (tested with 25.0.0 / npm 11.6.2).
