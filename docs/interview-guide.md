@@ -313,3 +313,13 @@ unexercised 002/003 remain INCONCLUSIVE, and why selected findings do not assess
 004/005. Match Record 77 at 2500 ms to its saved event ID. Repeat the configuration
 and distinguish the new execution ID from the unchanged evidence run ID. Explain
 why static screenshots do not prove live-model reasoning or mobile usability.
+
+
+## Recorded walkthrough exercise
+
+Prepared with OpenAI Codex assistance. Play the 65-second video in demo.md, pause
+at the scoped verdicts and explain why a DEGRADED state can accompany AT-REQ-001
+PASS. Match the 2000 ms citation to the original measurement and Record 77 to the
+2500 ms transition. Explain what the recorded local tools did, which requirements
+remain unassessed, and why edited reading holds cannot measure simulator latency.
+Reproduce the steps and distinguish the new execution UUID from stable evidence IDs.

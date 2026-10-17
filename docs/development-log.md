@@ -705,3 +705,40 @@ model calls, portfolio changes or application deployment added.
 
 Learning exercise: explain DEGRADED alongside a scoped PASS and match the screenshot
 witness to saved evidence; see interview-guide.md. Next: demo recording.
+
+
+## 2026-10-17 - Captioned recorded walkthrough
+
+Prepared with OpenAI Codex assistance. Captured eight actual browser states from
+one sensor-disagreement execution in isolated local Docker containers. Added a
+65-second silent H.264 walkthrough with visible captions, an external WebVTT file,
+a plain-text transcript, a poster, original source captures and a provenance
+manifest. Preserved the actual saved execution, check report and selected
+investigation as read-only recording evidence. The video is explicitly an edited capture sequence with hard cuts and
+reading holds, not continuous screen recording or a latency benchmark. Added a
+local authoring script that verifies source hashes, encodes with supplied FFmpeg
+and font, fully decodes the output and records render/hash results. Tools and font
+remain outside the repository; no application dependencies changed.
+
+Verification: Docker Linux engine 29.8.2 started and both built services became
+healthy. Ran the scenario in the browser with seed 42, duration 30000 ms and 100 ms
+ticks: 904 records were saved. Loaded scoped checks and selected AT-REQ-001 narration;
+001/006 were PASS, 002/003 INCONCLUSIVE, 004/005 unassessed. All 13 citations matched
+original saved records. Opened sensor-A record 62 (20043 mdegC at 2000 ms) and
+transition record 77 (NOMINAL to DEGRADED at 2500 ms); shutdown was at 30000 ms.
+Inspected all eight source captures and all eight encoded stages. Initial review
+caught CRLF causing excessive caption spacing; fixed authoring text to LF and
+rerendered. Complete decode and independent stream inspection passed: 65 seconds,
+1920x1080, 24 fps, 1560 frames, H.264/yuv420p, no audio and eight caption cues.
+Verified source/video/manifest hashes. The complete recorded result also matched
+a fresh native C++ replay exactly. Browser playback reached 65 seconds and ended without an error.
+Ruff passed; application source is unchanged, so full native suites were not rerun
+locally. Hosted foundation/container results are reported separately. Native font
+and encoder versions can affect rendering; mobile/browser coverage is limited.
+Temporary preview/capture services were stopped and only the disposable demo
+container project/volume removed. No paid services, model calls, website changes
+or application deployment added.
+
+Learning exercise: trace the recorded citations and distinguish scoped verdicts
+from system state and edited timing; see interview-guide.md. Next: presentation
+review, case-study assets and a $0 hosting-options review before any integration.

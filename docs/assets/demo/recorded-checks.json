@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "checker_version": "0.1.0",
+  "execution_id": "2cc820a0-4e84-426c-be0f-11824366dc40",
+  "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+  "checks": [
+    {
+      "requirement_id": "AT-REQ-001",
+      "status": "PASS",
+      "reason": "Observed persistent-disagreement obligations were satisfied.",
+      "evidence_ids": [
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e62",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e63",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e65",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e66",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e68",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e69",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e71",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e72",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e74",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e75",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e78",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e79",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e80"
+      ],
+      "scope": "observed persistent disagreement response; excludes other fault causes"
+    },
+    {
+      "requirement_id": "AT-REQ-002",
+      "status": "INCONCLUSIVE",
+      "reason": "No eligible stale-sensor condition was exercised.",
+      "evidence_ids": [],
+      "scope": "observed sensor-age obligations and SAFE latching"
+    },
+    {
+      "requirement_id": "AT-REQ-003",
+      "status": "INCONCLUSIVE",
+      "reason": "No eligible low-power condition was exercised.",
+      "evidence_ids": [],
+      "scope": "low-power response and SAFE latching; excludes other fault causes"
+    },
+    {
+      "requirement_id": "AT-REQ-006",
+      "status": "PASS",
+      "reason": "Recorded edges and states obey the transition policy.",
+      "evidence_ids": [
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e0",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e31",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e77",
+        "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e903"
+      ],
+      "scope": "transition edges and state consistency; excludes trigger timing"
+    }
+  ],
+  "unassessed_requirements": [
+    "AT-REQ-004",
+    "AT-REQ-005"
+  ],
+  "scope": "Observed obligations only; not full requirement or system compliance."
+}

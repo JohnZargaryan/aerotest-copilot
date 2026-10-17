@@ -1,0 +1,237 @@
+{
+  "mode": "scripted",
+  "assistant_version": "0.1.0",
+  "checker_version": "0.1.0",
+  "execution_id": "2cc820a0-4e84-426c-be0f-11824366dc40",
+  "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+  "summary": "Scripted check summary: 1 PASS, 0 FAIL, 0 INCONCLUSIVE in the selected checks. These are scoped observations, not a system compliance verdict.",
+  "findings": [
+    {
+      "requirement_id": "AT-REQ-001",
+      "status": "PASS",
+      "explanation": "Observed persistent-disagreement obligations were satisfied.",
+      "scope": "observed persistent disagreement response; excludes other fault causes",
+      "citations": [
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e62",
+          "sim_time_ms": 2000,
+          "sequence": 62,
+          "component_id": "sensor-a",
+          "measurement": 20043,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2000
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e63",
+          "sim_time_ms": 2000,
+          "sequence": 63,
+          "component_id": "sensor-b",
+          "measurement": 25963,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2000
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e65",
+          "sim_time_ms": 2100,
+          "sequence": 65,
+          "component_id": "sensor-a",
+          "measurement": 19932,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2100
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e66",
+          "sim_time_ms": 2100,
+          "sequence": 66,
+          "component_id": "sensor-b",
+          "measurement": 26020,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2100
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e68",
+          "sim_time_ms": 2200,
+          "sequence": 68,
+          "component_id": "sensor-a",
+          "measurement": 20041,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2200
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e69",
+          "sim_time_ms": 2200,
+          "sequence": 69,
+          "component_id": "sensor-b",
+          "measurement": 25981,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2200
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e71",
+          "sim_time_ms": 2300,
+          "sequence": 71,
+          "component_id": "sensor-a",
+          "measurement": 19942,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2300
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e72",
+          "sim_time_ms": 2300,
+          "sequence": 72,
+          "component_id": "sensor-b",
+          "measurement": 26094,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2300
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e74",
+          "sim_time_ms": 2400,
+          "sequence": 74,
+          "component_id": "sensor-a",
+          "measurement": 19990,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2400
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e75",
+          "sim_time_ms": 2400,
+          "sequence": 75,
+          "component_id": "sensor-b",
+          "measurement": 25907,
+          "unit": "mdegC",
+          "state": "NOMINAL",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2400
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e78",
+          "sim_time_ms": 2500,
+          "sequence": 78,
+          "component_id": "sensor-a",
+          "measurement": 19910,
+          "unit": "mdegC",
+          "state": "DEGRADED",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2500
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e79",
+          "sim_time_ms": 2500,
+          "sequence": 79,
+          "component_id": "sensor-b",
+          "measurement": 26045,
+          "unit": "mdegC",
+          "state": "DEGRADED",
+          "severity": "INFO",
+          "event_code": "SENSOR_SAMPLE",
+          "details": {
+            "sample_time_ms": 2500
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "run_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100",
+          "event_id": "run-v0.5.0-schema1.0-sensor-disagreement-s42-d30000-t100-e80",
+          "sim_time_ms": 2500,
+          "sequence": 80,
+          "component_id": "battery",
+          "measurement": 9975,
+          "unit": "basis_points",
+          "state": "DEGRADED",
+          "severity": "INFO",
+          "event_code": "POWER_SAMPLE",
+          "details": {
+            "sample_time_ms": 2500
+          }
+        }
+      ],
+      "total_evidence_count": 13,
+      "omitted_evidence_count": 0
+    }
+  ],
+  "unassessed_requirements": [
+    "AT-REQ-004",
+    "AT-REQ-005"
+  ],
+  "scope": "Observed obligations only; not full requirement or system compliance.",
+  "tool_activity": [
+    "build_report",
+    "resolve_citations:AT-REQ-001"
+  ]
+}

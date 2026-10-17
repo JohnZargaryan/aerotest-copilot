@@ -39,7 +39,7 @@ Implemented:
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
 **Not implemented yet:** complete requirement-result evaluation, chatbot, live-model evaluations,
-or a public demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
+or a hosted interactive demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
 Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
@@ -52,8 +52,11 @@ build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [d
 ![Real sensor-disagreement execution with saved-run summary](docs/assets/sensor-overview.jpg)
 
 [View the investigation, telemetry and original evidence screenshots](docs/screenshots.md).
-These are static captures of a real local run in scripted mode. A video and public
-application demo remain planned.
+These are static captures of a real local run in scripted mode.
+
+[Watch the 65-second recorded walkthrough](docs/demo.md), with visible captions and
+a transcript. It is an edited sequence of real browser captures in scripted mode.
+A hosted interactive application remains planned.
 
 ## Start on Windows
 

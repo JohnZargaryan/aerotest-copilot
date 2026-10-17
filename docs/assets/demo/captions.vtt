@@ -1,0 +1,33 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+Explore a fictional research-aircraft subsystem.
+This is an edited sequence of real browser captures, with reading time added.
+
+00:00:05.000 --> 00:00:11.000
+Select Sensor disagreement, seed 42 and 30000 ms.
+The simulator uses fixed 100 ms ticks; the seed repeats the evidence.
+
+00:00:11.000 --> 00:00:18.000
+The run completes with 904 records and its own execution ID.
+DEGRADED before shutdown describes subsystem state, not a test verdict.
+
+00:00:18.000 --> 00:00:28.000
+The disagreement response and transition policy pass their observed checks.
+Unexercised checks remain INCONCLUSIVE; AT-REQ-004 and 005 are unassessed.
+
+00:00:28.000 --> 00:00:38.000
+Select AT-REQ-001 and explain the saved checks.
+The response uses build_report and resolve_citations; no live model is called.
+
+00:00:38.000 --> 00:00:47.000
+One of 13 citations resolves to sensor A at 2000 ms: 20043 mdegC.
+The original event ID, timestamp, unit and acquisition details stay visible.
+
+00:00:47.000 --> 00:00:55.000
+Sensor B is biased from 2000 through 3900 ms.
+The chart uses recorded delivery times and explicit units, without interpolation.
+
+00:00:55.000 --> 00:01:05.000
+Record 77 shows NOMINAL to DEGRADED at 2500 ms; shutdown occurs at 30000 ms.
+These are scoped observations in an educational simulation, not a compliance verdict.

@@ -1,0 +1,143 @@
+{
+  "source_commit": "716fbb42d6f6cdf63738ddb109be13ccb8731769",
+  "format": "Edited sequence of real browser captures; hard cuts and reading holds; no continuous screen recording, audio, fabricated cursor, live model or real-time timing claim",
+  "browser": "Codex in-app browser",
+  "viewport_css_px": {
+    "width": 1280
+  },
+  "execution_id": "2cc820a0-4e84-426c-be0f-11824366dc40",
+  "created_at_utc": "2026-10-17T07:45:52.117515Z",
+  "config": {
+    "schema_version": "1.0",
+    "scenario_id": "sensor-disagreement",
+    "seed": 42,
+    "duration_ms": 30000,
+    "step_ms": 100
+  },
+  "simulator_version": "0.5.0",
+  "record_count": 904,
+  "assistant_mode": "scripted",
+  "checker_version": "0.1.0",
+  "citation_count": 13,
+  "video_width": 1920,
+  "video_height": 1080,
+  "fps": 24,
+  "duration_s": 65,
+  "encoder_package": "imageio-ffmpeg 0.6.0, Windows amd64 wheel",
+  "encoder_wheel_sha256": "02fa47c83703c37df6bfe4896aab339013f62bf02c5ebf2dce6da56af04ffc0a",
+  "assistance": "Captured, edited and verified with OpenAI Codex assistance",
+  "steps": [
+    {
+      "file": "01-ready.jpg",
+      "captured_at_utc": "2026-10-17T07:45:44.114Z",
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 930
+      },
+      "title": "Welcome to AeroTest Copilot",
+      "duration_s": 5,
+      "caption": "Explore a fictional research-aircraft subsystem.\nThis is an edited sequence of real browser captures, with reading time added.",
+      "sha256": "7222b4e143fc4d26d35ceca48aaf3c3003e4d997d70d9d780753edb1e0b615bd"
+    },
+    {
+      "file": "02-configure.jpg",
+      "captured_at_utc": "2026-10-17T07:45:52.053Z",
+      "clip": {
+        "x": 0,
+        "y": 570,
+        "width": 1280,
+        "height": 370
+      },
+      "title": "Choose a repeatable scenario",
+      "duration_s": 6,
+      "caption": "Select Sensor disagreement, seed 42 and 30000 ms.\nThe simulator uses fixed 100 ms ticks; the seed repeats the evidence.",
+      "sha256": "56b0faa4ce8976d93306ce1d4baa8199962b1146ca55babe26c91381da893d22"
+    },
+    {
+      "file": "03-saved-run.jpg",
+      "captured_at_utc": "2026-10-17T07:46:00.433Z",
+      "clip": {
+        "x": 0,
+        "y": 570,
+        "width": 1280,
+        "height": 640
+      },
+      "title": "Run the C++ simulator and save evidence",
+      "duration_s": 7,
+      "caption": "The run completes with 904 records and its own execution ID.\nDEGRADED before shutdown describes subsystem state, not a test verdict.",
+      "sha256": "35d11cebd4742d2fa62c6ff221c48ef739a216933044cceee6156ad227789d9e"
+    },
+    {
+      "file": "04-scoped-checks.jpg",
+      "captured_at_utc": "2026-10-17T07:46:07.415Z",
+      "clip": {
+        "x": 0,
+        "y": 1190,
+        "width": 1280,
+        "height": 1072
+      },
+      "title": "Read scoped requirement checks",
+      "duration_s": 10,
+      "caption": "The disagreement response and transition policy pass their observed checks.\nUnexercised checks remain INCONCLUSIVE; AT-REQ-004 and 005 are unassessed.",
+      "sha256": "e79f3e4375b387f05c12d37d8c81e972fc28bd11aefb2cef6665692ac99f0284"
+    },
+    {
+      "file": "05-explanation.jpg",
+      "captured_at_utc": "2026-10-17T07:46:34.039Z",
+      "clip": {
+        "height": 770,
+        "width": 1280,
+        "x": 0,
+        "y": 2290
+      },
+      "title": "Request a scripted explanation",
+      "duration_s": 10,
+      "caption": "Select AT-REQ-001 and explain the saved checks.\nThe response uses build_report and resolve_citations; no live model is called.",
+      "sha256": "afe0e71b0436a2a36c7886444dad095336100f060bd369e7313850c0a3d5d574"
+    },
+    {
+      "file": "06-original-citation.jpg",
+      "captured_at_utc": "2026-10-17T07:46:43.638Z",
+      "clip": {
+        "height": 519,
+        "width": 1280,
+        "x": 0,
+        "y": 2696
+      },
+      "title": "Open an original citation",
+      "duration_s": 9,
+      "caption": "One of 13 citations resolves to sensor A at 2000 ms: 20043 mdegC.\nThe original event ID, timestamp, unit and acquisition details stay visible.",
+      "sha256": "428c8ccd5de319658d726ac00a9f6054b54638d2e0332007055681eb2c0eb2be"
+    },
+    {
+      "file": "07-sensor-chart.jpg",
+      "captured_at_utc": "2026-10-17T07:46:52.009Z",
+      "clip": {
+        "height": 644,
+        "width": 1280,
+        "x": 0,
+        "y": 3072
+      },
+      "title": "Compare the recorded sensor samples",
+      "duration_s": 8,
+      "caption": "Sensor B is biased from 2000 through 3900 ms.\nThe chart uses recorded delivery times and explicit units, without interpolation.",
+      "sha256": "ce425e090a0385b931099a275f6f1348da1ba21bb95d4080814059ed4f38c5b8"
+    },
+    {
+      "file": "08-transition.jpg",
+      "captured_at_utc": "2026-10-17T07:46:53.375Z",
+      "clip": {
+        "height": 906,
+        "width": 1280,
+        "x": 0,
+        "y": 4291
+      },
+      "title": "Inspect the response transition",
+      "duration_s": 10,
+      "caption": "Record 77 shows NOMINAL to DEGRADED at 2500 ms; shutdown occurs at 30000 ms.\nThese are scoped observations in an educational simulation, not a compliance verdict.",
+      "sha256": "de3ecfce498f7736b280310b2c364db62d43157896603e52529aec017a683cb0"
+    }
+  ]
+}

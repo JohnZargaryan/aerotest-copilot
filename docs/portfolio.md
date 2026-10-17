@@ -8,6 +8,8 @@ authorized integration. Target one project card and one concise case-study page:
    repository; site integration remains planned.
 2. A short demo: choose sensor disagreement, run it, inspect requirement results,
    ask for an explanation, and open an evidence reference.
+   The [65-second recorded walkthrough](demo.md), captions, transcript and poster
+   are available; it uses edited real browser captures in scripted mode.
 3. A small architecture diagram and explanation of C++/Python responsibilities.
 4. Actual test/evaluation results, with scripted and live results separated.
 5. Links to source, setup, demo and limitations.

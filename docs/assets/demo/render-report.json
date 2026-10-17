@@ -1,0 +1,14 @@
+{
+  "rendered_at_utc": "2026-10-17T07:49:24.080940+00:00",
+  "ffmpeg": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+  "duration_s": 65,
+  "width_px": 1920,
+  "height_px": 1080,
+  "fps": 24,
+  "codec": "H.264 high / yuv420p",
+  "audio": "none",
+  "full_decode": "passed",
+  "video_bytes": 760654,
+  "video_sha256": "88bbb2529b2911eb9c2060cb7ff6cdb78fa268716eee2e889626df8b7169611f",
+  "manifest_sha256": "fb84753e7fa2e5876108f4f9c865c355598ccd161a9e501be2a9319d4094a570"
+}
