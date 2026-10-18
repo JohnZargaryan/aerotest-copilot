@@ -323,3 +323,14 @@ PASS. Match the 2000 ms citation to the original measurement and Record 77 to th
 2500 ms transition. Explain what the recorded local tools did, which requirements
 remain unassessed, and why edited reading holds cannot measure simulator latency.
 Reproduce the steps and distinguish the new execution UUID from stable evidence IDs.
+
+
+## Case-study architecture exercise
+
+Prepared with OpenAI Codex assistance. Follow the architecture diagram from the
+browser to the C++ child, then identify where a completed result is validated and
+saved. Explain why request-time check reports do not belong inside the simulator
+or the stored result. Use the preserved demo to distinguish operating state,
+scoped verdict, evidence run ID and execution UUID. Explain what the five-second
+runner timeout excludes, why two run slots are per application instance and why
+44 grounded citations in reviewed regression cases do not establish model accuracy.

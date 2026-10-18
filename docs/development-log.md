@@ -742,3 +742,38 @@ or application deployment added.
 Learning exercise: trace the recorded citations and distinguish scoped verdicts
 from system state and edited timing; see interview-guide.md. Next: presentation
 review, case-study assets and a $0 hosting-options review before any integration.
+
+
+## 2026-10-18 - Engineering case study and current architecture
+
+Prepared with OpenAI Codex assistance. Added a portfolio-oriented engineering case
+study with a concrete saved-run investigation, linked demo/source/evidence,
+implementation ownership, decisions/tradeoffs, dated verification counts and
+explicit scripted-mode/evaluation limits. Replaced stale architecture plans with
+an implemented-call Mermaid diagram, six API route operations, create/save/check
+ordering, process/storage boundaries, actual resource limits and current native/
+nginx serving arrangements. Corrected supporting runner/storage text and catalog
+notes that still described completed report/API integration or execution metadata
+as future work. Requirement acceptance criteria and implementation statuses are
+unchanged. README now describes current behavior and links the case study.
+
+Verification: traced diagram calls and claims through app.py, runner.py, storage.py,
+reports.py, assistant.py, investigation.py, adapters.py, frontend response validators
+and Compose/nginx configuration. The case's complete 904-record result matched a
+fresh native C++ replay; recomputed report matched preserved check evidence. Checked
+2000 ms measurements (20043/25963 mdegC, difference 5920) and the 2500 ms transition.
+Verified all six documented API route/method pairs against OpenAPI, actual health
+capabilities and disabled-live HTTP response using the local test client. Schema
+freshness passed. Repeated scripted regression evaluation: 12/12 cases, 18/18 expected
+verdicts and 44/44 grounded citations matched the committed report. Requirement
+catalog JSON parsed, local Markdown/source/image links resolved and whitespace
+checks passed. Reviewed the Mermaid call graph as source; no rendered-layout or
+mobile/keyboard acceptance claim is made. Existing TestClient deprecation warning
+remains non-fatal. Full native suites were not rerun for these documentation-only
+changes; cited counts retain their original baseline date, and hosted results are
+reported separately. No application behavior, dependencies, paid services, model
+calls, website changes or deployment added.
+
+Learning exercise: trace validation/storage/report ownership and explain identity,
+resource and evaluation boundaries; see interview-guide.md. Next: mobile/keyboard
+acceptance, final project-card preparation and a $0 hosting-options review.

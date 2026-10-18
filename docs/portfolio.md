@@ -10,7 +10,9 @@ authorized integration. Target one project card and one concise case-study page:
    ask for an explanation, and open an evidence reference.
    The [65-second recorded walkthrough](demo.md), captions, transcript and poster
    are available; it uses edited real browser captures in scripted mode.
-3. A small architecture diagram and explanation of C++/Python responsibilities.
+3. The [engineering case study](case-study.md) and
+   [implemented architecture diagram](architecture.md) explain C++/Python
+   responsibilities and evidence flow. Prepared here; site integration remains planned.
 4. Actual test/evaluation results, with scripted and live results separated.
 5. Links to source, setup, demo and limitations.
 

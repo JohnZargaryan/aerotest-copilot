@@ -20,5 +20,7 @@ Implemented and planned capabilities, in dependency order.
 15. DONE: evaluation-only expected-answer dataset and scripted regression report. Keys are excluded from runtime; cases are development-reviewed, not a blind holdout.
 16. DONE: Docker setup, isolated clean container verification, verified desktop
     screenshots and a captioned recorded walkthrough (edited browser-capture sequence).
-17. Review README, interview guide, portfolio assets and hosting options/costs.
+17. IN PROGRESS: case study, current architecture diagram and supporting README/
+    documentation review DONE. Mobile/keyboard acceptance, final project-card assets
+    and hosting options/costs review remain unfinished.
 18. Public repository available; application deployment and portfolio integration remain planned.

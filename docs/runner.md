@@ -40,6 +40,7 @@ print(result.run_id, len(result.records))
 ```
 
 The run API connects execution to RunStore (docs/run-api.md); frontend controls
-remain planned. API health reports simulation_available=true. Tests run all four maximum-duration scenarios
+create saved executions and load scoped checks/scripted findings. API health reports
+simulation_available=true. Tests run all four maximum-duration scenarios
 and real helper processes for timeout, failure, output caps, stdin EOF and cleanup;
 malformed or corrupted results are rejected separately.

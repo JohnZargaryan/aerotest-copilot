@@ -2,9 +2,9 @@
 
 **AI-assisted simulation and test investigation.**
 
-A fictional civilian research-aircraft subsystem will provide repeatable sensor
-and battery scenarios. Independent tests will check measurable requirements, and
-an investigation assistant will explain results using linked evidence.
+A fictional civilian research-aircraft subsystem provides repeatable sensor and
+battery scenarios. Independent Python checkers assess observed requirements, and
+a scripted investigation assistant explains results using linked saved evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
@@ -48,6 +48,9 @@ and 192 state/signal combinations),
 build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [development log](docs/development-log.md) for actual results and limitations.
 
 ## See the app
+
+[Read the engineering case study](docs/case-study.md), including a concrete fault
+investigation, architecture, verified results and current limits.
 
 ![Real sensor-disagreement execution with saved-run summary](docs/assets/sensor-overview.jpg)
 
@@ -179,7 +182,8 @@ the local verification above was performed on Windows.
 
 - [Scripted evaluation results](docs/scripted-evaluation.md)
 - [Scripted investigation interface](docs/scripted-investigation.md)
-- [Architecture and public interfaces](docs/architecture.md)
+- [Portfolio case study](docs/case-study.md)
+- [Architecture diagram and public interfaces](docs/architecture.md)
 - [Requirements catalog](docs/requirements.json)
 - [State machine design](docs/state-machine.md)
 - [Development roadmap](docs/backlog.md)
