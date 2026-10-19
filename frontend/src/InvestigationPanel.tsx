@@ -42,7 +42,7 @@ export function InvestigationPanel({ executionId, runId, records }: {
       }}><option value="all">All assessed requirements</option>
         {requirementIds.map(id => <option key={id} value={id}>{id}</option>)}
       </select></label>
-      <button type="button" disabled={busy} onClick={load}>{busy ? "Investigating..." : "Explain saved checks"}</button>
+      <button type="button" aria-disabled={busy} onClick={load}>{busy ? "Investigating..." : "Explain saved checks"}</button>
     </div>
     <p role="status">{busy ? "Loading scripted investigation." : answer ? "Scripted explanation loaded." : "Select a focus and load its explanation."}</p>
     {error && <p role="alert" className="run-error">{error}</p>}

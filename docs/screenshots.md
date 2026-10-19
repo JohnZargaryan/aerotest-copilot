@@ -58,5 +58,6 @@ unexercised fault conditions are not passing checks. The app remains an educatio
 civilian simulation, not flight software or a validated physical model.
 
 These desktop captures can support a repository walkthrough or a separately
-authorized portfolio integration. Mobile layout, keyboard-only acceptance and a
-video recording remain unfinished; screenshots do not establish those checks.
+authorized portfolio integration. A separate [recorded walkthrough](demo.md) and
+[bounded mobile/keyboard review](usability-review.md) are now available. These
+desktop screenshots alone do not establish those checks.

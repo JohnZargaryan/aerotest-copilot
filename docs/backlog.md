@@ -21,6 +21,7 @@ Implemented and planned capabilities, in dependency order.
 16. DONE: Docker setup, isolated clean container verification, verified desktop
     screenshots and a captioned recorded walkthrough (edited browser-capture sequence).
 17. IN PROGRESS: case study, current architecture diagram and supporting README/
-    documentation review DONE. Mobile/keyboard acceptance, final project-card assets
-    and hosting options/costs review remain unfinished.
+    documentation review DONE. Bounded mobile/keyboard review and fixes DONE; see
+    usability-review.md for coverage and limits. Final project-card assets and
+    hosting options/costs review remain unfinished.
 18. Public repository available; application deployment and portfolio integration remain planned.

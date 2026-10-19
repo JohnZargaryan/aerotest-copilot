@@ -777,3 +777,37 @@ calls, website changes or deployment added.
 Learning exercise: trace validation/storage/report ownership and explain identity,
 resource and evaluation boundaries; see interview-guide.md. Next: mobile/keyboard
 acceptance, final project-card preparation and a $0 hosting-options review.
+
+
+## 2026-10-19 - Readable mobile charts and keyboard evidence navigation
+
+Implemented and reviewed with OpenAI Codex assistance. Kept chart labels readable
+by retaining a 640 CSS-pixel plot inside a horizontally scrollable region. Added
+named keyboard stops and instructions for both plots and the event table. Loading
+buttons retain focus using aria-disabled and the existing pending-request guards;
+editable inputs still disable during requests. Added a bounded usability report,
+two actual phone-width captures and source/image hash metadata. Updated current
+presentation documentation to distinguish this review from broader accessibility
+and video playback coverage.
+
+Verification: both isolated Docker services rebuilt and became healthy. Exercised
+requested widths 320, 390, 768 and 1280 with no horizontal document overflow;
+review.json records actual embedded-browser dimensions. Checked native duration
+step validation, Enter activation, visible focus through loading/success, keyboard
+check/citation/tool disclosures, chart/table arrow scrolling, timeline filtering,
+empty state, page 1/2 navigation and Record 77. Sensor disagreement seed 42,
+30000 ms produced 904 saved records, 001/006 PASS, 002/003 INCONCLUSIVE and 004/005
+unassessed; selected 001 returned 13 citations. Stopped the disposable API and
+verified request errors retained the prior saved summary, report and explanation;
+restored it and successfully retried. Inspected both final captures and verified
+JPEG/source hashes. All 14 frontend tests, TypeScript checks and production build
+passed. Existing Vite workspace-path warning remains non-fatal. Native backend/
+simulator suites were not rerun for this UI-only change; hosted checks are reported
+separately. This is one-browser viewport/keyboard coverage, not physical-device,
+screen-reader, high-zoom, contrast or WCAG certification. No dependencies, paid
+services, model calls, portfolio changes or application deployment added.
+
+Learning exercise: reproduce the keyboard evidence flow, explain aria-disabled
+versus native disabled behavior and identify why component scrolling does not
+imply horizontal page overflow; see interview-guide.md. Next: final project-card
+assets and a $0 hosting-options review before separately authorized integration.

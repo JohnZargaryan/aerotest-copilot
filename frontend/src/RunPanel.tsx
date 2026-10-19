@@ -89,16 +89,16 @@ export function RunPanel() {
       <h2 id="run-title">Run a scenario.</h2>
       <p>Repeatable sensor and power evidence, saved locally for investigation.</p></div>
     <form onSubmit={submit}>
-      <fieldset disabled={busy}>
+      <fieldset aria-busy={busy}>
         <legend className="visually-hidden">Simulation configuration</legend>
-        <label>Scenario<select value={scenario} onChange={event => setScenario(event.target.value)}>
+        <label>Scenario<select disabled={busy} value={scenario} onChange={event => setScenario(event.target.value)}>
           {scenarios.map(([id, label]) => <option key={id} value={id}>{label}</option>)}
         </select></label>
-        <label>Seed<input type="number" required min="0" max="4294967295" step="1"
+        <label>Seed<input disabled={busy} type="number" required min="0" max="4294967295" step="1"
           value={seed} onChange={event => setSeed(event.target.value)} /></label>
-        <label>Duration (ms)<input type="number" required min="1000" max="120000" step="100"
+        <label>Duration (ms)<input disabled={busy} type="number" required min="1000" max="120000" step="100"
           value={duration} onChange={event => setDuration(event.target.value)} /></label>
-        <button type="submit">{busy ? "Running and saving..." : "Run simulation"}</button>
+        <button type="submit" aria-disabled={busy}>{busy ? "Running and saving..." : "Run simulation"}</button>
       </fieldset>
       <p className="input-hint">Fixed 100 ms ticks. The seed repeats the same evidence; each execution gets its own saved ID.</p>
     </form>

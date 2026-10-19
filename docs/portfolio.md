@@ -17,7 +17,9 @@ authorized integration. Target one project card and one concise case-study page:
 5. Links to source, setup, demo and limitations.
 
 Keep mobile layout, keyboard access, readable contrast, explicit error states,
-and a no-key scripted path as acceptance conditions for the application.
+and a no-key scripted path as acceptance conditions for the application. The
+[bounded mobile/keyboard review](usability-review.md) records implemented fixes
+and coverage limits; it does not claim a full accessibility audit.
 
 The full app requires hosting that can execute C++ and Python. A static portfolio
 can link to that host. A lower-cost recorded replay must be labeled as a replay,

@@ -334,3 +334,16 @@ or the stored result. Use the preserved demo to distinguish operating state,
 scoped verdict, evidence run ID and execution UUID. Explain what the five-second
 runner timeout excludes, why two run slots are per application instance and why
 44 grounded citations in reviewed regression cases do not establish model accuracy.
+
+
+## Mobile and keyboard exercise
+
+Implemented with OpenAI Codex assistance. Reproduce the flow in usability-review.md
+at a narrow viewport. Tab to a chart, scroll it with arrows and compare the plot's
+scroll width with the document's client/scroll widths. Explain why a readable
+fixed-width data view can coexist with a responsive form. Find the pending-request
+guard behind each aria-disabled action button: why is the ARIA attribute alone
+insufficient to prevent another request? Distinguish it from native disabled
+configuration inputs and pagination controls. Open Record 77 using the keyboard,
+then explain why this review does not establish screen-reader, touch-device or
+all-browser accessibility.

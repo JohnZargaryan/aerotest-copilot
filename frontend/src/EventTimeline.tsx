@@ -42,8 +42,10 @@ export function EventTimeline({ records }: { records: EvidenceEvent[] }) {
         <option value="battery">Battery</option>
       </select></label>
     </div>
+    <p id="timeline-scroll-hint" className="input-hint">Scroll horizontally to see every column. Keyboard: Tab to the table, then use Left/Right arrows.</p>
     <p role="status">{matches.length} matching events. Page {page + 1} of {pageCount}.</p>
-    {visible.length === 0 ? <p>No events match these filters.</p> : <div className="timeline-scroll">
+    {visible.length === 0 ? <p>No events match these filters.</p> : <div className="timeline-scroll" tabIndex={0} role="region"
+      aria-label="Saved event table" aria-describedby="timeline-scroll-hint">
       <table>
         <caption className="visually-hidden">Saved event evidence, up to 20 records per page</caption>
         <thead><tr><th scope="col">Time (ms)</th><th scope="col">Component</th>

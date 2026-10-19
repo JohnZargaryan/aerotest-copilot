@@ -14,7 +14,9 @@ function Plot({ title, unit, series, range, durationMs }: {
   return <figure className="telemetry-plot">
     <figcaption>{title}</figcaption>
     <p>{count} recorded samples. Vertical axis: {unit}, {low.toFixed(1)} to {high.toFixed(1)}.</p>
-    {count === 0 ? <p>No matching telemetry samples.</p> : <svg viewBox="0 0 640 230"
+    {count === 0 ? <p>No matching telemetry samples.</p> : <div className="chart-scroll"
+      tabIndex={0} role="region" aria-label={`${title} plot`} aria-describedby="telemetry-scroll-hint">
+      <svg viewBox="0 0 640 230"
       role="img" aria-labelledby={id}>
       <title id={id}>{title}: recorded sample values over delivery time, from 0 to {durationMs / 1000} seconds. Missing samples are not filled or joined.</title>
       {[low, (low + high) / 2, high].map(value => {
@@ -35,7 +37,7 @@ function Plot({ title, unit, series, range, durationMs }: {
             : <circle key={event.event_id} cx={x} cy={y} r="1.8"><title>{tooltip}</title></circle>;
         })}
       </g>)}
-    </svg>}
+    </svg></div>}
     <ul className="chart-legend">{series.map(item => <li key={item.name}>
       <span style={{ color: item.color }}>{item.diamond ? "Diamond" : "Circle"}</span>{item.name}
       <span>{item.points.length} samples</span></li>)}</ul>
@@ -51,6 +53,7 @@ export function TelemetryCharts({ records, durationMs }: {
   return <section className="telemetry" aria-labelledby="telemetry-title">
     <h3 id="telemetry-title">Telemetry charts</h3>
     <p>Each mark is a recorded sample at its delivery time. Missing samples are left empty; no lines interpolate between them. Use the event timeline for exact values and acquisition times.</p>
+    <p id="telemetry-scroll-hint" className="input-hint">On narrow screens, scroll charts horizontally. Keyboard: Tab to a plot, then use Left/Right arrows. Exact values are available in the event timeline.</p>
     <Plot title="Sensor measurements" unit="degrees C" durationMs={durationMs}
       range={sensorRange([...a, ...b].map(point => point.value))}
       series={[{ name: "Sensor A", color: "#326a57", points: a },

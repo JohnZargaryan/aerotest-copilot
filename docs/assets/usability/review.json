@@ -1,0 +1,131 @@
+{
+  "captured_at_utc": "2026-10-19T22:08:01.521Z",
+  "scenario_id": "sensor-disagreement",
+  "seed": 42,
+  "duration_ms": 30000,
+  "execution_id": "1132a03e-d7ca-4628-b75b-57e51c46d3bb",
+  "failure_check_execution_id": "36db4502-f8db-4a3b-9f09-3c35ebfcc973",
+  "browser": "Windows Codex in-app browser",
+  "requested_viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "viewports": [
+    {
+      "width": 320,
+      "clientWidth": 305,
+      "scrollWidth": 305,
+      "plots": [
+        {
+          "visibleWidth": 177,
+          "contentWidth": 640
+        },
+        {
+          "visibleWidth": 177,
+          "contentWidth": 640
+        }
+      ],
+      "table": {
+        "visibleWidth": 215,
+        "contentWidth": 530
+      }
+    },
+    {
+      "clientWidth": 375,
+      "formColumns": "1fr",
+      "plots": [
+        {
+          "contentWidth": 640,
+          "visibleWidth": 247
+        },
+        {
+          "contentWidth": 640,
+          "visibleWidth": 247
+        }
+      ],
+      "scrollWidth": 375,
+      "table": {
+        "contentWidth": 530,
+        "visibleWidth": 285
+      },
+      "width": 390
+    },
+    {
+      "clientWidth": 753,
+      "formColumns": "1fr 1fr",
+      "plots": [
+        {
+          "contentWidth": 640,
+          "visibleWidth": 554
+        },
+        {
+          "contentWidth": 640,
+          "visibleWidth": 554
+        }
+      ],
+      "scrollWidth": 753,
+      "table": {
+        "contentWidth": 591,
+        "visibleWidth": 591
+      },
+      "width": 769
+    },
+    {
+      "clientWidth": 1265,
+      "formColumns": "1.5fr 1fr 1fr auto",
+      "plots": [
+        {
+          "contentWidth": 1000,
+          "visibleWidth": 1000
+        },
+        {
+          "contentWidth": 1000,
+          "visibleWidth": 1000
+        }
+      ],
+      "scrollWidth": 1265,
+      "table": {
+        "contentWidth": 1038,
+        "visibleWidth": 1038
+      },
+      "width": 1280
+    }
+  ],
+  "captures": [
+    {
+      "file": "mobile-charts.jpg",
+      "clip": {
+        "height": 850,
+        "width": 390,
+        "x": 0,
+        "y": 3979
+      },
+      "note": "Left portion of horizontally scrollable plot; visible keyboard focus.",
+      "sha256": "6d1c84f9d9c5538582a7a21994dd9afdffeea49f775d6805fecc78351a660f76",
+      "image_width": 390,
+      "image_height": 850
+    },
+    {
+      "file": "mobile-table.jpg",
+      "clip": {
+        "height": 1300,
+        "width": 390,
+        "x": 0,
+        "y": 5269
+      },
+      "note": "Table scrolled right with keyboard; Record 77 expanded. First columns are outside this scroll position.",
+      "sha256": "0b99021bd1985b5eaa4c6fb3cc57485d93010e17af67aafe04f79c7d5c88e798",
+      "image_width": 390,
+      "image_height": 1300
+    }
+  ],
+  "base_revision": "c15f1b6f1e7011976cc76c540a5d651477778e7f",
+  "source_sha256": {
+    "frontend/src/RunPanel.tsx": "42c5e721b4764055653383c73d9b72071136f532fb21f9d8435b97769d503517",
+    "frontend/src/RequirementResults.tsx": "feae681fe74f95d67a3359389d44adcc2ac7450f190efd6b67bc3bd18d10e361",
+    "frontend/src/InvestigationPanel.tsx": "3267a5e40abf95036c54c82207f7cd9c2d436a630ff110c36598e7affcc44157",
+    "frontend/src/TelemetryCharts.tsx": "eaec9e9fcd1c5bdfe6aea2f3493c9ea32c72e2113b9956066b4508bba7e766e1",
+    "frontend/src/EventTimeline.tsx": "41c0e16201031a9b5881a540d0c9740dc6253d27f8bbd2739567fa8bb23eea72",
+    "frontend/src/style.css": "3651223b89bd0d93672d6452fd6a0d7f0e1ac4778106abc40644b9225640fc91"
+  }
+}

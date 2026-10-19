@@ -95,7 +95,9 @@ measure execution latency.
 Live-model integration and free-form chat are disabled/unimplemented. Configuration
 and replay have automated tests but no runtime 004/005 verdicts. There is no claim of
 certification, physical validation, production readiness or company-specific
-qualification. Mobile layout and keyboard-only acceptance still need review.
+qualification. A [bounded mobile/keyboard review](usability-review.md) covered four
+viewport sizes and keyboard flows in one Windows browser; physical devices,
+screen readers and general accessibility conformance remain unverified.
 
 The public repository, recorded demo and local setup are available. A hosted
 interactive application, hosting-cost review and portfolio-site integration remain

@@ -76,7 +76,8 @@ Windows render used the checksum-checked imageio-ffmpeg 0.6.0 PyPI wheel, which
 contains FFmpeg 7.1; its wheel hash is in the manifest. Output byte identity may
 vary with encoder/font versions. A full decode and separate stream inspection
 confirmed 65 seconds, 1560 frames, 24 fps, H.264/yuv420p and no audio. Browser playback
-was checked locally; other browsers and mobile layouts remain unverified.
+was checked locally; other browsers and mobile video playback remain unverified.
+The application has a separate [bounded mobile/keyboard review](usability-review.md).
 
 The video, poster, captions and transcript are available for a separately authorized
 portfolio integration. Website edits and hosting remain separate work.

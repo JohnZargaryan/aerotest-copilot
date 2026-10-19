@@ -127,7 +127,9 @@ records match saved evidence; it does not demonstrate causal reasoning.
 There are no live model calls, free-form agent loop, user accounts, authentication,
 public deployment, failed-run history, retention system or migrations. Proposed
 agent tool-call/model-request budgets are future design ideas, not implemented
-controls. Mobile layout and keyboard-only acceptance remain unverified. The
+controls. A [bounded mobile/keyboard review](usability-review.md) covers narrow
+layouts, named scroll regions and keyboard flows in one browser; broader device
+and accessibility coverage remains unverified. The
 simulation is fictional civilian educational software, not certified flight software
 or a validated physical model. These limits also appear in the
 [portfolio case study](case-study.md).

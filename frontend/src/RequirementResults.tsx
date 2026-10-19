@@ -42,7 +42,7 @@ export function RequirementResults({ executionId, runId, records }: {
   return <section className="requirement-results" aria-labelledby="checks-title">
     <h3 id="checks-title">Requirement checks</h3>
     <p>Assess observed obligations in this saved execution. Inconclusive checks are not passes, and unassessed requirements remain explicit.</p>
-    <button type="button" disabled={busy} onClick={load}>{busy ? "Loading checks..." : report ? "Reload requirement checks" : "Load requirement checks"}</button>
+    <button type="button" aria-disabled={busy} onClick={load}>{busy ? "Loading checks..." : report ? "Reload requirement checks" : "Load requirement checks"}</button>
     <p role="status">{busy ? "Loading saved-evidence checks." : report ? "Check report loaded." : "Checks have not been loaded."}</p>
     {error && <p role="alert" className="run-error">{error}</p>}
     {report && <div>

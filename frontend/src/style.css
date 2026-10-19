@@ -38,7 +38,7 @@ input, select, button { font: inherit; border-radius: 6px; padding: 12px; min-he
 input, select { width: 100%; min-width: 0; border: 1px solid #9facaa; color: #172b35; background: #fff; }
 button { background: #326a57; color: #fff; border: 1px solid #326a57; cursor: pointer; font-weight: 600; }
 button:hover { background: #254f41; }
-button:disabled { opacity: .65; cursor: wait; }
+button:disabled, button[aria-disabled="true"] { opacity: .65; cursor: wait; }
 :focus-visible { outline: 3px solid #b47a28; outline-offset: 3px; }
 .input-hint { font-size: 12px; }
 .run-panel .run-error { color: #873529; background: #fff1ec; padding: 12px; border-radius: 6px; }
@@ -53,7 +53,7 @@ dd { margin: 0; font-weight: 600; }
 
 .timeline { margin-top: 28px; padding-top: 24px; border-top: 1px solid #ccd3cc; }
 .timeline-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.timeline-scroll { overflow-x: auto; }
+.timeline-scroll, .chart-scroll { overflow-x: auto; }
 .timeline table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
 .timeline th, .timeline td { padding: 14px 10px; border-bottom: 1px solid #ccd3cc; vertical-align: top; }
 .timeline th { color: #356452; }
@@ -70,7 +70,7 @@ dd { margin: 0; font-weight: 600; }
 .telemetry-plot { margin: 24px 0; background: #f8faf7; padding: 18px; border: 1px solid #d4dcd6; border-radius: 8px; }
 .telemetry-plot figcaption { font-weight: 650; }
 .telemetry-plot p { font-size: 12px; }
-.telemetry-plot svg { width: 100%; display: block; }
+.telemetry-plot svg { width: 100%; min-width: 640px; display: block; }
 .telemetry-plot svg text { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #4f6167; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; padding: 0; margin: 12px 0 0; }
 .chart-legend li { display: flex; gap: 8px; padding: 0; border: 0; font-size: 12px; }

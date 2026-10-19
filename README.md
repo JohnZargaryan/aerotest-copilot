@@ -183,6 +183,7 @@ the local verification above was performed on Windows.
 - [Scripted evaluation results](docs/scripted-evaluation.md)
 - [Scripted investigation interface](docs/scripted-investigation.md)
 - [Portfolio case study](docs/case-study.md)
+- [Mobile layout and keyboard review](docs/usability-review.md)
 - [Architecture diagram and public interfaces](docs/architecture.md)
 - [Requirements catalog](docs/requirements.json)
 - [State machine design](docs/state-machine.md)
