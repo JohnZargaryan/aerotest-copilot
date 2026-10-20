@@ -1,6 +1,6 @@
 # AeroTest Copilot
 
-**AI-assisted simulation and test investigation.**
+**Simulation and evidence-based test investigation.**
 
 A fictional civilian research-aircraft subsystem provides repeatable sensor and
 battery scenarios. Independent Python checkers assess observed requirements, and
@@ -198,5 +198,4 @@ Source layout: `simulator/` for C++, `backend/` for Python, `frontend/` for Reac
 
 ## Development
 
-Developed with OpenAI Codex assistance. Implemented features, test results, and
-planned capabilities are documented separately.
+Implemented features, test results, and planned capabilities are documented separately.

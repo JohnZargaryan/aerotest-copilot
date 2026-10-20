@@ -1,6 +1,6 @@
 # Architecture and contracts
 
-Reviewed against the implemented source with OpenAI Codex assistance on 2026-10-18.
+Reviewed against the implemented source on 2026-10-18.
 The app is a local educational simulation with scripted investigation. Live-model
 integration and free-form chat remain unavailable.
 
