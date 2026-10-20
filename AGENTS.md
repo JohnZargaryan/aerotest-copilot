@@ -2,7 +2,7 @@
 
 Read README.md, docs/development-log.md, and docs/backlog.md before work.
 Keep changes focused and commit verified work with accurate timestamps.
-Record AI assistance honestly and preserve user changes.
+Preserve user changes.
 
 Only change this repository. Do not edit sibling projects or the portfolio site.
 Never publish, push to a public remote, deploy, or make paid API calls without
