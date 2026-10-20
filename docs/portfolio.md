@@ -5,7 +5,9 @@ authorized integration. Target one project card and one concise case-study page:
 
 1. A 1-sentence problem statement and a screenshot of a real investigation.
    Verified [desktop captures](screenshots.md) and provenance are available in this
-   repository; site integration remains planned.
+   repository. The [project-card bundle](project-card.md) includes canonical copy,
+   the verified source image, links and a responsive preview; site integration
+   remains planned.
 2. A short demo: choose sensor disagreement, run it, inspect requirement results,
    ask for an explanation, and open an evidence reference.
    The [65-second recorded walkthrough](demo.md), captions, transcript and poster

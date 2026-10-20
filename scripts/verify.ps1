@@ -19,6 +19,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Python lint failed.' }
     & '.\.venv\Scripts\python.exe' scripts/export_contracts.py --check
     if ($LASTEXITCODE -ne 0) { throw 'Committed schemas are stale.' }
+    & '.\.venv\Scripts\python.exe' scripts/render_project_card.py --check
+    if ($LASTEXITCODE -ne 0) { throw 'Project card preview is stale or its sources changed.' }
     & '.\.venv\Scripts\python.exe' -m pip check
     if ($LASTEXITCODE -ne 0) { throw 'Python dependency compatibility check failed.' }
     npm.cmd --prefix frontend test

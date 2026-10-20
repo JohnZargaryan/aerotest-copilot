@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run deterministic C++ fault scenarios, check observed requirements in Python, and inspect scripted explanations linked to saved evidence.">
+  <title>AeroTest Copilot | Project card preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f5f5ef; color: #172b35; font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 1120px; margin: auto; padding: 40px 24px; }
+    .preview-label { margin: 0 0 20px; color: #4f6167; font-size: 14px; }
+    article { display: grid; grid-template-columns: 1fr 1.12fr; overflow-wrap: anywhere;
+      background: white; border: 1px solid #ccd3cc; border-radius: 16px; }
+    figure { margin: 0; padding: 28px; background: #e8eee7; border-radius: 16px 0 0 16px; }
+    figure a { display: block; }
+    img { display: block; width: 100%; height: auto; border: 1px solid #c3cec4; border-radius: 6px; }
+    figcaption { margin-top: 16px; color: #43594c; font-size: 13px; }
+    .content { min-width: 0; padding: 32px; }
+    .category { margin: 0 0 12px; color: #356452; font-size: 12px; font-weight: 750;
+      text-transform: uppercase; letter-spacing: .1em; }
+    h1 { margin: 0 0 16px; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; letter-spacing: -.035em; }
+    .status { display: inline-block; padding: 4px 10px; border: 1px solid #c3cec4;
+      border-radius: 20px; font-size: 12px; color: #254f41; }
+    .description { margin: 20px 0; }
+    .highlights { padding-left: 20px; margin: 0 0 20px; font-size: 14px; }
+    .highlights li { margin: 6px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 24px; list-style: none; }
+    .tags li { padding: 3px 9px; border-radius: 4px; color: #354f47; background: #edf2ec; font-size: 12px; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 10px 14px;
+      border: 1px solid #326a57; border-radius: 6px; color: #254f41;
+      text-decoration: none; font-size: 14px; font-weight: 650; }
+    nav a:first-child { background: #326a57; color: white; }
+    nav a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 3px solid #b47a28; outline-offset: 4px; }
+    .mode { margin: 22px 0 8px; font-size: 13px; font-weight: 650; }
+    .limitation, .assistance { margin: 8px 0 0; font-size: 12px; color: #4f6167; }
+    @media (max-width: 760px) {
+      main { padding: 24px 16px; }
+      article { grid-template-columns: 1fr; }
+      figure { border-radius: 16px 16px 0 0; padding: 20px; }
+      .content { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="preview-label">Portfolio project card preview</p>
+    <article aria-labelledby="project-title">
+      <figure>
+        <a href="assets/sensor-investigation.jpg" aria-label="Open full-size investigation screenshot">
+          <img src="assets/sensor-investigation.jpg" alt="Real local AeroTest run: selected AT-REQ-001 scripted finding with 13 resolved citations and two recorded tool operations." width="1025" height="755">
+        </a>
+        <figcaption>Real saved-run capture in scripted mode. Open for full-size evidence.</figcaption>
+      </figure>
+      <div class="content">
+        <p class="category">Simulation &amp; test investigation</p>
+        <h1 id="project-title">AeroTest Copilot</h1>
+        <span class="status">Local app + recorded demo</span>
+        <p class="description">Run deterministic C++ fault scenarios, check observed requirements in Python, and inspect scripted explanations linked to saved evidence.</p>
+        <ul class="highlights"><li>Four repeatable sensor and battery scenarios</li><li>Scoped PASS / FAIL / INCONCLUSIVE checks</li><li>Original records behind each explanation</li></ul>
+        <ul class="tags" aria-label="Technologies"><li>C++20</li><li>Python</li><li>FastAPI</li><li>React</li><li>SQLite</li><li>Docker</li></ul>
+        <nav aria-label="Project links"><a href="https://github.com/JohnZargaryan/aerotest-copilot/blob/main/docs/case-study.md">Read case study</a><a href="https://github.com/JohnZargaryan/aerotest-copilot/blob/main/docs/demo.md">Recorded demo</a><a href="https://github.com/JohnZargaryan/aerotest-copilot">Source code</a></nav>
+        <p class="mode">Scripted investigation. No live model or free-form chat.</p>
+        <p class="limitation">Educational civilian simulation; not flight software or a validated physical model.</p>
+        <p class="assistance">Developed with OpenAI Codex assistance.</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,119 @@
+{
+  "reviewed_at_utc": "2026-10-20T22:06:48.639Z",
+  "base_revision": "458dd06dd403136553c6fe8cc2b385d90e2b9424",
+  "browser": "Windows Codex in-app browser",
+  "scope": "Standalone project-card preview; no portfolio integration or application deployment",
+  "viewports": [
+    {
+      "width": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280
+    },
+    {
+      "clientWidth": 305,
+      "columns": "271.508px",
+      "imageLoaded": true,
+      "links": [
+        {
+          "height": 43.998016357421875,
+          "right": 170.44644165039062,
+          "text": "Read case study"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 169.4444580078125,
+          "text": "Recorded demo"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 145.95238494873047,
+          "text": "Source code"
+        }
+      ],
+      "scrollWidth": 305,
+      "width": 320
+    },
+    {
+      "clientWidth": 375,
+      "columns": "341.984px",
+      "imageLoaded": true,
+      "links": [
+        {
+          "height": 43.998016357421875,
+          "right": 170.44644165039062,
+          "text": "Read case study"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 313.26390075683594,
+          "text": "Recorded demo"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 145.95238494873047,
+          "text": "Source code"
+        }
+      ],
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "clientWidth": 768,
+      "columns": "339.137px 379.851px",
+      "imageLoaded": true,
+      "links": [
+        {
+          "height": 43.998016357421875,
+          "right": 529.5932922363281,
+          "text": "Read case study"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 672.4107666015625,
+          "text": "Recorded demo"
+        },
+        {
+          "height": 43.998016357421875,
+          "right": 505.099235534668,
+          "text": "Source code"
+        }
+      ],
+      "scrollWidth": 768,
+      "width": 768
+    }
+  ],
+  "keyboard_checks": [
+    "Enter opens full-size 1025-pixel source image; Back returns to card",
+    "Tab reaches screenshot, case study, recorded demo and source in order",
+    "Shift+Tab returns through project links; visible focus outline"
+  ],
+  "captures": [
+    {
+      "file": "desktop-preview.jpg",
+      "requested_viewport": {
+        "width": 1280
+      },
+      "note": "Full standalone card preview in the default desktop viewport.",
+      "sha256": "0d3c6fbeff6bf59a6cd5b158d02381d2c54522ea31c27e9c6bad5ba943846c10",
+      "image_width": 1280,
+      "image_height": 720
+    },
+    {
+      "file": "mobile-preview.jpg",
+      "requested_viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "note": "Full standalone card preview with Recorded demo keyboard focus.",
+      "sha256": "19fb5e04241cd4f4c621b3101ccfefb57cfa8dc4518d8cc4e8685cfaf8a8a020",
+      "image_width": 375,
+      "image_height": 1127
+    }
+  ],
+  "source_sha256": {
+    "docs/project-card.json": "f0e74e93c9a7fbbfde87334bfd96b2e8263ddf82b2a7bcf93568d14a508ad60d",
+    "docs/project-card.html": "6c03a5fe2baab1c07f7716acd86e5783c3be6169a900e5f536803303a593cd04",
+    "scripts/project-card-template.html": "7f35a9720f70a8a020f527ec57f61962138623a678aecb4a178fcadeeb69b777",
+    "scripts/render_project_card.py": "87b4b80bbcfee6f2713017ca1290565adfd1395e0acc64289ef5b65f175c1cd1"
+  }
+}

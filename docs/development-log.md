@@ -811,3 +811,33 @@ Learning exercise: reproduce the keyboard evidence flow, explain aria-disabled
 versus native disabled behavior and identify why component scrolling does not
 imply horizontal page overflow; see interview-guide.md. Next: final project-card
 assets and a $0 hosting-options review before separately authorized integration.
+
+
+## 2026-10-20 - Portfolio project card and verified asset handoff
+
+Prepared with OpenAI Codex assistance. Added concise canonical card copy, technology
+tags, explicit local/recorded availability, source/case-study/demo links and the
+existing unchanged investigation screenshot. Added a responsive standalone HTML
+preview and standard-library authoring script with source-image/provenance,
+repository-link and generated-freshness checks. Added that read-only check to native
+verification and the existing standard CI job. Included actual desktop/phone
+preview captures, hash metadata, integration instructions and explicit scripted,
+educational and AI-assistance disclosures. The card is prepared in this repository;
+no portfolio-site integration or application deployment was performed.
+
+Verification: rendered the HTML from JSON; --check passed and Ruff passed. Inspected
+the actual browser preview at requested widths 320, 390, 768 and 1280 with no
+horizontal document overflow. Source image loaded at natural width 1025. Enter
+opened its full-size version; Back returned. Tab/Shift+Tab reached the image and
+three project links in order with visible focus. Destination hrefs matched existing
+repository paths. Inspected both saved preview JPEGs and checked source/image
+hashes. This review covers one embedded Windows browser; no physical-device,
+screen-reader, contrast audit or actual portfolio compatibility is claimed. No
+application runtime source/dependencies changed, so native simulator/backend and
+frontend suites were not rerun locally; hosted checks are reported separately.
+No paid services, live model calls, portfolio changes or deployment added.
+
+Learning exercise: describe the card without overstating scripted behavior, trace
+its source-image provenance and distinguish generated freshness from layout/site
+acceptance; see interview-guide.md. Next: $0 hosting-options review and final
+presentation verification before separately authorized site integration.

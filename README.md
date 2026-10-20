@@ -190,6 +190,7 @@ the local verification above was performed on Windows.
 - [Development roadmap](docs/backlog.md)
 - [Interview guide and exercise](docs/interview-guide.md)
 - [Dependency provenance](docs/dependencies.md)
+- [Portfolio project card and preview](docs/project-card.md)
 - [Portfolio presentation plan](docs/portfolio.md)
 
 Source layout: `simulator/` for C++, `backend/` for Python, `frontend/` for React,

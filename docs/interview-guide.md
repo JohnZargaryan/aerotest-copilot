@@ -347,3 +347,14 @@ insufficient to prevent another request? Distinguish it from native disabled
 configuration inputs and pagination controls. Open Record 77 using the keyboard,
 then explain why this review does not establish screen-reader, touch-device or
 all-browser accessibility.
+
+
+## Portfolio card exercise
+
+Prepared with OpenAI Codex assistance. Open project-card.html and explain the
+project in one sentence without claiming a live AI model or full compliance.
+Trace the screenshot hash to its original capture manifest. Explain why a
+DEGRADED state can accompany a scoped PASS and why neither is a system verdict.
+Identify the three destination links and distinguish a recorded demo, local app
+and hosted interactive service. Edit canonical JSON, regenerate the preview and
+explain why freshness checks cannot establish layout quality or website compatibility.

@@ -1,0 +1,44 @@
+{
+  "title": "AeroTest Copilot",
+  "category": "Simulation & test investigation",
+  "status": "Local app + recorded demo",
+  "description": "Run deterministic C++ fault scenarios, check observed requirements in Python, and inspect scripted explanations linked to saved evidence.",
+  "highlights": [
+    "Four repeatable sensor and battery scenarios",
+    "Scoped PASS / FAIL / INCONCLUSIVE checks",
+    "Original records behind each explanation"
+  ],
+  "technologies": [
+    "C++20",
+    "Python",
+    "FastAPI",
+    "React",
+    "SQLite",
+    "Docker"
+  ],
+  "mode": "Scripted investigation. No live model or free-form chat.",
+  "limitation": "Educational civilian simulation; not flight software or a validated physical model.",
+  "assistance": "Developed with OpenAI Codex assistance.",
+  "image": {
+    "src": "assets/sensor-investigation.jpg",
+    "alt": "Real local AeroTest run: selected AT-REQ-001 scripted finding with 13 resolved citations and two recorded tool operations.",
+    "caption": "Real saved-run capture in scripted mode. Open for full-size evidence.",
+    "sha256": "8bb607d761eb3820822be2238f3a7cc9900e137638d3b7dc6795da07e3d1a531",
+    "provenance": "assets/screenshots.json"
+  },
+  "repository_url": "https://github.com/JohnZargaryan/aerotest-copilot",
+  "links": [
+    {
+      "label": "Read case study",
+      "repo_path": "docs/case-study.md"
+    },
+    {
+      "label": "Recorded demo",
+      "repo_path": "docs/demo.md"
+    },
+    {
+      "label": "Source code",
+      "repo_path": ""
+    }
+  ]
+}

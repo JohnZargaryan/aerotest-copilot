@@ -33,6 +33,7 @@ jobs:
           python scripts/evaluate_scripted.py --check
           ruff check backend scripts
           python scripts/export_contracts.py --check
+          python scripts/render_project_card.py --check
       - name: Frontend checks
         working-directory: frontend
         run: |
