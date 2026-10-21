@@ -841,3 +841,32 @@ Learning exercise: describe the card without overstating scripted behavior, trac
 its source-image provenance and distinguish generated freshness from layout/site
 acceptance; see interview-guide.md. Next: $0 hosting-options review and final
 presentation verification before separately authorized site integration.
+
+
+## 2026-10-21 - $0 showcase and hosting compatibility review
+
+Prepared with OpenAI Codex assistance. Reviewed current primary documentation for
+GitHub Pages, Cloudflare Pages and Render Free against the actual compiled C++/
+Python API, nginx frontend and persistent SQLite volume. Recommended the prepared
+static card/case study/recorded demo plus reproducible local setup, with GitHub
+Pages as a separately authorized standalone static fallback. Documented free-plan
+limits, backend compatibility inferences, ephemeral-storage/usage constraints and
+publication boundaries. No exhaustive claim about all free backends is made.
+Updated presentation notes and roadmap without restoring removed attribution text
+to README, architecture or development rules.
+
+Verification: inspected current Dockerfile/Compose/storage boundaries; checked
+provider documentation on the review date. Inventoried six candidate static assets:
+994787 bytes total, largest 760654-byte MP4; each fits the reviewed per-file/site
+limits. Preserved MP4 and walkthrough-manifest hashes match the render report.
+Project-card generated freshness and screenshot provenance passed. Reviewed local
+links, asset hashes and whitespace. No application source or dependencies changed;
+full native suites, new browser playback and destination-site tests were not rerun
+for this documentation review. Hosted checks are reported separately. No hosting
+account, payment method, service, DNS change, paid runner, model call, application
+deployment or portfolio-site change added.
+
+Learning exercise: distinguish static assets, fresh subprocess execution, persistent
+storage and ephemeral free services; reproduce asset sizing and explain which
+limits must be rechecked before publication; see interview-guide.md. Next: final
+presentation verification before separately authorized site integration/publication.

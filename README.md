@@ -59,7 +59,8 @@ These are static captures of a real local run in scripted mode.
 
 [Watch the 65-second recorded walkthrough](docs/demo.md), with visible captions and
 a transcript. It is an edited sequence of real browser captures in scripted mode.
-A hosted interactive application remains planned.
+The [$0 showcase plan](docs/hosting-review.md) combines these recorded assets, the
+case study and local setup instructions.
 
 ## Start on Windows
 

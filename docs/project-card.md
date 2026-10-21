@@ -2,7 +2,8 @@
 
 Prepared with OpenAI Codex assistance. This repository contains the card copy,
 source image and a standalone responsive preview. The portfolio site is unchanged;
-site-specific styling/integration and the $0 hosting-options review remain separate.
+site-specific styling/integration remains separate. The [$0 hosting review](hosting-review.md)
+documents the recommended static presentation route and backend limits.
 
 ## Ready-to-use content
 

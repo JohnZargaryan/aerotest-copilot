@@ -99,9 +99,10 @@ qualification. A [bounded mobile/keyboard review](usability-review.md) covered f
 viewport sizes and keyboard flows in one Windows browser; physical devices,
 screen readers and general accessibility conformance remain unverified.
 
-The public repository, recorded demo and local setup are available. A hosted
-interactive application, hosting-cost review and portfolio-site integration remain
-separate work under the $0-services constraint.
+The public repository, recorded demo and local setup are available. The
+[$0 showcase review](hosting-review.md) recommends static presentation assets
+with local execution instructions. A hosted interactive backend and portfolio-site
+integration remain separate from the prepared presentation.
 
 ## Development role and interview focus
 

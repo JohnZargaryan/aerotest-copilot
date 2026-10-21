@@ -23,6 +23,6 @@ Implemented and planned capabilities, in dependency order.
 17. IN PROGRESS: case study, current architecture diagram and supporting README/
     documentation review DONE. Bounded mobile/keyboard review and fixes DONE; see
     usability-review.md for coverage and limits. Final project-card copy, verified
-    image and responsive preview DONE; see project-card.md. Hosting options/costs
-    review remains unfinished.
+    image and responsive preview DONE; see project-card.md. $0 hosting/options review
+    DONE; see hosting-review.md. Final presentation verification remains unfinished.
 18. Public repository available; application deployment and portfolio integration remain planned.

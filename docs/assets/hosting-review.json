@@ -1,0 +1,63 @@
+{
+  "reviewed_at_utc": "2026-10-21T22:02:52.394586+00:00",
+  "source_revision": "2f42e5f5dc4095da104fa18da6f51d5e6de8feb2",
+  "decision": "Recommend a static recorded showcase plus reproducible local app; no deployment performed",
+  "scope": "Cost/compatibility review of selected options, not an exhaustive cloud-hosting survey or deployment test",
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+      "supports": "Static hosting; public repositories on GitHub Free; supplied github.io domain"
+    },
+    {
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+      "supports": "Published site <=1 GB; soft bandwidth limit 100 GB/month; deployment timeout 10 minutes"
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/platform/limits/",
+      "supports": "Free plan: 500 builds/month, 20000 files, maximum asset size 25 MiB"
+    },
+    {
+      "url": "https://www.cloudflare.com/products/pages/",
+      "supports": "Pages free option; static requests/bandwidth advertised as unlimited; functions have separate limits"
+    },
+    {
+      "url": "https://render.com/docs/free",
+      "supports": "Free web-service idle shutdown after 15 minutes, ephemeral files including SQLite, no free persistent disk; usage may bill or suspend depending on payment setup"
+    }
+  ],
+  "assets": [
+    {
+      "path": "docs/project-card.html",
+      "bytes": 4738,
+      "sha256": "6c03a5fe2baab1c07f7716acd86e5783c3be6169a900e5f536803303a593cd04"
+    },
+    {
+      "path": "docs/assets/sensor-investigation.jpg",
+      "bytes": 60328,
+      "sha256": "8bb607d761eb3820822be2238f3a7cc9900e137638d3b7dc6795da07e3d1a531"
+    },
+    {
+      "path": "docs/assets/demo/aerotest-walkthrough.mp4",
+      "bytes": 760654,
+      "sha256": "88bbb2529b2911eb9c2060cb7ff6cdb78fa268716eee2e889626df8b7169611f"
+    },
+    {
+      "path": "docs/assets/demo/poster.jpg",
+      "bytes": 166122,
+      "sha256": "1c894e370aa0a4811272b0fdee48be7c857a78fa413fc92f4cd9651e253a7c9c"
+    },
+    {
+      "path": "docs/assets/demo/captions.vtt",
+      "bytes": 1347,
+      "sha256": "0a0af26bc4a8600c8432e8d6475fd629345acacdd549d5aeeeb4afdbce2e15a3"
+    },
+    {
+      "path": "docs/assets/demo/transcript.md",
+      "bytes": 1598,
+      "sha256": "7c384e90ed7f2a13539b55dba0b427b165c0c515eb6d21aad901606c033b9eb3"
+    }
+  ],
+  "assistance": "Review and verification prepared with OpenAI Codex assistance",
+  "total_asset_bytes": 994787,
+  "largest_asset_bytes": 760654
+}

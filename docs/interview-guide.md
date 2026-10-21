@@ -358,3 +358,14 @@ DEGRADED state can accompany a scoped PASS and why neither is a system verdict.
 Identify the three destination links and distinguish a recorded demo, local app
 and hosted interactive service. Edit canonical JSON, regenerate the preview and
 explain why freshness checks cannot establish layout quality or website compatibility.
+
+
+## Hosting and reproducibility exercise
+
+Review hosting-review.md and explain which files a static host can serve, which
+process runs the simulator and where completed executions persist. Why does a
+successful frontend build not create a working hosted Run simulation action?
+Explain what happens to a SQLite execution on an ephemeral free service after
+restart. Distinguish a published recording, a recorded-data explorer and fresh
+simulation execution. Recompute the selected assets' byte total, then identify
+which provider terms must be checked again before an actual publication.

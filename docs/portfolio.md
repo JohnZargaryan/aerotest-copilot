@@ -23,11 +23,13 @@ and a no-key scripted path as acceptance conditions for the application. The
 [bounded mobile/keyboard review](usability-review.md) records implemented fixes
 and coverage limits; it does not claim a full accessibility audit.
 
-The full app requires hosting that can execute C++ and Python. A static portfolio
-can link to that host. A lower-cost recorded replay must be labeled as a replay,
-preserve real recorded evidence, and never claim to be live AI or execution.
-Research current hosting costs before deployment; no purchase or deployment
-is authorized now. No hosting estimate or recruiter impact metric is claimed yet.
+The [$0 showcase and hosting review](hosting-review.md), checked on 2026-10-21,
+recommends the prepared static card/case study/recorded demo with local setup for
+fresh runs. GitHub Pages is the preferred standalone static fallback if publishing
+is separately authorized; Cloudflare Pages is a reviewed static alternative. The
+current C++/Python API and persistent SQLite behavior need a suitable backend
+environment. The review explains why Render Free was not selected for that role.
+No purchase, deployment, website change or recruiter-impact claim is included.
 
 Position the engineering core first: deterministic behavior, requirements,
 tests, independent verification and investigation evidence. AI-assisted explanations
