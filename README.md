@@ -8,7 +8,7 @@ a scripted investigation assistant explains results using linked saved evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: verified local app and recorded showcase
+## Current status: local app and interactive recorded-run explorer
 
 Implemented:
 - Deterministic baseline, sensor-disagreement, missing-message and battery-degradation CLI runs with telemetry and state events.
@@ -37,17 +37,25 @@ Implemented:
 - Pinned dependencies, checksum-verified C++ dependencies, setup and verification scripts.
 - Optional Docker Compose setup with persistent SQLite storage and isolated HTTP verification.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
+- Browser-only recorded-run explorer with four actual simulator outputs, original citations, downloadable JSON and capture provenance.
 
 **Outside the prepared showcase scope:** runtime verdicts for AT-REQ-004/005,
-free-form chat, live-model evaluations and public interactive hosting. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
+free-form chat, live-model evaluations and online generation of new runs. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
 Latest local verification (2026-10-23): 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
-217 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
+221 pytest tests, 17 frontend telemetry/report/investigation/recording tests, lint, schema freshness, dependency check, TypeScript and production
 build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [development log](docs/development-log.md) for actual results and limitations.
 
 ## See the app
+
+[Open the interactive portfolio case study](https://johnzargaryan.com/projects/aerotest)
+or [explore the full-page dashboard](https://johnzargaryan.com/demos/aerotest/demo.html).
+Choose a recorded scenario, inspect telemetry, load requirement checks and resolve
+the original citations. This public mode reads saved runs; it does not generate
+new simulations. No backend or API key is required. See
+[recorded explorer design and verification](docs/recorded-explorer.md).
 
 [Final showcase verification](docs/final-verification.md) records the completed
 checks, browser sample, presentation assets and coverage limits.

@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import type { EvidenceEvent } from "./EventTimeline";
 import { parseInvestigation, requirementIds, type Investigation } from "./investigation-response";
 
-export function InvestigationPanel({ executionId, runId, records }: {
+export function InvestigationPanel({ executionId, runId, records, loadInvestigation }: {
   executionId: string; runId: string; records: EvidenceEvent[];
+  loadInvestigation?: (focus: string, signal: AbortSignal) => Promise<unknown>;
 }) {
   const [selected, setSelected] = useState("all");
   const [answer, setAnswer] = useState<Investigation | null>(null);
@@ -17,6 +18,10 @@ export function InvestigationPanel({ executionId, runId, records }: {
     pending.current = controller; setBusy(true); setError("");
     const timer = window.setTimeout(() => controller.abort(), 15000);
     try {
+      if (loadInvestigation) {
+        setAnswer(parseInvestigation(await loadInvestigation(selected, controller.signal), executionId, runId, records, selected));
+        return;
+      }
       const query = selected === "all" ? "" : `?requirement_id=${encodeURIComponent(selected)}`;
       const response = await fetch(`/api/v1/runs/${encodeURIComponent(executionId)}/investigation${query}`,
         { signal: controller.signal });
@@ -28,6 +33,7 @@ export function InvestigationPanel({ executionId, runId, records }: {
       setAnswer(parseInvestigation(await response.json(), executionId, runId, records, selected));
     } catch {
       setError(controller.signal.aborted ? "The investigation request was interrupted or timed out. Try again."
+        : loadInvestigation ? "The recorded explanation could not be verified. Reload the recorded run."
         : "No valid investigation was received. Check the local API and try again.");
     } finally {
       window.clearTimeout(timer); pending.current = null; setBusy(false);

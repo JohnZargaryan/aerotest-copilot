@@ -26,6 +26,7 @@ Implemented and planned capabilities, in dependency order.
     image and responsive preview DONE; see project-card.md. $0 hosting/options review
     DONE; see hosting-review.md. Final presentation verification DONE; see
     final-verification.md for actual results and coverage limits.
-18. Public repository and prepared local/recorded showcase available. Application
-    deployment and portfolio-site integration require separate authorization and
-    are outside the completed repository scope.
+18. DONE — Separately authorized public recorded-run explorer and portfolio
+    integration: actual exports for all four scenarios, shared React evidence
+    components, browser-only loading, provenance/downloads and regression checks.
+    Online generation of new runs remains outside scope. See recorded-explorer.md.

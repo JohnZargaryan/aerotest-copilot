@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "mode": "recorded",
+  "source_revision": "8f286b07b88ff6a636a0324f92c2a573fc0baadb",
+  "scenarios": [
+    {
+      "scenario_id": "healthy-baseline",
+      "file": "healthy-baseline.json",
+      "sha256": "b07014ecc14796009a3dad33a7cfcfc4e9e034fef4adc5527fda68908ad03f17",
+      "bytes": 332578
+    },
+    {
+      "scenario_id": "sensor-disagreement",
+      "file": "sensor-disagreement.json",
+      "sha256": "e77b26e642633e3b94bd64443ed6e39a79a93215b75451472cca0390c85372c3",
+      "bytes": 350376
+    },
+    {
+      "scenario_id": "missing-messages",
+      "file": "missing-messages.json",
+      "sha256": "8b3ab52bd3cd395769dcd66a20b85541e12d22ae20548de593e1f193ee488313",
+      "bytes": 327000
+    },
+    {
+      "scenario_id": "battery-degradation",
+      "file": "battery-degradation.json",
+      "sha256": "b8b53156b1fdedb97b8f3d2bc42404ce704d0c2f01b6b03ad65227a0af37c860",
+      "bytes": 340494
+    }
+  ]
+}

@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import type { EvidenceEvent } from "./EventTimeline";
 import { parseCheckReport, type CheckReport } from "./check-report";
 
-export function RequirementResults({ executionId, runId, records }: {
+export function RequirementResults({ executionId, runId, records, loadReport }: {
   executionId: string; runId: string; records: EvidenceEvent[];
+  loadReport?: (signal: AbortSignal) => Promise<unknown>;
 }) {
   const [report, setReport] = useState<CheckReport | null>(null);
   const [busy, setBusy] = useState(false);
@@ -19,6 +20,11 @@ export function RequirementResults({ executionId, runId, records }: {
     setError("");
     const timer = window.setTimeout(() => controller.abort(), 15000);
     try {
+      if (loadReport) {
+        setReport(parseCheckReport(await loadReport(controller.signal), executionId, runId,
+          records.map(record => record.event_id)));
+        return;
+      }
       const response = await fetch(`/api/v1/runs/${encodeURIComponent(executionId)}/checks`,
         { signal: controller.signal });
       if (!response.ok) {
@@ -29,7 +35,8 @@ export function RequirementResults({ executionId, runId, records }: {
       setReport(parseCheckReport(await response.json(), executionId, runId,
         records.map(record => record.event_id)));
     } catch {
-      if (!controller.signal.aborted) setError("No valid check report was received. Check the local API and try again.");
+      if (!controller.signal.aborted) setError(loadReport ? "The recorded check report could not be verified. Reload the recorded run."
+        : "No valid check report was received. Check the local API and try again.");
       else setError("The check request was interrupted or timed out. Try loading the checks again.");
     } finally {
       window.clearTimeout(timer);
@@ -57,7 +64,7 @@ export function RequirementResults({ executionId, runId, records }: {
               const record = evidence.get(id)!;
               return <li key={id}><code>{id}</code><br />{record.sim_time_ms} ms delivery · {record.component_id} · {record.state}</li>;
             })}</ul>}
-          {check.evidence_ids.length > 20 && <p>Showing the first 20 of {check.evidence_ids.length} references. The full report is available through the check API.</p>}
+          {check.evidence_ids.length > 20 && <p>Showing the first 20 of {check.evidence_ids.length} references. {loadReport ? "Download the complete recorded JSON below for the full report." : "The full report is available through the check API."}</p>}
         </details>
       </article>)}</div>
     </div>}

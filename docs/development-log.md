@@ -905,3 +905,39 @@ Learning exercise: reproduce the sign-off, distinguish automated/manual evidence
 and scoped assurance, and identify the actual destination checks required before
 publication; see interview-guide.md. Repository showcase preparation is complete;
 portfolio integration/public hosting remain separately authorized work.
+
+## 2026-10-23 - Interactive recorded-run explorer
+
+Prepared and verified with OpenAI Codex assistance. Added a browser-only entry
+that reuses the local charts, event timeline, requirement results and scripted
+investigation components. Exported actual C++ executions for all four scenarios
+at seed 42 and 30000 ms, with original records, UTC capture times, source revision,
+full check reports, all/individual requirement explanations and file hashes.
+Recorded loading validates execution identities and citation/report agreement.
+The native API entry remains available for generating new local executions.
+
+Verification: 221 Python tests and 17 frontend tests passed. New Python cases
+reproduced every recorded check report and all 20 scripted explanations from
+runtime code. Manifest hashes, foreign IDs, modified citations and mismatched
+verdict rejection passed. Ruff, TypeScript, Vite production build and existing
+project-card freshness passed. Browser checks exercised all four scenarios,
+AT-REQ-001's 13 original citations, scenario reset, sensor-B filtering and page 2
+of 15. At 390 px the document did not overflow and plots scrolled with keyboard
+focus; desktop used the default 1280 px viewport. No physical-device or
+screen-reader audit is claimed. Earlier native C++/Docker sign-off is historical;
+those checks were not rerun locally for this frontend/exporter change. Hosted
+checks are reported separately.
+
+The separately authorized portfolio integration uses static demo files and the
+existing Site, with no backend, API credentials, paid services or new storage.
+Portfolio TypeScript and production build passed. Existing portfolio dependency
+installation reported 21 audit findings; dependency versions were preserved and
+no package upgrade or security sign-off is claimed. The local Vinext preview
+also logged an existing RSC prefetch error; dashboard navigation uses ordinary
+links and the standalone recorded entry worked. See recorded-explorer.md for
+reproduction and bounded verification. Public publication results are reported
+separately from local build results.
+
+Learning exercise: inspect missing-message delivery and acquisition times, then
+explain why a healthy run is inconclusive for fault-triggered requirements that
+were not exercised. Online simulation and model-backed chat remain out of scope.
