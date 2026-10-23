@@ -6,6 +6,7 @@ import re
 import socket
 import subprocess
 from pathlib import Path
+from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 from uuid import uuid4
 
@@ -52,13 +53,14 @@ def main() -> None:
 
     try:
         compose("up", "--build", "--detach", "--wait", "--wait-timeout", "120")
-        _, html = fetch("/")
-        require(b'id="root"' in html and b'AeroTest Copilot' in html, "frontend not served")
-        assets = re.findall(r'(?:src|href)="(/assets/[^"]+)"', html.decode())
-        require(bool(assets), "production assets missing")
-        for asset in assets:
-            _, content = fetch(asset)
-            require(bool(content) and not content.startswith(b'<!doctype'), "asset not served")
+        for page in ("/", "/demo.html"):
+            _, html = fetch(page)
+            require(b'id="root"' in html and b'AeroTest Copilot' in html, "frontend not served")
+            assets = re.findall(r'(?:src|href)="(\.?/assets/[^"]+)"', html.decode())
+            require(bool(assets), f"production assets missing: {page}")
+            for asset in assets:
+                _, content = fetch(urljoin(page, asset))
+                require(bool(content) and not content.startswith(b'<!doctype'), "asset not served")
         require(api("/api/v1/health")["status"] == "ok", "API proxy unavailable")
         saved = []
         for scenario, exercised in SCENARIOS.items():

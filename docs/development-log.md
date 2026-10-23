@@ -941,3 +941,14 @@ separately from local build results.
 Learning exercise: inspect missing-message delivery and acquisition times, then
 explain why a healthy run is inconclusive for fault-triggered requirements that
 were not exercised. Online simulation and model-backed chat remain out of scope.
+
+Follow-up verification: GitHub foundation checks passed on d68d74d, while its
+container job exposed a verification-script assumption: only /assets/ URLs were
+recognized. Updated the check to resolve both root-relative and ./assets/ URLs
+and inspect both native and recorded entry pages. The actual built HTML resolved
+all three assets for each page; Ruff passed. Local container rerun could not
+start because a Docker CLI was unavailable in this session; no verification
+containers or volumes were created. Hosted container verification is reported
+separately. Portfolio Site version 23 published successfully; live case study
+and four-scenario manifest returned HTTP 200, and the public browser loaded the
+sensor-disagreement check report with its expected scoped results.
