@@ -20,9 +20,12 @@ Implemented and planned capabilities, in dependency order.
 15. DONE: evaluation-only expected-answer dataset and scripted regression report. Keys are excluded from runtime; cases are development-reviewed, not a blind holdout.
 16. DONE: Docker setup, isolated clean container verification, verified desktop
     screenshots and a captioned recorded walkthrough (edited browser-capture sequence).
-17. IN PROGRESS: case study, current architecture diagram and supporting README/
+17. DONE: case study, current architecture diagram and supporting README/
     documentation review DONE. Bounded mobile/keyboard review and fixes DONE; see
     usability-review.md for coverage and limits. Final project-card copy, verified
     image and responsive preview DONE; see project-card.md. $0 hosting/options review
-    DONE; see hosting-review.md. Final presentation verification remains unfinished.
-18. Public repository available; application deployment and portfolio integration remain planned.
+    DONE; see hosting-review.md. Final presentation verification DONE; see
+    final-verification.md for actual results and coverage limits.
+18. Public repository and prepared local/recorded showcase available. Application
+    deployment and portfolio-site integration require separate authorization and
+    are outside the completed repository scope.

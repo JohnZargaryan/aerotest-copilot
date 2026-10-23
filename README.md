@@ -8,7 +8,7 @@ a scripted investigation assistant explains results using linked saved evidence.
 
 **Educational simulation only. Not flight software or a validated physical model.**
 
-## Current status: interactive simulation and scripted investigation
+## Current status: verified local app and recorded showcase
 
 Implemented:
 - Deterministic baseline, sensor-disagreement, missing-message and battery-degradation CLI runs with telemetry and state events.
@@ -38,16 +38,19 @@ Implemented:
 - Optional Docker Compose setup with persistent SQLite storage and isolated HTTP verification.
 - Requirements catalog, architecture notes, and a GitHub Actions workflow.
 
-**Not implemented yet:** complete requirement-result evaluation, chatbot, live-model evaluations,
-or a hosted interactive demo. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
+**Outside the prepared showcase scope:** runtime verdicts for AT-REQ-004/005,
+free-form chat, live-model evaluations and public interactive hosting. The public repository is [JohnZargaryan/aerotest-copilot](https://github.com/JohnZargaryan/aerotest-copilot).
 See [GitHub Actions](https://github.com/JohnZargaryan/aerotest-copilot/actions) for hosted check results; local results below are reported separately.
 
-Latest local verification: 27 GoogleTest tests (including 20 shared configuration cases
+Latest local verification (2026-10-23): 27 GoogleTest tests (including 20 shared configuration cases
 and 192 state/signal combinations),
 217 pytest tests, 14 frontend telemetry/report/investigation tests, lint, schema freshness, dependency check, TypeScript and production
 build; 12 scripted evaluation cases (18 verdicts, 44 grounded citations). See [development log](docs/development-log.md) for actual results and limitations.
 
 ## See the app
+
+[Final showcase verification](docs/final-verification.md) records the completed
+checks, browser sample, presentation assets and coverage limits.
 
 [Read the engineering case study](docs/case-study.md), including a concrete fault
 investigation, architecture, verified results and current limits.

@@ -870,3 +870,38 @@ Learning exercise: distinguish static assets, fresh subprocess execution, persis
 storage and ephemeral free services; reproduce asset sizing and explain which
 limits must be rechecked before publication; see interview-guide.md. Next: final
 presentation verification before separately authorized site integration/publication.
+
+
+## 2026-10-23 - Final local application and showcase verification
+
+Prepared and verified with OpenAI Codex assistance. Completed the repository
+showcase scope with a dated sign-off, machine-readable actual results, hashes of
+local reports/logs and a real final browser capture. Updated README/roadmap and
+presentation handoff to distinguish completed local/recorded assets from separately
+authorized portfolio integration and application hosting. Preserved the requested
+attribution removals in README, architecture and development rules.
+
+Verification: full native setup verification passed 27 C++ tests, 217 Python tests,
+14 frontend tests, lint, schema freshness, dependency compatibility, TypeScript,
+production build and card freshness/provenance. Scripted evaluation passed all
+12 cases, 18 expected verdicts and 44 grounded citations. Isolated Docker checks
+passed four scenarios, reports/citations and four saved executions after container
+replacement. Before completion notes, 34 source/asset hash comparisons and 114
+local Markdown path references passed. Full MP4 decode passed, eight WebVTT cues
+parsed and browser playback reached 65 seconds with ended=true and no media error.
+
+A fresh browser execution produced 904 sensor-disagreement records, 001/006 PASS,
+002/003 INCONCLUSIVE and 004/005 unassessed. Selected 001 returned 13 citations;
+opened the original 2000 ms sensor-A record and 2500 ms transition witness. Checked
+app widths 390/1280, readable keyboard-scrolling charts/table and desktop card
+image/links/focus. Saved and inspected the final investigation JPEG. Existing
+Starlette/httpx/AnyIO, optional pytest-cache and Vite path warnings remain non-fatal.
+Browser/physical-model/evaluation limitations are explicit in final-verification.md.
+Hosted results are reported separately. Temporary test services were stopped and
+only disposable test storage removed. No application source/dependencies, paid
+services, model calls, portfolio files or public application deployment changed.
+
+Learning exercise: reproduce the sign-off, distinguish automated/manual evidence
+and scoped assurance, and identify the actual destination checks required before
+publication; see interview-guide.md. Repository showcase preparation is complete;
+portfolio integration/public hosting remain separately authorized work.

@@ -73,7 +73,9 @@ response obligation. Neither is an overall compliance judgment.
 The recorded native verification baseline on 2026-10-12 passed 27 GoogleTest tests,
 217 pytest tests and 14 frontend tests, plus lint, schema freshness, dependency
 compatibility, TypeScript and the production build. These are test counts, not
-coverage percentages. The [development log](development-log.md) records dates and
+coverage percentages. The [2026-10-23 final verification](final-verification.md)
+repeated the native baseline and reviewed containers, browser flow and presentation
+assets together. The [development log](development-log.md) records dates and
 limits; [the hosted checks for source revision 7a53d60](https://github.com/JohnZargaryan/aerotest-copilot/actions/runs/39015239171)
 also passed the foundation and container jobs.
 
@@ -90,7 +92,7 @@ executions after container replacement. The 65-second video is an edited sequenc
 of real browser captures with captions and a transcript; its reading holds do not
 measure execution latency.
 
-## Current limits and remaining presentation work
+## Current limits and publication boundary
 
 Live-model integration and free-form chat are disabled/unimplemented. Configuration
 and replay have automated tests but no runtime 004/005 verdicts. There is no claim of

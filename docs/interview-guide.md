@@ -369,3 +369,13 @@ Explain what happens to a SQLite execution on an ephemeral free service after
 restart. Distinguish a published recording, a recorded-data explorer and fresh
 simulation execution. Recompute the selected assets' byte total, then identify
 which provider terms must be checked again before an actual publication.
+
+
+## Final verification exercise
+
+Reproduce final-verification.md from local setup, then distinguish native test
+results, hosted checks and manual browser observations. Match a scoped finding to
+its original record and explain why passing counts do not prove overall physical
+or requirements compliance. Identify which review dates belong to the original
+recording, mobile/card captures and final verification. Explain the remaining
+publication boundary and what must be checked on the actual portfolio destination.

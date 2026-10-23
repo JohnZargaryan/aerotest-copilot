@@ -1,7 +1,8 @@
-# Portfolio presentation plan (not published)
+# Portfolio presentation handoff
 
-The existing portfolio site is unchanged. Prepare assets here before a separately
-authorized integration. Target one project card and one concise case-study page:
+The repository assets are verified for separately authorized integration. The
+handoff includes one project card and one concise case study; see the
+[final verification](final-verification.md) for results and coverage limits:
 
 1. A 1-sentence problem statement and a screenshot of a real investigation.
    Verified [desktop captures](screenshots.md) and provenance are available in this

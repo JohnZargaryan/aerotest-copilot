@@ -1,0 +1,138 @@
+{
+  "verified_at_utc": "2026-10-23T19:28:34.362880+00:00",
+  "verified_source_revision": "e25f7ca389ef92b7271651872d314763cd486089",
+  "scope": "Local scripted application and repository presentation assets; no application deployment or portfolio integration",
+  "native_reports": [
+    {
+      "path": "artifacts/cpp-tests.xml",
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "sha256": "262f46d31326a98261a200410f73e92c8271089715e1772950e23acb950e1423",
+      "availability": "Ignored local report; hosted CI produces separate artifacts"
+    },
+    {
+      "path": "artifacts/python-tests.xml",
+      "tests": 217,
+      "failures": 0,
+      "errors": 0,
+      "sha256": "5d199ca5142a7644baec02c4f952b93b2eff0290048c543bd6c87f7be0334050",
+      "availability": "Ignored local report; hosted CI produces separate artifacts"
+    }
+  ],
+  "local_logs": [
+    {
+      "path": "artifacts/final-native-20261023.log",
+      "sha256": "6d7cc5aec40b07685a0a3357de583e3f396a7bb1e575e4604ffa57a7bc4040a2",
+      "availability": "Ignored local verification log"
+    },
+    {
+      "path": "artifacts/final-docker-20261023.log",
+      "sha256": "02454d5cfcbc240cccd9c1a6c5d9d11ea3fb54e5d8f082bc0791b209751b22a9",
+      "availability": "Ignored local verification log"
+    }
+  ],
+  "frontend_tests": {
+    "tests": 14,
+    "passed": 14,
+    "typecheck": "passed",
+    "production_build": "passed"
+  },
+  "scripted_regression": {
+    "cases": 12,
+    "passed": 12,
+    "expected_verdicts": 18,
+    "matched_verdicts": 18,
+    "citations": 44,
+    "grounded_citations": 44
+  },
+  "container_checks": {
+    "status": "passed",
+    "scenarios": 4,
+    "persisted_executions_after_replacement": 4,
+    "isolated_smoke_project": "aerotest-check-41b8f84b5d5d",
+    "browser_project": "aerotest-final-ui-20261023",
+    "cleanup": "Disposable containers and volumes removed; ordinary app storage untouched"
+  },
+  "browser": {
+    "surface": "Windows Codex in-app browser",
+    "execution_id": "d721191b-0d13-4f34-9617-8db1fd9f8824",
+    "scenario_id": "sensor-disagreement",
+    "seed": 42,
+    "duration_ms": 30000,
+    "records": 904,
+    "before_shutdown": "DEGRADED",
+    "checks": {
+      "AT-REQ-001": "PASS",
+      "AT-REQ-002": "INCONCLUSIVE",
+      "AT-REQ-003": "INCONCLUSIVE",
+      "AT-REQ-006": "PASS"
+    },
+    "unassessed": [
+      "AT-REQ-004",
+      "AT-REQ-005"
+    ],
+    "selected_investigation": "AT-REQ-001",
+    "resolved_citations": 13,
+    "tool_activity": [
+      "build_report",
+      "resolve_citations:AT-REQ-001"
+    ],
+    "witnesses": [
+      {
+        "sequence": 62,
+        "sim_time_ms": 2000,
+        "measurement": 20043,
+        "unit": "mdegC",
+        "component_id": "sensor-a"
+      },
+      {
+        "sequence": 77,
+        "sim_time_ms": 2500,
+        "from_state": "NOMINAL",
+        "to_state": "DEGRADED"
+      }
+    ],
+    "layouts": [
+      {
+        "width": 390,
+        "document_client_width": 375,
+        "document_scroll_width": 375,
+        "chart_content_width_approx": 640,
+        "chart_scroll_after_right_approx": 39.37,
+        "table_scroll_after_right_approx": 39.37
+      },
+      {
+        "width": 1280,
+        "document_client_width": 1265,
+        "document_scroll_width": 1265
+      }
+    ],
+    "card_check": "Desktop image loaded at natural width 1025; three project destinations and visible keyboard focus checked. Earlier four-width card review remains separately dated."
+  },
+  "video": {
+    "duration_s": 65,
+    "width": 1920,
+    "height": 1080,
+    "full_decode": "passed",
+    "browser_ended": true,
+    "browser_error": null,
+    "webvtt_cues": 8,
+    "caption_note": "Burned-in captions visible; optional WebVTT track also present. Temporary player used the optional track disabled to avoid duplicate captions."
+  },
+  "precompletion_asset_hash_checks": 34,
+  "precompletion_local_markdown_paths": 114,
+  "screenshot": {
+    "path": "docs/assets/final-verification/verified-investigation.jpg",
+    "sha256": "835a9915edc9b1cea692a755314eb2639cbdb6d3aa95829c65ff4e306ae6d719",
+    "width": 1280,
+    "height": 900,
+    "method": "Cropped screenshot of the actual final container-backed browser execution; no UI text or evidence edited"
+  },
+  "warnings": [
+    "Existing Starlette/httpx and AnyIO deprecations",
+    "Pytest cache write denied; test reports and all tests completed",
+    "Existing Vite workspace path contains # warning"
+  ],
+  "assistance": "Verification and completion notes prepared with OpenAI Codex assistance"
+}

@@ -94,5 +94,6 @@ it has not been implemented or implied by the card.
 
 No hosting account, payment method, service, DNS setting, deployment workflow or
 portfolio-site file was created or changed. Repository commits are the only public
-publication authorized here. Final presentation verification remains the next
-repository task; site integration/public hosting requires separate authorization.
+publication authorized here. [Final presentation verification](final-verification.md)
+records the completed repository checks; site integration/public hosting requires
+separate authorization.
